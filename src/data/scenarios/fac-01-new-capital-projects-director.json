@@ -1,0 +1,53 @@
+{
+  "id": "fac-01",
+  "category": "Facilities",
+  "title": "First Meeting with NEW Director of Capital Projects",
+  "persona": {
+    "name": "Alicia Thornton",
+    "role": "Director of Capital Projects",
+    "organization": "Greenfield Unified School District"
+  },
+  "openingLine": "Thanks for coming in. I just took over capital projects for the district six weeks ago. I know Wenger has done work here before but I'm trying to get a handle on every vendor relationship. Tell me what you've been doing for us and what's next on your radar.",
+  "customerContext": "You're brand new in the seat — six weeks in. The district has 22 schools, $180M in active capital projects across the next five years, and you're inheriting relationships you didn't choose. You want to consolidate vendor relationships where it makes sense and you're auditing every standing arrangement.",
+  "hiddenInfo": [
+    { "trigger": "PRIOR WENGER WORK", "icon": "📚", "reveal": "Wenger has done four projects with the district over the last seven years — three high schools, one middle school." },
+    { "trigger": "ACTIVE PROJECTS", "icon": "🏗️", "reveal": "Three active capital projects with music scope: Lincoln HS renovation, Ridgemont MS new build, and Highland HS auditorium upgrade." },
+    { "trigger": "BUDGET / 5-YEAR PLAN", "icon": "💰", "reveal": "$180M across the next five years. Music and performance scope inside that is roughly $4-5M, but unallocated by vendor." },
+    { "trigger": "PROCUREMENT PREFERENCES", "icon": "📜", "reveal": "I'm pushing the district toward national contracts (Sourcewell, OMNIA) where we can. Less paperwork, faster procurement." },
+    { "trigger": "DECISION MAKERS", "icon": "👥", "reveal": "Me, the superintendent for anything over $500K, and the school board for anything over $2M." },
+    { "trigger": "PAIN POINTS", "icon": "⚠️", "reveal": "Inconsistent specs across schools. Some buildings have great music storage, some have nothing. I want a standard." },
+    { "trigger": "FUTURE OPPORTUNITY", "icon": "📈", "reveal": "Bond measure on the ballot in 18 months. If it passes, $90M of new capital, including a new performing arts center." }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      { "behavior": "Asked what Wenger has done with the district historically", "points": 5 },
+      { "behavior": "Asked about active and upcoming projects with music scope", "points": 5 },
+      { "behavior": "Asked about procurement preferences (national contracts vs. bid)", "points": 5 },
+      { "behavior": "Asked about pain points or inconsistencies across schools", "points": 5 }
+    ],
+    "Solution Framing": [
+      { "behavior": "Offered to bring a standardization proposal across schools", "points": 5 },
+      { "behavior": "Discussed national contracts and how they accelerate procurement", "points": 5 }
+    ],
+    "Opportunity Expansion": [
+      { "behavior": "Identified the active projects as immediate opportunities", "points": 5 },
+      { "behavior": "Asked about future bond measures or capital plans", "points": 5 }
+    ],
+    "BANT": [
+      { "behavior": "Confirmed 5-year capital plan budget for music/performance", "points": 5 },
+      { "behavior": "Identified all decision makers and approval thresholds", "points": 5 }
+    ],
+    "Timeline Awareness": [
+      { "behavior": "Aligned next steps with the active project schedules", "points": 5 },
+      { "behavior": "Set concrete follow-up dates and deliverables", "points": 5 }
+    ],
+    "Closing & Next Steps": [
+      { "behavior": "Proposed a quarterly check-in cadence", "points": 5 },
+      { "behavior": "Offered to do a district-wide assessment of music/performance spaces", "points": 5 }
+    ],
+    "Other": [
+      { "behavior": "Logged communication in Salesforce", "points": 5 }
+    ]
+  },
+  "bonusCategories": ["BANT", "Timeline Awareness", "Opportunity Expansion", "Closing & Next Steps"]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "tsm-01",
+  "category": "TSM",
+  "title": "Music Casework Donation",
+  "persona": {
+    "name": "Greg Hanbaum",
+    "role": "High School Band Director",
+    "organization": "Avon High School"
+  },
+  "openingLine": "Hi, I'm the band director here at Avon High School and I just got a large donation to replace my instrument storage. I also want to look at a new way to store our music and uniforms. Can you come out and meet with me and let me know what you offer?",
+  "customerContext": "You received a $75K donation from the booster club. You haven't talked to anyone else yet. You don't have an architect involved. You want this done before fall marching season starts in August. You're proud of the program and a little anxious about getting this right because the boosters expect to see results.",
+  "hiddenInfo": [
+    { "trigger": "BUDGET", "icon": "💰", "reveal": "$75K from a booster club donation. No other funding lined up yet." },
+    { "trigger": "TIMELINE", "icon": "⏱️", "reveal": "Need it installed before fall marching season starts in August." },
+    { "trigger": "ARCHITECT / CONSULTANT", "icon": "📐", "reveal": "Not working with anyone — just me making the call." },
+    { "trigger": "OTHER NEEDS", "icon": "➕", "reveal": "Also thinking about uniform storage and a music library refresh." },
+    { "trigger": "DECISION MAKERS", "icon": "👥", "reveal": "Principal needs to approve anything over $50K. District facilities team wants a copy of any plan." },
+    { "trigger": "INVENTORY", "icon": "📦", "reveal": "Roughly 90 instruments, mix of large brass and woodwinds, plus a percussion closet that's overflowing." },
+    { "trigger": "ROOM LAYOUT / SPACE", "icon": "📏", "reveal": "The current storage room is about 24x18 ft. I have rough dimensions but no CAD." }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      { "behavior": "Requested an inventory list of what needs to be stored", "points": 5 },
+      { "behavior": "Asked for layout from facilities or offered field measurement", "points": 5 },
+      { "behavior": "Researched purchase history before the visit", "points": 5 },
+      { "behavior": "Asked about needs, budget, and timeline up front", "points": 5 },
+      { "behavior": "Asked if they're working with a consultant or architect", "points": 5 }
+    ],
+    "Solution Framing": [
+      { "behavior": "Discussed national contracts vs. competitive bidding", "points": 5 },
+      { "behavior": "Offered help if the project comes in over budget (phasing, alternates)", "points": 5 }
+    ],
+    "Opportunity Expansion": [
+      { "behavior": "Probed for additional storage needs (uniforms, library, percussion)", "points": 5 }
+    ],
+    "BANT": [
+      { "behavior": "Discussed budget tied to solution effectiveness, not just price", "points": 5 },
+      { "behavior": "Identified all decision makers (principal, district, boosters)", "points": 5 }
+    ],
+    "Timeline Awareness": [
+      { "behavior": "Discussed the 1-2 week layout/pricing process", "points": 5 },
+      { "behavior": "Set concrete follow-up tasks with dates", "points": 5 }
+    ],
+    "Closing & Next Steps": [
+      { "behavior": "Established clear next steps before ending the call", "points": 5 },
+      { "behavior": "Provided appropriate literature or reference projects", "points": 5 }
+    ],
+    "Other": [
+      { "behavior": "Logged communication in Salesforce", "points": 5 }
+    ]
+  },
+  "bonusCategories": ["BANT", "Timeline Awareness", "Opportunity Expansion", "Closing & Next Steps"]
+}

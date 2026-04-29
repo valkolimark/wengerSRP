@@ -1,0 +1,54 @@
+{
+  "id": "arch-01",
+  "category": "Architect",
+  "title": "School Renovation Discussion",
+  "persona": {
+    "name": "Dana Ortega",
+    "role": "Project Architect",
+    "organization": "Cardinal + Cole Architects"
+  },
+  "openingLine": "Hey, I'm working on the Lincoln Middle School renovation and we're early in design development. I've used Wenger products before but I want to make sure I'm specifying the right thing for their music program. Can you walk me through what you'd recommend?",
+  "customerContext": "You're the lead architect on a $42M renovation. The music program scope is roughly $1.1M. You're in DD with bid documents due in eight weeks. You care about specs that won't get value-engineered out and you've been burned before by reps who disappear after the spec is written.",
+  "hiddenInfo": [
+    { "trigger": "PROJECT BUDGET / SCOPE", "icon": "💰", "reveal": "$42M total renovation, ~$1.1M allocated to music spaces (band, choir, two practice rooms)." },
+    { "trigger": "TIMELINE / SCHEDULE", "icon": "⏱️", "reveal": "DD now, CDs and bid docs due in 8 weeks, construction start next summer." },
+    { "trigger": "OTHER STAKEHOLDERS", "icon": "👥", "reveal": "District facilities director and the music department chair are both at every design meeting." },
+    { "trigger": "ACOUSTIC CONSULTANT", "icon": "🎚️", "reveal": "Yes — Acentech is on the team. They've already shared rough RT60 targets." },
+    { "trigger": "PRIOR PRODUCT EXPERIENCE", "icon": "📚", "reveal": "I've spec'd Wenger acoustic shells and risers before but never their full V-Room system." },
+    { "trigger": "PROCUREMENT METHOD", "icon": "📜", "reveal": "Public bid, hard bid. The district is open to national contracts if it's cleaner." },
+    { "trigger": "VE RISK", "icon": "✂️", "reveal": "Worried about value engineering — last project we lost the practice rooms entirely in VE." }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      { "behavior": "Asked about project phase (SD/DD/CD) and bid timeline", "points": 5 },
+      { "behavior": "Asked which spaces are in scope and at what budget", "points": 5 },
+      { "behavior": "Asked whether an acoustic consultant is engaged", "points": 5 },
+      { "behavior": "Reviewed prior Wenger projects with this firm before the call", "points": 5 }
+    ],
+    "Solution Framing": [
+      { "behavior": "Explained how to spec to performance, not just product", "points": 5 },
+      { "behavior": "Offered to provide spec language and CAD/Revit files", "points": 5 },
+      { "behavior": "Discussed national contracts vs. competitive bidding tradeoffs", "points": 5 }
+    ],
+    "Opportunity Expansion": [
+      { "behavior": "Identified additional product fits (storage, risers, shells, V-Rooms)", "points": 5 },
+      { "behavior": "Asked about other upcoming projects in the firm's pipeline", "points": 5 }
+    ],
+    "BANT": [
+      { "behavior": "Confirmed total music program budget within renovation", "points": 5 },
+      { "behavior": "Identified all decision makers (architect, district, end user)", "points": 5 }
+    ],
+    "Timeline Awareness": [
+      { "behavior": "Mapped Wenger's involvement against the design schedule", "points": 5 },
+      { "behavior": "Set concrete follow-up tasks before the call ended", "points": 5 }
+    ],
+    "Closing & Next Steps": [
+      { "behavior": "Proposed a working session with the acoustic consultant", "points": 5 },
+      { "behavior": "Offered to attend a design meeting in person or virtually", "points": 5 }
+    ],
+    "Other": [
+      { "behavior": "Logged communication in Salesforce", "points": 5 }
+    ]
+  },
+  "bonusCategories": ["BANT", "Timeline Awareness", "Opportunity Expansion", "Closing & Next Steps"]
+}

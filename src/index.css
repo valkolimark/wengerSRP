@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  background: #060F22;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #F5F8FF;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 45, 117, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(0, 229, 255, 0.18), transparent 45%),
+    linear-gradient(180deg, #060F22 0%, #0B1E3F 100%);
+  background-attachment: fixed;
+}
+
+/* Tabular numerals for scoreboard-style numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Custom scrollbar so it doesn't look like office software */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF2D75, #00E5FF);
+  border-radius: 6px;
+}
+
+/* Subtle grid in the background for that scoreboard vibe */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Big chunky button base */
+.btn-primary {
+  @apply font-display tracking-wider text-2xl px-8 py-4 rounded-2xl
+    bg-magenta text-white shadow-glow-magenta
+    transition-transform duration-150 hover:scale-105 active:scale-95
+    disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply font-display tracking-wider text-lg px-5 py-3 rounded-xl
+    bg-white/10 hover:bg-white/20 text-white border border-white/15
+    transition-transform duration-150 hover:scale-105 active:scale-95;
+}
+
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm;
+}
+
+.chip {
+  @apply px-3 py-1.5 rounded-full text-sm font-semibold border transition-colors cursor-pointer select-none;
+}
