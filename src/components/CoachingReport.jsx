@@ -21,13 +21,13 @@ export default function CoachingReport({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-40 bg-navy-deep/95 backdrop-blur-sm overflow-y-auto"
+      className="coaching-report-root fixed inset-0 z-40 bg-navy-deep backdrop-blur-sm overflow-y-auto"
     >
       <div className="max-w-5xl mx-auto px-6 py-10">
-        {/* Toolbar — hidden when printing */}
-        <div className="flex items-center justify-between mb-6 print:hidden">
+        {/* Header — visible on screen and in print */}
+        <header className="flex items-center justify-between mb-6 gap-4 flex-wrap border-b border-white/15 pb-5">
           <div className="flex items-center gap-4">
-            <Logo variant="dk" size="md" dim />
+            <Logo variant="dk" size="md" />
             <div className="border-l border-white/15 pl-4">
               <div
                 className="font-display text-4xl tracking-wider text-leaf"
@@ -40,12 +40,12 @@ export default function CoachingReport({ onClose }) {
               >
                 COACHING REPORT
               </div>
-              <div className="text-xs text-white/50 mt-1">
-                {reports.length} rep{reports.length === 1 ? '' : 's'} · all saved rounds across all dates
+              <div className="text-xs text-white/50 mt-1 tracking-wide">
+                Wenger Role Play · {new Date().toLocaleString()} · {reports.length} rep{reports.length === 1 ? '' : 's'}
               </div>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 print:hidden">
             <button onClick={handlePrint} className="btn-secondary">PRINT / SAVE PDF</button>
             <button
               onClick={() => downloadMarkdown(reports)}
@@ -61,14 +61,7 @@ export default function CoachingReport({ onClose }) {
               CLOSE
             </button>
           </div>
-        </div>
-
-        {/* Print-only header — uses the light-theme logo on white paper */}
-        <div className="hidden print:block mb-6 border-b border-gray-300 pb-4">
-          <Logo variant="lt" size="md" />
-          <h1 className="text-3xl font-bold mt-3">Wenger Role Play — Coaching Report</h1>
-          <div className="text-sm text-gray-600">{new Date().toLocaleString()} · {reports.length} reps</div>
-        </div>
+        </header>
 
         {reports.length === 0 ? (
           <div className="card p-10 text-center text-white/60">
@@ -79,19 +72,55 @@ export default function CoachingReport({ onClose }) {
             {reports.map((r) => <RepCard key={r.name} rep={r} />)}
           </div>
         )}
+
+        {/* Print footer — only appears in PDF/print */}
+        <footer className="hidden print:block text-[10px] text-white/50 tracking-[0.25em] text-center pt-6 mt-6 border-t border-white/15">
+          WENGER ROLE PLAY · COACHING REPORT · {new Date().toLocaleDateString()}
+        </footer>
       </div>
 
-      {/* Print-friendly overrides */}
+      {/* Print styling — preserves the on-screen dark Wenger theme in PDF/print output */}
       <style>{`
         @media print {
-          @page { margin: 0.5in; }
-          body { background: white !important; color: black !important; }
+          /* Tell every browser we want exact backgrounds and colors in print */
+          html, body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          @page { margin: 0.45in; size: letter; }
+
+          /* Force the dark page background to render on paper */
+          html, body {
+            background: #001f36 !important;
+            color: #F5F8FF !important;
+          }
+          body {
+            background:
+              radial-gradient(circle at 15% 10%, rgba(105, 174, 189, 0.18), transparent 45%),
+              radial-gradient(circle at 85% 90%, rgba(95, 177, 226, 0.18), transparent 45%),
+              linear-gradient(180deg, #001f36 0%, #003658 100%) !important;
+          }
+
+          /* The fullscreen overlay loses its fixed positioning in print so the
+             page can flow naturally across multiple sheets. */
+          .coaching-report-root {
+            position: static !important;
+            inset: auto !important;
+            overflow: visible !important;
+            background: transparent !important;
+            backdrop-filter: none !important;
+          }
+
+          /* Every card prints as a solid panel and avoids splitting across pages
+             so a rep's section stays together when possible. */
+          .card,
+          article.card { break-inside: avoid; page-break-inside: avoid; }
+
+          /* Each rep on its own page if they're long. */
+          article.card + article.card { break-before: page; page-break-before: always; }
+
+          /* Hide interactive chrome cleanly */
           .print\\:hidden { display: none !important; }
-          .card { background: white !important; border: 1px solid #ccc !important; }
-          .text-white\\/85, .text-white\\/80, .text-white\\/70, .text-white\\/60, .text-white\\/50 { color: #333 !important; }
-          .text-white { color: black !important; }
-          .text-gold, .text-magenta-glow, .text-cyan, .text-success, .text-warning { color: black !important; font-weight: bold; }
-          .bg-grid, .bg-navy-deep\\/95 { background: white !important; }
+
+          /* Disable framer-motion animations to keep print stable */
+          [data-framer-motion], .motion-safe\\:animate-pulseSoft { animation: none !important; }
         }
       `}</style>
     </motion.div>

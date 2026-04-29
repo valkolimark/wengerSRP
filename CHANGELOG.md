@@ -5,6 +5,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-04-29
+
+### Changed
+- **Coaching report PDF/print output now matches the on-screen dark Wenger theme.** Removed the previous print stylesheet that flattened everything to black-on-white and replaced it with a print stylesheet that:
+  - Uses `-webkit-print-color-adjust: exact` / `print-color-adjust: exact` so browsers render backgrounds and brand colors faithfully on paper.
+  - Preserves the Navy gradient background, glass-card surfaces, gradient `COACHING REPORT` title, brand-colored category bars, hit/missed pills, and manager-note callouts.
+  - Sets `@page { size: letter; margin: 0.45in }` and uses `break-inside: avoid` so a rep's section stays on a single page when it fits, with each rep starting a new page when the previous one fills.
+  - Disables motion animations during printing for stable output.
+  - Adds a print-only footer line (`WENGER ROLE PLAY · COACHING REPORT · <date>`).
+- The on-screen header is now a single shared header instead of separate "screen" and "print" headers — the Print/Markdown/Close buttons are the only chrome that hides during print.
+
+### Removed
+- Light-theme logo from the print header (the dark theme now renders end-to-end on paper, so the dark `logo-dk.png` is correct in both contexts).
+
 ## [1.2.1] - 2026-04-29
 
 ### Fixed
@@ -106,7 +120,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/valkolimark/wengerSRP/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/valkolimark/wengerSRP/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/valkolimark/wengerSRP/compare/v1.0.0...v1.1.0
