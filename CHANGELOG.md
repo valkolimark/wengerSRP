@@ -5,6 +5,21 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-29
+
+### Changed
+- **Adopted the official Wenger Corporation color palette** in `tailwind.config.js`. New named tokens: `navy` (`#003658`), `navy-deep`, `bou` (`#69aebd`), `leaf` (`#87c440`), `cadet`, `pool`, `wenger-gray`, `burnt-orange`, `cyan` (Wenger Cyan `#5fb1e2`), `green`, `gray-75`, `black`. Semantic aliases (`magenta` → Burnt Orange, `gold` → Leaf, `success` → Leaf, `warning` → Burnt Orange) keep existing class names brand-correct.
+- Lobby title gradient now uses Leaf → Bou → Wenger Cyan instead of placeholder colors.
+- Background radial gradients, scrollbar, and `theme-color` meta-tag updated to Navy / Bou / Cyan.
+- **Lobby header redesigned as a horizontal lockup**: large logo on the left, divider, then the `WENGER ROLE PLAY` title and tagline on the right.
+
+### Removed
+- **All emoji glyphs** from the user interface. Replaced with letter glyphs (e.g. category badges `A`, `G`, `T`, `D`, `F`), tracked-out labels (`BONUS`, `PERFECT`, `PERFECT BUCKET +10`), and `+` / `−` markers for hits and misses. Affects the Lobby, Customer pane, Scorecard, Results screen, Leaderboard rows, Coaching Report, mute toggle, CSV summary column, and the Markdown report.
+- Stripped now-unused `icon` fields from every scenario JSON file.
+
+### Added
+- New `glow-bou` shadow utility for primary-accent buttons.
+
 ## [1.1.0] - 2026-04-29
 
 ### Changed

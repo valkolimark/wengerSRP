@@ -8,7 +8,7 @@
 
 html, body, #root {
   height: 100%;
-  background: #060F22;
+  background: #001f36;
 }
 
 body {
@@ -17,9 +17,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 15% 10%, rgba(255, 45, 117, 0.18), transparent 45%),
-    radial-gradient(circle at 85% 90%, rgba(0, 229, 255, 0.18), transparent 45%),
-    linear-gradient(180deg, #060F22 0%, #0B1E3F 100%);
+    radial-gradient(circle at 15% 10%, rgba(105, 174, 189, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(95, 177, 226, 0.18), transparent 45%),
+    linear-gradient(180deg, #001f36 0%, #003658 100%);
   background-attachment: fixed;
 }
 
@@ -33,7 +33,7 @@ body {
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF2D75, #00E5FF);
+  background: linear-gradient(180deg, #69aebd, #5fb1e2);
   border-radius: 6px;
 }
 

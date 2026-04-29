@@ -16,7 +16,9 @@ export default function CustomerPane({ scenario, customerName }) {
       {/* Persona card */}
       <div className={`card p-5 border-2 ${meta.color}`}>
         <div className="flex items-start gap-3">
-          <div className="text-4xl">{meta.icon}</div>
+          <div className={`w-12 h-12 rounded-lg border flex items-center justify-center font-display text-3xl tracking-wide ${meta.color}`}>
+            {meta.glyph}
+          </div>
           <div className="flex-1">
             <div className="text-xs tracking-widest opacity-70 font-semibold">PLAYING</div>
             <div className="font-display text-3xl tracking-wide leading-tight">{scenario.persona.name}</div>
@@ -73,7 +75,9 @@ function HiddenCard({ info }) {
       }`}
     >
       <div className="flex items-center gap-3">
-        <div className="text-2xl">{info.icon}</div>
+        <div className="w-9 h-9 rounded-md border border-white/15 bg-white/5 flex items-center justify-center text-xs font-bold tracking-wider text-white/70 shrink-0">
+          {(info.trigger || '?').slice(0, 2).toUpperCase()}
+        </div>
         <div className="flex-1">
           <div className="text-xs tracking-widest text-white/50 font-semibold">IF ASKED ABOUT</div>
           <div className="font-display text-lg tracking-wide">{info.trigger}</div>

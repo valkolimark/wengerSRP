@@ -67,47 +67,51 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
   return (
     <div className="min-h-screen flex flex-col bg-grid">
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-10">
-        <header className="text-center space-y-4">
+        <header className="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10 border-b border-white/10 pb-8">
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex justify-center"
+            className="shrink-0"
           >
-            <Logo variant="dk" size="lg" dim />
+            <Logo variant="dk" size="xl" />
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-display text-7xl md:text-8xl tracking-wider leading-none"
+            className="md:border-l md:border-white/15 md:pl-10"
           >
-            <span className="bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
-              WENGER ROLE PLAY
-            </span>
-          </motion.h1>
-          <p className="text-white/70 text-lg md:text-xl">
-            Pick your scenario. Run the play. Win the room.
-          </p>
+            <h1 className="font-display text-6xl md:text-8xl tracking-wider leading-none">
+              <span className="bg-gradient-to-r from-leaf via-bou to-cyan bg-clip-text text-transparent">
+                WENGER ROLE PLAY
+              </span>
+            </h1>
+            <p className="text-white/70 text-lg md:text-xl mt-3">
+              Pick your scenario. Run the play. Win the room.
+            </p>
+          </motion.div>
         </header>
 
         {/* Player cards */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <PlayerCard
             label="CUSTOMER PLAYER"
-            icon="🎯"
+            badge="C"
             placeholder="Who's playing the customer?"
             value={customerName}
             onChange={setCustomerName}
             accent="text-cyan border-cyan/40 shadow-glow-cyan"
+            badgeBg="bg-cyan/15 text-cyan border-cyan/40"
           />
           <PlayerCard
             label="SALES REP PLAYER"
-            icon="🎤"
+            badge="R"
             placeholder="Who's making the call?"
             value={repName}
             onChange={setRepName}
-            accent="text-magenta-glow border-magenta/40 shadow-glow-magenta"
+            accent="text-leaf border-leaf/40 shadow-glow-gold"
+            badgeBg="bg-leaf/15 text-leaf border-leaf/40"
           />
         </section>
 
@@ -127,7 +131,7 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
                   onClick={() => toggleCategory(cat)}
                   className={`chip ${active ? meta.color : 'bg-white/5 text-white/40 border-white/10'}`}
                 >
-                  <span className="mr-1.5">{meta.icon}</span>{cat}
+                  {cat}
                 </button>
               );
             })}
@@ -163,7 +167,7 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
             whileTap={!drawing ? { scale: 0.96 } : {}}
             className="btn-primary text-3xl px-12 py-6 disabled:hover:scale-100"
           >
-            {drawing ? 'DRAWING…' : '🎲  DRAW SCENARIO'}
+            {drawing ? 'DRAWING…' : 'DRAW SCENARIO'}
           </motion.button>
 
           <AnimatePresence>
@@ -187,11 +191,13 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
   );
 }
 
-function PlayerCard({ label, icon, placeholder, value, onChange, accent }) {
+function PlayerCard({ label, badge, placeholder, value, onChange, accent, badgeBg }) {
   return (
     <div className={`card p-5 border-2 ${accent}`}>
       <div className="flex items-center gap-3 mb-3">
-        <div className="text-3xl">{icon}</div>
+        <div className={`w-10 h-10 rounded-lg border flex items-center justify-center font-display text-2xl tracking-wide ${badgeBg}`}>
+          {badge}
+        </div>
         <div className="font-display text-xl tracking-wider opacity-90">{label}</div>
       </div>
       <input

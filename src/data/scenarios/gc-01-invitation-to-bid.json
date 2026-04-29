@@ -10,45 +10,119 @@
   "openingLine": "Hey, we just got the ITB on the Riverside Performing Arts Center and your stuff is spec'd in Division 12. I need numbers in nine days. Can you get me a quote and tell me if there are any subs I should be working with?",
   "customerContext": "You're estimating a $28M performing arts center. Bids are due in nine days. You have a relationship with one of Wenger's competitors and you're looking at this as a transactional pricing exercise unless someone shows you why it shouldn't be.",
   "hiddenInfo": [
-    { "trigger": "BID DEADLINE", "icon": "⏱️", "reveal": "Bids due in 9 days, hard deadline." },
-    { "trigger": "PROJECT BUDGET", "icon": "💰", "reveal": "$28M total. Music/performance scope is roughly $850K of that." },
-    { "trigger": "INSTALLER / DEALER", "icon": "🔧", "reveal": "We don't have a preferred installer for this product line, open to recommendations." },
-    { "trigger": "ALTERNATES / SUBSTITUTIONS", "icon": "🔁", "reveal": "Spec is sole-source Wenger but the architect said 'or equal' verbally — we'd entertain alternates." },
-    { "trigger": "OWNER / ARCHITECT RELATIONSHIP", "icon": "🏛️", "reveal": "Owner is the city. Architect is FRG Design. We've worked with them on three prior projects." },
-    { "trigger": "VE EXPECTATIONS", "icon": "✂️", "reveal": "Owner has flagged VE — they expect us to bring at least $200K of options to the table." },
-    { "trigger": "FUTURE PIPELINE", "icon": "📈", "reveal": "We have two more education projects bidding in Q2 and Q3 — both have music scope." }
+    {
+      "trigger": "BID DEADLINE",
+      "reveal": "Bids due in 9 days, hard deadline."
+    },
+    {
+      "trigger": "PROJECT BUDGET",
+      "reveal": "$28M total. Music/performance scope is roughly $850K of that."
+    },
+    {
+      "trigger": "INSTALLER / DEALER",
+      "reveal": "We don't have a preferred installer for this product line, open to recommendations."
+    },
+    {
+      "trigger": "ALTERNATES / SUBSTITUTIONS",
+      "reveal": "Spec is sole-source Wenger but the architect said 'or equal' verbally \u2014 we'd entertain alternates."
+    },
+    {
+      "trigger": "OWNER / ARCHITECT RELATIONSHIP",
+      "reveal": "Owner is the city. Architect is FRG Design. We've worked with them on three prior projects."
+    },
+    {
+      "trigger": "VE EXPECTATIONS",
+      "reveal": "Owner has flagged VE \u2014 they expect us to bring at least $200K of options to the table."
+    },
+    {
+      "trigger": "FUTURE PIPELINE",
+      "reveal": "We have two more education projects bidding in Q2 and Q3 \u2014 both have music scope."
+    }
   ],
   "scorecard": {
     "Discovery & Qualification": [
-      { "behavior": "Confirmed bid date and deliverables needed", "points": 5 },
-      { "behavior": "Asked which Division 12 sections are in scope", "points": 5 },
-      { "behavior": "Asked whether spec is sole-source or 'or equal'", "points": 5 },
-      { "behavior": "Asked about preferred installer/dealer relationships", "points": 5 }
+      {
+        "behavior": "Confirmed bid date and deliverables needed",
+        "points": 5
+      },
+      {
+        "behavior": "Asked which Division 12 sections are in scope",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether spec is sole-source or 'or equal'",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about preferred installer/dealer relationships",
+        "points": 5
+      }
     ],
     "Solution Framing": [
-      { "behavior": "Explained Wenger's installer network and how that lowers GC risk", "points": 5 },
-      { "behavior": "Offered VE alternates proactively", "points": 5 },
-      { "behavior": "Discussed national contracts and what the GC gets out of them", "points": 5 }
+      {
+        "behavior": "Explained Wenger's installer network and how that lowers GC risk",
+        "points": 5
+      },
+      {
+        "behavior": "Offered VE alternates proactively",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed national contracts and what the GC gets out of them",
+        "points": 5
+      }
     ],
     "Opportunity Expansion": [
-      { "behavior": "Asked about other upcoming projects with music scope", "points": 5 },
-      { "behavior": "Looked for additional product fits beyond what's spec'd", "points": 5 }
+      {
+        "behavior": "Asked about other upcoming projects with music scope",
+        "points": 5
+      },
+      {
+        "behavior": "Looked for additional product fits beyond what's spec'd",
+        "points": 5
+      }
     ],
     "BANT": [
-      { "behavior": "Confirmed budget allocation for the music/performance package", "points": 5 },
-      { "behavior": "Identified all decision makers (owner, architect, GC)", "points": 5 }
+      {
+        "behavior": "Confirmed budget allocation for the music/performance package",
+        "points": 5
+      },
+      {
+        "behavior": "Identified all decision makers (owner, architect, GC)",
+        "points": 5
+      }
     ],
     "Timeline Awareness": [
-      { "behavior": "Committed to a turnaround that beats the bid deadline", "points": 5 },
-      { "behavior": "Discussed lead times and how they affect the construction schedule", "points": 5 }
+      {
+        "behavior": "Committed to a turnaround that beats the bid deadline",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed lead times and how they affect the construction schedule",
+        "points": 5
+      }
     ],
     "Closing & Next Steps": [
-      { "behavior": "Set a specific follow-up call before bid day", "points": 5 },
-      { "behavior": "Offered to walk the GC through the quote line by line", "points": 5 }
+      {
+        "behavior": "Set a specific follow-up call before bid day",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to walk the GC through the quote line by line",
+        "points": 5
+      }
     ],
     "Other": [
-      { "behavior": "Logged communication in Salesforce", "points": 5 }
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
     ]
   },
-  "bonusCategories": ["BANT", "Timeline Awareness", "Opportunity Expansion", "Closing & Next Steps"]
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
 }

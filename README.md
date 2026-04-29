@@ -150,11 +150,38 @@ public/
 
 ---
 
+## Brand and visual system
+
+The app uses the official **Wenger Corporation color palette**, defined in `tailwind.config.js`:
+
+| Token            | Hex       | Role                                      |
+| ---------------- | --------- | ----------------------------------------- |
+| `navy`           | `#003658` | Primary background / chrome               |
+| `navy-deep`      | `#001f36` | Darkest background gradient stop          |
+| `bou`            | `#69aebd` | Primary brand accent                      |
+| `leaf`           | `#87c440` | Success / points / scoreboard celebration |
+| `cadet`          | `#00657e` | Secondary cool accent                     |
+| `pool`           | `#aedad6` | Soft secondary tint                       |
+| `burnt-orange`   | `#cb6918` | Warning / "bonus category" / primary CTA  |
+| `cyan`           | `#5fb1e2` | Wenger Cyan — interactive accent          |
+| `green`          | `#006254` | Deep secondary accent                     |
+| `wenger-gray`    | `#bbbdc0` | 30% black                                 |
+| `gray-75`        | `#626366` | 75% black                                 |
+| `black`          | `#1e1e1e` | Pure black for print                      |
+
+Semantic aliases like `magenta` (Burnt Orange), `gold` (Leaf), `success` (Leaf), and `warning` (Burnt Orange) are mapped on top of the palette so existing class names point at brand-correct colors.
+
+- Logo files: `public/images/logos/logo-dk.png` (white-on-dark) and `logo-lt.png` (dark-on-light).
+- The `Logo` component (`src/components/Logo.jsx`) takes `variant="dk"|"lt"` and `size="xs"|"sm"|"md"|"lg"|"xl"`.
+- The Lobby header is a horizontal lockup: large `xl` logo on the left, gradient `WENGER ROLE PLAY` title on the right, separated by a thin divider.
+- The print-only header in the Coaching Report uses the **light** logo for clean reproduction on white paper.
+- The UI is **emoji-free** by design — letter glyphs and tracked-out labels (e.g. `BONUS`, `PERFECT`) carry meaning instead of pictograms, so the app can be projected and printed without rendering surprises.
+
 ## Customizing the look
 
-- Color palette is in `tailwind.config.js` — change `magenta`, `cyan`, `gold`, etc., and the whole UI follows.
+- Edit the palette in `tailwind.config.js`.
 - Taglines in the footer live in `src/components/Footer.jsx`.
-- Persona icons / category colors in `src/lib/categoryStyles.js`.
+- Category glyphs / tints in `src/lib/categoryStyles.js`.
 
 ---
 

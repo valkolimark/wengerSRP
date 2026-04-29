@@ -139,8 +139,8 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
                 <div className="flex items-center justify-between text-sm mb-1">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold">{b.area}</span>
-                    {b.isBonus && <span className="text-xs text-magenta-glow font-bold">⭐</span>}
-                    {b.perfect && <span className="text-xs text-gold font-bold">✨ PERFECT +10</span>}
+                    {b.isBonus && <span className="text-[10px] text-magenta-glow font-bold tracking-wider">BONUS</span>}
+                    {b.perfect && <span className="text-[10px] text-gold font-bold tracking-wider">PERFECT +10</span>}
                   </div>
                   <div className="font-mono tabular-nums text-white/70">
                     {b.points + b.perfectBonus} / {b.possible + 10}
@@ -167,7 +167,7 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="card p-5">
             <div className="font-display text-2xl tracking-wider mb-3 text-success">
-              ✓ BEHAVIORS HIT ({hits.length})
+              BEHAVIORS HIT ({hits.length})
             </div>
             {hits.length === 0 ? (
               <div className="text-white/40 italic text-sm">None — rough round.</div>
@@ -175,12 +175,12 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
               <ul className="space-y-2">
                 {hits.map((h, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-success mt-0.5">✓</span>
+                    <span className="text-success mt-0.5 font-bold">+</span>
                     <div className="flex-1">
                       <div className="text-white">{h.behavior}</div>
                       <div className="text-xs text-white/40 flex items-center gap-1">
                         {h.area}
-                        {h.bonus && <span className="text-magenta-glow">⭐</span>}
+                        {h.bonus && <span className="text-magenta-glow font-bold tracking-wider">· BONUS</span>}
                       </div>
                     </div>
                   </li>
@@ -191,7 +191,7 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
 
           <div className="card p-5 border-warning/30">
             <div className="font-display text-2xl tracking-wider mb-3 text-warning">
-              ✗ BEHAVIORS MISSED ({misses.length})
+              BEHAVIORS MISSED ({misses.length})
             </div>
             {misses.length === 0 ? (
               <div className="text-success font-semibold">Clean sheet. That's the bar.</div>
@@ -199,12 +199,12 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
               <ul className="space-y-2">
                 {misses.map((m, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <span className="text-warning/70 mt-0.5">✗</span>
+                    <span className="text-warning/70 mt-0.5 font-bold">−</span>
                     <div className="flex-1">
                       <div className="text-white/80">{m.behavior}</div>
                       <div className="text-xs text-white/40 flex items-center gap-1">
                         {m.area}
-                        {m.bonus && <span className="text-magenta-glow">⭐ bonus category</span>}
+                        {m.bonus && <span className="text-magenta-glow font-bold tracking-wider">· BONUS CATEGORY</span>}
                       </div>
                     </div>
                   </li>
@@ -217,7 +217,7 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
         {/* Bonus area summary */}
         <section className="card p-5 border-magenta/40">
           <div className="font-display text-2xl tracking-wider mb-3 text-magenta-glow">
-            ⭐ BONUS-CATEGORY COACHING
+            BONUS-CATEGORY COACHING
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {score.breakdown.filter((b) => b.isBonus).map((b) => (
@@ -275,10 +275,10 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
               disabled={saved}
               className="btn-primary disabled:bg-success disabled:shadow-none"
             >
-              {saved ? '✓ SAVED' : '💾 SAVE TO LEADERBOARD'}
+              {saved ? 'SAVED' : 'SAVE TO LEADERBOARD'}
             </button>
             <button onClick={onPlayAgain} className="btn-secondary text-2xl px-8 py-4">
-              ↻ PLAY AGAIN
+              PLAY AGAIN
             </button>
           </div>
         </section>

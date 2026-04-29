@@ -7,47 +7,118 @@
     "role": "Theatre Technical Director",
     "organization": "Westbrook Performing Arts Magnet"
   },
-  "openingLine": "I'm trying to outfit our black box for the next school year. We do everything in there — straight plays, devised work, dance, sometimes a small ensemble. I keep getting pitched riser systems that are basically the same thing. What makes yours different?",
+  "openingLine": "I'm trying to outfit our black box for the next school year. We do everything in there \u2014 straight plays, devised work, dance, sometimes a small ensemble. I keep getting pitched riser systems that are basically the same thing. What makes yours different?",
   "customerContext": "You're the TD for a magnet performing arts school. You have a dedicated $185K from the capital plan for black box improvements. You've used Wenger acoustic shells in the main hall and liked them, but you've never bought platforms or seating from them. You're skeptical of reps who lead with product before understanding the program.",
   "hiddenInfo": [
-    { "trigger": "BUDGET", "icon": "💰", "reveal": "$185K from the capital plan, locked in for this fiscal year." },
-    { "trigger": "TIMELINE", "icon": "⏱️", "reveal": "Need install complete by August 1 — we open the season the third week of September." },
-    { "trigger": "USES OF THE SPACE", "icon": "🎭", "reveal": "Plays, devised work, dance, small ensembles, occasional all-school assemblies. Configurations change weekly." },
-    { "trigger": "CURRENT PAIN POINT", "icon": "⚠️", "reveal": "Resetting the room takes 4 students 90 minutes. Killing rehearsal time." },
-    { "trigger": "DECISION MAKERS", "icon": "👥", "reveal": "Me, the principal, and the district facilities lead. Principal trusts my recommendation." },
-    { "trigger": "PRIOR WENGER EXPERIENCE", "icon": "📚", "reveal": "We have Diva acoustic shells in the main hall. Bought them four years ago. Happy with them." },
-    { "trigger": "OTHER NEEDS", "icon": "➕", "reveal": "Also looking at audience seating wagons and a portable lighting grid solution." }
+    {
+      "trigger": "BUDGET",
+      "reveal": "$185K from the capital plan, locked in for this fiscal year."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Need install complete by August 1 \u2014 we open the season the third week of September."
+    },
+    {
+      "trigger": "USES OF THE SPACE",
+      "reveal": "Plays, devised work, dance, small ensembles, occasional all-school assemblies. Configurations change weekly."
+    },
+    {
+      "trigger": "CURRENT PAIN POINT",
+      "reveal": "Resetting the room takes 4 students 90 minutes. Killing rehearsal time."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Me, the principal, and the district facilities lead. Principal trusts my recommendation."
+    },
+    {
+      "trigger": "PRIOR WENGER EXPERIENCE",
+      "reveal": "We have Diva acoustic shells in the main hall. Bought them four years ago. Happy with them."
+    },
+    {
+      "trigger": "OTHER NEEDS",
+      "reveal": "Also looking at audience seating wagons and a portable lighting grid solution."
+    }
   ],
   "scorecard": {
     "Discovery & Qualification": [
-      { "behavior": "Asked about the variety of uses for the space", "points": 5 },
-      { "behavior": "Asked about reset time / current pain point", "points": 5 },
-      { "behavior": "Asked for current room dimensions and any drawings", "points": 5 },
-      { "behavior": "Asked about prior Wenger product experience", "points": 5 }
+      {
+        "behavior": "Asked about the variety of uses for the space",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about reset time / current pain point",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for current room dimensions and any drawings",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about prior Wenger product experience",
+        "points": 5
+      }
     ],
     "Solution Framing": [
-      { "behavior": "Differentiated based on flexibility and reset speed, not just product specs", "points": 5 },
-      { "behavior": "Offered to demo the product or arrange a site visit to a peer school", "points": 5 }
+      {
+        "behavior": "Differentiated based on flexibility and reset speed, not just product specs",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to demo the product or arrange a site visit to a peer school",
+        "points": 5
+      }
     ],
     "Opportunity Expansion": [
-      { "behavior": "Probed for adjacent needs (seating, lighting grid, storage)", "points": 5 },
-      { "behavior": "Asked about other spaces in the building that could benefit", "points": 5 }
+      {
+        "behavior": "Probed for adjacent needs (seating, lighting grid, storage)",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about other spaces in the building that could benefit",
+        "points": 5
+      }
     ],
     "BANT": [
-      { "behavior": "Confirmed budget amount and source", "points": 5 },
-      { "behavior": "Identified principal and district facilities as decision makers", "points": 5 }
+      {
+        "behavior": "Confirmed budget amount and source",
+        "points": 5
+      },
+      {
+        "behavior": "Identified principal and district facilities as decision makers",
+        "points": 5
+      }
     ],
     "Timeline Awareness": [
-      { "behavior": "Mapped lead times against the August 1 install date", "points": 5 },
-      { "behavior": "Set follow-up tasks with specific dates", "points": 5 }
+      {
+        "behavior": "Mapped lead times against the August 1 install date",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks with specific dates",
+        "points": 5
+      }
     ],
     "Closing & Next Steps": [
-      { "behavior": "Proposed a working layout session", "points": 5 },
-      { "behavior": "Provided literature or reference school visits", "points": 5 }
+      {
+        "behavior": "Proposed a working layout session",
+        "points": 5
+      },
+      {
+        "behavior": "Provided literature or reference school visits",
+        "points": 5
+      }
     ],
     "Other": [
-      { "behavior": "Logged communication in Salesforce", "points": 5 }
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
     ]
   },
-  "bonusCategories": ["BANT", "Timeline Awareness", "Opportunity Expansion", "Closing & Next Steps"]
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
 }

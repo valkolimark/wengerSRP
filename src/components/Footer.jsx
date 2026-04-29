@@ -9,7 +9,7 @@ const TAGLINES = [
   'Timeline is a feature, not a footnote.',
 ];
 
-const VERSION = '1.1.0';
+const VERSION = '1.2.0';
 
 export default function Footer() {
   const tagline = useMemo(() => TAGLINES[Math.floor(Math.random() * TAGLINES.length)], []);

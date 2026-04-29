@@ -38,19 +38,19 @@ export default function CoachingReport({ onClose }) {
             </div>
           </div>
           <div className="flex gap-2">
-            <button onClick={handlePrint} className="btn-secondary">🖨 Print / Save PDF</button>
+            <button onClick={handlePrint} className="btn-secondary">PRINT / SAVE PDF</button>
             <button
               onClick={() => downloadMarkdown(reports)}
               className="btn-secondary"
               disabled={reports.length === 0}
             >
-              ⬇ Markdown
+              MARKDOWN
             </button>
             <button
               onClick={onClose}
               className="font-display tracking-wider text-lg px-5 py-3 rounded-xl bg-magenta text-white shadow-glow-magenta hover:scale-105 active:scale-95"
             >
-              ✕ CLOSE
+              CLOSE
             </button>
           </div>
         </div>
@@ -142,8 +142,8 @@ function RepCard({ rep }) {
                 <div className="flex items-center justify-between mb-0.5">
                   <span>
                     {c.area}
-                    {c.isBonus && <span className="ml-1 text-magenta-glow text-xs">⭐</span>}
-                    {c.perfectCount > 0 && <span className="ml-1 text-gold text-xs">✨ ×{c.perfectCount}</span>}
+                    {c.isBonus && <span className="ml-1 text-magenta-glow text-[10px] font-bold tracking-wider">·BONUS</span>}
+                    {c.perfectCount > 0 && <span className="ml-1 text-gold text-[10px] font-bold tracking-wider">·PERFECT ×{c.perfectCount}</span>}
                   </span>
                   <span className="font-mono tabular-nums text-white/70 text-xs">
                     {c.hits}/{c.total} · {Math.round(c.rate * 100)}%
@@ -179,7 +179,7 @@ function RepCard({ rep }) {
                 </span>
                 <div className="flex-1">
                   <div className="text-white">{m.behavior}</div>
-                  <div className="text-xs text-white/50">{m.area}{m.bonus ? ' ⭐ bonus' : ''}</div>
+                  <div className="text-xs text-white/50">{m.area}{m.bonus ? ' · BONUS' : ''}</div>
                 </div>
               </li>
             ))}
@@ -194,7 +194,7 @@ function RepCard({ rep }) {
           <div className="flex flex-wrap gap-2">
             {rep.strengths.map((c) => (
               <span key={c.area} className="text-xs px-3 py-1.5 rounded-full bg-success/15 border border-success/40 text-success font-semibold">
-                {c.area} · {Math.round(c.rate * 100)}%{c.isBonus ? ' ⭐' : ''}
+                {c.area} · {Math.round(c.rate * 100)}%{c.isBonus ? ' · BONUS' : ''}
               </span>
             ))}
           </div>

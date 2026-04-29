@@ -1,14 +1,15 @@
-// Visual treatment for each scenario category. Used by chips, persona badges, etc.
+// Visual treatment for each scenario category — Wenger palette, no emoji marks.
+// Each category uses a short letter glyph instead of an icon for a cleaner brand feel.
 
 export const CATEGORY_META = {
-  Architect:        { icon: '📐', color: 'bg-cyan/20 text-cyan border-cyan/40' },
-  'GC/CM':          { icon: '🏗️', color: 'bg-warning/20 text-warning border-warning/40' },
-  TSM:              { icon: '🎺', color: 'bg-magenta/20 text-magenta-glow border-magenta/40' },
-  'Tech Director':  { icon: '🎭', color: 'bg-purple-400/20 text-purple-300 border-purple-300/40' },
-  Facilities:       { icon: '🏛️', color: 'bg-gold/20 text-gold border-gold/40' },
-  'Athletic Director': { icon: '🏆', color: 'bg-success/20 text-success border-success/40' },
+  Architect:           { glyph: 'A', color: 'bg-cyan/15 text-cyan border-cyan/40' },
+  'GC/CM':             { glyph: 'G', color: 'bg-burnt-orange/15 text-burnt-orange border-burnt-orange/40' },
+  TSM:                 { glyph: 'T', color: 'bg-leaf/15 text-leaf border-leaf/40' },
+  'Tech Director':     { glyph: 'D', color: 'bg-bou/15 text-bou border-bou/40' },
+  Facilities:          { glyph: 'F', color: 'bg-pool/20 text-pool border-pool/40' },
+  'Athletic Director': { glyph: 'X', color: 'bg-green/20 text-pool border-green/40' },
 };
 
 export function metaFor(category) {
-  return CATEGORY_META[category] || { icon: '🎯', color: 'bg-white/10 text-white border-white/30' };
+  return CATEGORY_META[category] || { glyph: '·', color: 'bg-white/10 text-white border-white/30' };
 }

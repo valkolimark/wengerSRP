@@ -108,7 +108,7 @@ export function exportCsv({ todayOnly = false } = {}) {
 
     const hitText = (r.hitBehaviors || []).map((h) => `${h.behavior} [${h.area}]`).join('; ');
     const missText = (r.missedBehaviors || []).map((m) => `${m.behavior} [${m.area}${m.bonus ? ' ⭐' : ''}]`).join('; ');
-    const summary = (r.breakdown || []).map((b) => `${b.area}: ${b.hits}/${b.total}${b.perfect ? ' ✨' : ''}`).join('; ');
+    const summary = (r.breakdown || []).map((b) => `${b.area}: ${b.hits}/${b.total}${b.perfect ? ' [PERFECT]' : ''}`).join('; ');
 
     lines.push([
       csvEscape(r.date || ''),

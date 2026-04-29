@@ -175,7 +175,7 @@ export function reportToMarkdown(reports, { generatedAt = new Date() } = {}) {
     lines.push(`## ${r.name}`);
     lines.push(`**${r.rounds} round${r.rounds === 1 ? '' : 's'}** · avg ${r.avgScore} · best ${r.bestScore}${r.bestRound ? ` (${r.bestRound})` : ''}`);
     if (r.trend) {
-      const arrow = r.trend.delta > 0 ? '▲' : r.trend.delta < 0 ? '▼' : '–';
+      const arrow = r.trend.delta > 0 ? 'UP' : r.trend.delta < 0 ? 'DOWN' : 'FLAT';
       lines.push(`Trend: ${r.trend.first} → ${r.trend.second} (${arrow} ${r.trend.delta >= 0 ? '+' : ''}${r.trend.delta})`);
     }
     lines.push('');
@@ -191,7 +191,7 @@ export function reportToMarkdown(reports, { generatedAt = new Date() } = {}) {
     if (r.strengths.length) {
       lines.push(`### Strengths`);
       r.strengths.forEach((c) => {
-        lines.push(`- ${c.area}: ${c.hits}/${c.total} (${Math.round(c.rate * 100)}%)${c.isBonus ? ' ⭐' : ''}`);
+        lines.push(`- ${c.area}: ${c.hits}/${c.total} (${Math.round(c.rate * 100)}%)${c.isBonus ? ' · BONUS' : ''}`);
       });
       lines.push('');
     }
@@ -199,7 +199,7 @@ export function reportToMarkdown(reports, { generatedAt = new Date() } = {}) {
     if (r.weakCategories.length) {
       lines.push(`### Weak categories`);
       r.weakCategories.forEach((c) => {
-        lines.push(`- ${c.area}: ${c.hits}/${c.total} (${Math.round(c.rate * 100)}%)${c.isBonus ? ' ⭐ BONUS' : ''}`);
+        lines.push(`- ${c.area}: ${c.hits}/${c.total} (${Math.round(c.rate * 100)}%)${c.isBonus ? ' · BONUS BONUS' : ''}`);
       });
       lines.push('');
     }
@@ -207,7 +207,7 @@ export function reportToMarkdown(reports, { generatedAt = new Date() } = {}) {
     if (r.topMissed.length) {
       lines.push(`### Most-frequently-missed behaviors`);
       r.topMissed.forEach((m) => {
-        lines.push(`- (×${m.count})${m.bonus ? ' ⭐' : ''} ${m.behavior} — *${m.area}*`);
+        lines.push(`- (×${m.count})${m.bonus ? ' · BONUS' : ''} ${m.behavior} — *${m.area}*`);
       });
       lines.push('');
     }

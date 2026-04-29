@@ -72,14 +72,14 @@ export default function ScorecardPane({
         </div>
         <div className="flex flex-col gap-2">
           <button onClick={onPause} className="btn-secondary">
-            {paused ? '▶ RESUME' : '⏸ PAUSE'}
+            {paused ? 'RESUME' : 'PAUSE'}
           </button>
-          <button onClick={onReset} className="btn-secondary">↺ RESET</button>
+          <button onClick={onReset} className="btn-secondary">RESET</button>
           <button
             onClick={onEnd}
             className="font-display tracking-wider text-lg px-5 py-3 rounded-xl bg-magenta text-white shadow-glow-magenta hover:scale-105 active:scale-95 transition-transform"
           >
-            ⏹ END ROUND
+            END ROUND
           </button>
         </div>
       </div>
@@ -122,12 +122,12 @@ export default function ScorecardPane({
                 <div className="flex items-center gap-2">
                   <span className="font-display text-xl tracking-wider">{area.toUpperCase()}</span>
                   {isBonus && (
-                    <span className="text-xs font-bold text-magenta-glow bg-magenta/20 border border-magenta/40 rounded-full px-2 py-0.5">
-                      ⭐ 1.5×
+                    <span className="text-xs font-bold text-magenta-glow bg-magenta/20 border border-magenta/40 rounded-full px-2 py-0.5 tracking-wider">
+                      BONUS 1.5×
                     </span>
                   )}
                   {isPerfect && (
-                    <span className="text-xs font-bold text-gold bg-gold/20 border border-gold/40 rounded-full px-2 py-0.5 animate-pulseSoft">
+                    <span className="text-xs font-bold text-gold bg-gold/20 border border-gold/40 rounded-full px-2 py-0.5 animate-pulseSoft tracking-wider">
                       PERFECT BUCKET +10
                     </span>
                   )}
@@ -188,7 +188,7 @@ function CheckMark({ checked, bonus }) {
             : 'border-white/30 bg-white/5'
       }`}
     >
-      {checked ? <span className="font-bold">✓</span> : null}
+      {checked ? <span className="font-bold leading-none">+</span> : null}
     </motion.span>
   );
 }
