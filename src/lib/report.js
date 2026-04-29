@@ -166,7 +166,7 @@ export function buildCoachingReports({ entries } = {}) {
 
 export function reportToMarkdown(reports, { generatedAt = new Date() } = {}) {
   const lines = [];
-  lines.push(`# Wenger Sales Showdown — Coaching Report`);
+  lines.push(`# Wenger Role Play — Coaching Report`);
   lines.push(`Generated ${generatedAt.toLocaleString()} · ${reports.length} rep${reports.length === 1 ? '' : 's'}`);
   lines.push('');
 
@@ -236,7 +236,7 @@ export function downloadMarkdown(reports) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `wenger-showdown-coaching-report-${Date.now()}.md`;
+  a.download = `wenger-role-play-coaching-report-${Date.now()}.md`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

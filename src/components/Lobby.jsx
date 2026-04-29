@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from './Footer.jsx';
 import Leaderboard from './Leaderboard.jsx';
+import Logo from './Logo.jsx';
 import { SCENARIOS, CATEGORIES, pickRandom } from '../lib/scenarios.js';
 import { metaFor } from '../lib/categoryStyles.js';
 import { play } from '../lib/sound.js';
@@ -66,15 +67,23 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
   return (
     <div className="min-h-screen flex flex-col bg-grid">
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-10">
-        <header className="text-center space-y-3">
+        <header className="text-center space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <Logo variant="dk" size="lg" dim />
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-display text-7xl md:text-8xl tracking-wider leading-none"
           >
             <span className="bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
-              WENGER SALES SHOWDOWN
+              WENGER ROLE PLAY
             </span>
           </motion.h1>
           <p className="text-white/70 text-lg md:text-xl">

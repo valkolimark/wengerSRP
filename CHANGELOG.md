@@ -1,9 +1,24 @@
 # Changelog
 
-All notable changes to **Wenger Sales Showdown** are documented here.
+All notable changes to **Wenger Role Play** are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.0] - 2026-04-29
+
+### Changed
+- **Renamed and rebranded** from *Wenger Sales Showdown* to **Wenger Role Play**.
+- Updated package name (`wenger-role-play`), browser tab title, favicon, footer label, CSV / Markdown export filenames, and all in-app copy.
+
+### Added
+- Wenger Corporation logos (`logo-dk.png` for the dark app theme, `logo-lt.png` for the printed coaching report) shipped from `public/images/logos/`.
+- New shared `Logo` component (`src/components/Logo.jsx`) with `dk`/`lt` variants and `xs`/`sm`/`md`/`lg`/`xl` sizes.
+- Logo placements (prominent but understated):
+  - Lobby header — large dimmed dark-theme lockup above the title.
+  - Game screen — extra-small mark in the customer-pane header.
+  - Results screen — small mark above the *TIME!* banner.
+  - Coaching report — medium mark in the on-screen toolbar; light-theme variant in the print-only header for clean output on white paper.
 
 ## [1.0.0] - 2026-04-29
 

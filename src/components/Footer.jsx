@@ -9,13 +9,13 @@ const TAGLINES = [
   'Timeline is a feature, not a footnote.',
 ];
 
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 export default function Footer() {
   const tagline = useMemo(() => TAGLINES[Math.floor(Math.random() * TAGLINES.length)], []);
   return (
     <footer className="text-center text-xs text-white/40 py-4 font-medium tracking-wider">
-      WENGER SALES SHOWDOWN · v{VERSION} · <span className="italic text-white/55">"{tagline}"</span>
+      WENGER ROLE PLAY · v{VERSION} · <span className="italic text-white/55">"{tagline}"</span>
     </footer>
   );
 }

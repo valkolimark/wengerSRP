@@ -4,6 +4,7 @@ import confetti from 'canvas-confetti';
 import { computeScore, isBonusArea } from '../lib/scoring.js';
 import { addEntry } from '../lib/leaderboard.js';
 import { play } from '../lib/sound.js';
+import Logo from './Logo.jsx';
 
 export default function ResultsScreen({ session, result, onPlayAgain, onSaved }) {
   const { scenario, customerName, repName } = session;
@@ -94,6 +95,9 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
   return (
     <div className="min-h-screen bg-grid">
       <main className="max-w-6xl mx-auto px-6 py-10 space-y-8">
+        <div className="flex justify-center">
+          <Logo variant="dk" size="sm" dim />
+        </div>
         {/* Banner */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}

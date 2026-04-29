@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { buildCoachingReports, downloadMarkdown } from '../lib/report.js';
+import Logo from './Logo.jsx';
 
 const PRIORITY_STYLE = {
   HIGH:   'bg-magenta/15 border-magenta/40 text-magenta-glow',
@@ -25,12 +26,15 @@ export default function CoachingReport({ onClose }) {
       <div className="max-w-5xl mx-auto px-6 py-10">
         {/* Toolbar — hidden when printing */}
         <div className="flex items-center justify-between mb-6 print:hidden">
-          <div>
-            <div className="font-display text-4xl tracking-wider bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
-              COACHING REPORT
-            </div>
-            <div className="text-xs text-white/50 mt-1">
-              {reports.length} rep{reports.length === 1 ? '' : 's'} · all saved rounds across all dates
+          <div className="flex items-center gap-4">
+            <Logo variant="dk" size="md" dim />
+            <div className="border-l border-white/15 pl-4">
+              <div className="font-display text-4xl tracking-wider bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
+                COACHING REPORT
+              </div>
+              <div className="text-xs text-white/50 mt-1">
+                {reports.length} rep{reports.length === 1 ? '' : 's'} · all saved rounds across all dates
+              </div>
             </div>
           </div>
           <div className="flex gap-2">
@@ -51,9 +55,10 @@ export default function CoachingReport({ onClose }) {
           </div>
         </div>
 
-        {/* Print-only header */}
-        <div className="hidden print:block mb-6">
-          <h1 className="text-3xl font-bold">Wenger Sales Showdown — Coaching Report</h1>
+        {/* Print-only header — uses the light-theme logo on white paper */}
+        <div className="hidden print:block mb-6 border-b border-gray-300 pb-4">
+          <Logo variant="lt" size="md" />
+          <h1 className="text-3xl font-bold mt-3">Wenger Role Play — Coaching Report</h1>
           <div className="text-sm text-gray-600">{new Date().toLocaleString()} · {reports.length} reps</div>
         </div>
 

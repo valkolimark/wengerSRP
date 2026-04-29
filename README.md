@@ -1,4 +1,4 @@
-# Wenger Sales Showdown
+# Wenger Role Play
 
 A two-player sales training game for in-person sales meetings. One rep plays the customer, one plays the sales rep, the manager scores live behaviors against a checklist, and the room watches it on a projector.
 

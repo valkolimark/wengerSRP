@@ -1,5 +1,7 @@
 node_modules
 dist
+# Original logo source folder — the served copies live in public/images/logos
+/images
 dist-ssr
 .DS_Store
 *.local

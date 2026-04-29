@@ -133,7 +133,7 @@ export function exportCsv({ todayOnly = false } = {}) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `wenger-showdown-${todayOnly ? todayKey() : 'all'}-${Date.now()}.csv`;
+  a.download = `wenger-role-play-${todayOnly ? todayKey() : 'all'}-${Date.now()}.csv`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

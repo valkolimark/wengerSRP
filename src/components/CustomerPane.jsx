@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { metaFor } from '../lib/categoryStyles.js';
+import Logo from './Logo.jsx';
 
 export default function CustomerPane({ scenario, customerName }) {
   const meta = metaFor(scenario.category);
 
   return (
     <aside className="h-full overflow-y-auto p-5 space-y-4 border-r border-white/10 bg-navy/50">
-      <div className="text-xs tracking-[0.3em] text-white/40 font-semibold">CUSTOMER VIEW</div>
+      <div className="flex items-center justify-between">
+        <div className="text-xs tracking-[0.3em] text-white/40 font-semibold">CUSTOMER VIEW</div>
+        <Logo variant="dk" size="xs" dim />
+      </div>
 
       {/* Persona card */}
       <div className={`card p-5 border-2 ${meta.color}`}>
