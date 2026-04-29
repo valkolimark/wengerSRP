@@ -176,6 +176,7 @@ Semantic aliases like `magenta` (Burnt Orange), `gold` (Leaf), `success` (Leaf),
 - The Lobby header is a horizontal lockup: large `xl` logo on the left, gradient `WENGER ROLE PLAY` title on the right, separated by a thin divider.
 - The print-only header in the Coaching Report uses the **light** logo for clean reproduction on white paper.
 - The UI is **emoji-free** by design — letter glyphs and tracked-out labels (e.g. `BONUS`, `PERFECT`) carry meaning instead of pictograms, so the app can be projected and printed without rendering surprises.
+- The headline gradients (lobby title, **TIME!** banner, **COACHING REPORT**) are rendered with inline `background-image` styles plus `background-clip: text` rather than Tailwind gradient utilities. This guarantees the gradient ships even on browsers / configurations where Tailwind's gradient-stop classes don't pick up custom palette tokens. Each gradient title has a solid `text-leaf` fallback color so it remains readable if `background-clip: text` is unsupported.
 
 ## Customizing the look
 

@@ -5,6 +5,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-04-29
+
+### Fixed
+- **Mute toggle no longer overlaps the game-screen control cluster.** Moved the SOUND ON / SOUND OFF button from `top-4 right-4` to `bottom-4 right-4` so it stays out of the way of the Pause / Reset / End Round buttons during a live round. Still pinned and reachable on every screen.
+- **Gradient titles render reliably across the app.** Replaced Tailwind utility-class gradients (`bg-gradient-to-r from-leaf via-bou to-cyan ...`) with inline `background-image` + `background-clip: text` styles using literal hex stops. The Tailwind gradient utilities were not always emitting their CSS for the custom palette tokens, which made the **WENGER ROLE PLAY** lobby title, the **TIME!** results banner, and the **COACHING REPORT** header invisible. Each title also has a fallback solid `text-leaf` color so it remains visible on browsers that don't support `-webkit-background-clip: text`.
+
 ## [1.2.0] - 2026-04-29
 
 ### Changed
@@ -100,5 +106,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/valkolimark/wengerSRP/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/valkolimark/wengerSRP/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/valkolimark/wengerSRP/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/valkolimark/wengerSRP/releases/tag/v1.0.0

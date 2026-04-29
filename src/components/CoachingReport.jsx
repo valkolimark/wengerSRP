@@ -29,7 +29,15 @@ export default function CoachingReport({ onClose }) {
           <div className="flex items-center gap-4">
             <Logo variant="dk" size="md" dim />
             <div className="border-l border-white/15 pl-4">
-              <div className="font-display text-4xl tracking-wider bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
+              <div
+                className="font-display text-4xl tracking-wider text-leaf"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #87c440 0%, #69aebd 50%, #5fb1e2 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 COACHING REPORT
               </div>
               <div className="text-xs text-white/50 mt-1">

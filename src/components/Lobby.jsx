@@ -82,10 +82,16 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
             transition={{ duration: 0.4, delay: 0.1 }}
             className="md:border-l md:border-white/15 md:pl-10"
           >
-            <h1 className="font-display text-6xl md:text-8xl tracking-wider leading-none">
-              <span className="bg-gradient-to-r from-leaf via-bou to-cyan bg-clip-text text-transparent">
-                WENGER ROLE PLAY
-              </span>
+            <h1
+              className="font-display text-6xl md:text-8xl tracking-wider leading-none text-leaf"
+              style={{
+                backgroundImage: 'linear-gradient(90deg, #87c440 0%, #69aebd 50%, #5fb1e2 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              WENGER ROLE PLAY
             </h1>
             <p className="text-white/70 text-lg md:text-xl mt-3">
               Pick your scenario. Run the play. Win the room.

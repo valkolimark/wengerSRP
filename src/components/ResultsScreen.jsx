@@ -105,7 +105,15 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
           transition={{ type: 'spring', stiffness: 200, damping: 14 }}
           className="text-center"
         >
-          <div className="font-display text-8xl md:text-9xl tracking-widest bg-gradient-to-r from-magenta via-gold to-cyan bg-clip-text text-transparent">
+          <div
+            className="font-display text-8xl md:text-9xl tracking-widest text-leaf"
+            style={{
+              backgroundImage: 'linear-gradient(90deg, #cb6918 0%, #87c440 50%, #5fb1e2 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
             TIME!
           </div>
           <div className="text-white/60 text-lg mt-2">
