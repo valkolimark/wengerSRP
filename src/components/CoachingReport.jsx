@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { buildCoachingReports, downloadMarkdown } from '../lib/report.js';
 import Logo from './Logo.jsx';
@@ -16,15 +17,17 @@ export default function CoachingReport({ onClose }) {
     window.print();
   }
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="coaching-report-root fixed inset-0 z-40 bg-navy-deep backdrop-blur-sm overflow-y-auto"
     >
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        {/* Header — visible on screen and in print */}
+      {/* On-screen rich dark version */}
+      <div className="coaching-report-screen max-w-5xl mx-auto px-6 py-10">
         <header className="flex items-center justify-between mb-6 gap-4 flex-wrap border-b border-white/15 pb-5">
           <div className="flex items-center gap-4">
             <Logo variant="dk" size="md" />
@@ -45,7 +48,7 @@ export default function CoachingReport({ onClose }) {
               </div>
             </div>
           </div>
-          <div className="flex gap-2 print:hidden">
+          <div className="flex gap-2">
             <button onClick={handlePrint} className="btn-secondary">PRINT / SAVE PDF</button>
             <button
               onClick={() => downloadMarkdown(reports)}
@@ -72,64 +75,436 @@ export default function CoachingReport({ onClose }) {
             {reports.map((r) => <RepCard key={r.name} rep={r} />)}
           </div>
         )}
+      </div>
 
-        {/* Print footer — only appears in PDF/print */}
-        <footer className="hidden print:block text-[10px] text-white/50 tracking-[0.25em] text-center pt-6 mt-6 border-t border-white/15">
-          WENGER ROLE PLAY · COACHING REPORT · {new Date().toLocaleDateString()}
+      {/* Clean print-only version — light paper, Wenger accents */}
+      <div className="coaching-report-print">
+        <header className="cr-print-header">
+          <img src="/images/logos/logo-lt.png" alt="Wenger Corporation" className="cr-print-logo" />
+          <div>
+            <h1 className="cr-print-title">Wenger Role Play — Coaching Report</h1>
+            <div className="cr-print-meta">
+              {new Date().toLocaleString()} · {reports.length} rep{reports.length === 1 ? '' : 's'}
+            </div>
+          </div>
+        </header>
+
+        {reports.length === 0 ? (
+          <p>No saved rounds yet.</p>
+        ) : (
+          reports.map((r) => <PrintRep key={r.name} rep={r} />)
+        )}
+
+        <footer className="cr-print-footer">
+          Wenger Role Play · Coaching Report · {new Date().toLocaleDateString()}
         </footer>
       </div>
 
-      {/* Print styling — preserves the on-screen dark Wenger theme in PDF/print output */}
       <style>{`
+        /* On-screen — show rich version, hide print version */
+        .coaching-report-print { display: none; }
+
         @media print {
-          /* Tell every browser we want exact backgrounds and colors in print */
-          html, body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-          @page { margin: 0.45in; size: letter; }
+          @page { margin: 0.5in; size: letter; }
 
-          /* Force the dark page background to render on paper */
-          html, body {
-            background: #001f36 !important;
-            color: #F5F8FF !important;
-          }
-          body {
-            background:
-              radial-gradient(circle at 15% 10%, rgba(105, 174, 189, 0.18), transparent 45%),
-              radial-gradient(circle at 85% 90%, rgba(95, 177, 226, 0.18), transparent 45%),
-              linear-gradient(180deg, #001f36 0%, #003658 100%) !important;
-          }
+          /* Hide everything except the print version */
+          #root { display: none !important; }
+          .coaching-report-screen { display: none !important; }
+          .coaching-report-print { display: block !important; }
+          .print\\:hidden { display: none !important; }
 
-          /* The fullscreen overlay loses its fixed positioning in print so the
-             page can flow naturally across multiple sheets. */
+          /* Reset overlay positioning */
           .coaching-report-root {
             position: static !important;
             inset: auto !important;
+            display: block !important;
+            width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
             overflow: visible !important;
-            background: transparent !important;
+            background: white !important;
             backdrop-filter: none !important;
+            opacity: 1 !important;
+            transform: none !important;
           }
 
-          /* Every card prints as a solid panel and avoids splitting across pages
-             so a rep's section stays together when possible. */
-          .card,
-          article.card { break-inside: avoid; page-break-inside: avoid; }
+          /* Cancel framer-motion residue */
+          .coaching-report-root [style*="opacity"],
+          .coaching-report-root [style*="transform"] {
+            opacity: 1 !important;
+            transform: none !important;
+          }
 
-          /* Each rep on its own page if they're long. */
-          article.card + article.card { break-before: page; page-break-before: always; }
+          html, body {
+            background: white !important;
+            color: #1e1e1e !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
 
-          /* Hide interactive chrome cleanly */
-          .print\\:hidden { display: none !important; }
+          /* Print stylesheet — clean, paper-friendly Wenger branded layout */
+          .coaching-report-print {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #1e1e1e;
+            background: white;
+            font-size: 10.5pt;
+            line-height: 1.45;
+          }
 
-          /* Disable framer-motion animations to keep print stable */
-          [data-framer-motion], .motion-safe\\:animate-pulseSoft { animation: none !important; }
+          .cr-print-header {
+            display: flex;
+            align-items: center;
+            gap: 16pt;
+            border-bottom: 2pt solid #003658;
+            padding-bottom: 10pt;
+            margin-bottom: 14pt;
+          }
+          .cr-print-logo {
+            height: 40pt;
+            width: auto;
+          }
+          .cr-print-title {
+            font-family: 'Bebas Neue', 'Anton', sans-serif;
+            font-size: 22pt;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: #003658;
+            margin: 0;
+            line-height: 1.05;
+          }
+          .cr-print-meta {
+            font-size: 9pt;
+            color: #626366;
+            margin-top: 2pt;
+          }
+
+          .cr-print-rep {
+            page-break-inside: auto;
+            break-inside: auto;
+            margin-bottom: 18pt;
+          }
+          .cr-print-rep + .cr-print-rep {
+            page-break-before: always;
+            break-before: page;
+            padding-top: 0;
+          }
+
+          .cr-rep-header {
+            border-left: 4pt solid #87c440;
+            padding-left: 10pt;
+            margin-bottom: 10pt;
+            page-break-after: avoid;
+            break-after: avoid;
+          }
+          .cr-rep-name {
+            font-family: 'Bebas Neue', 'Anton', sans-serif;
+            font-size: 20pt;
+            color: #003658;
+            margin: 0;
+            letter-spacing: 0.04em;
+            line-height: 1.05;
+          }
+          .cr-rep-summary {
+            font-size: 10pt;
+            color: #626366;
+            margin-top: 2pt;
+          }
+          .cr-rep-summary strong { color: #006254; font-weight: 700; }
+
+          .cr-section {
+            margin-top: 12pt;
+            page-break-inside: auto;
+            break-inside: auto;
+          }
+          .cr-section-title {
+            font-family: 'Bebas Neue', 'Anton', sans-serif;
+            font-size: 12pt;
+            color: #003658;
+            margin: 0 0 5pt 0;
+            letter-spacing: 0.06em;
+            border-bottom: 1pt solid #bbbdc0;
+            padding-bottom: 2pt;
+            page-break-after: avoid;
+            break-after: avoid;
+          }
+
+          .cr-action-list, .cr-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .cr-action-list li {
+            padding: 4pt 0 4pt 70pt;
+            position: relative;
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-bottom: 2pt;
+          }
+          .cr-priority {
+            position: absolute;
+            left: 0;
+            top: 4pt;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 9pt;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            padding: 1pt 6pt;
+            border-radius: 2pt;
+            min-width: 50pt;
+            text-align: center;
+          }
+          .cr-priority-HIGH   { background: #cb6918; color: white; }
+          .cr-priority-MEDIUM { background: #69aebd; color: white; }
+          .cr-priority-NOTE   { background: #003658; color: white; }
+
+          .cr-cat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+          }
+          .cr-cat-table tr { page-break-inside: avoid; break-inside: avoid; }
+          .cr-cat-table td { padding: 3pt 4pt; vertical-align: middle; border-bottom: 0.5pt solid #e5e7eb; }
+          .cr-cat-name { font-weight: 600; color: #003658; }
+          .cr-cat-flag {
+            display: inline-block;
+            font-size: 7.5pt;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-left: 4pt;
+            padding: 0.5pt 4pt;
+            border-radius: 2pt;
+            vertical-align: 1pt;
+          }
+          .cr-flag-bonus { background: #cb6918; color: white; }
+          .cr-flag-perfect { background: #87c440; color: white; }
+          .cr-cat-bar-cell { width: 35%; }
+          .cr-cat-bar {
+            height: 6pt;
+            background: #e5e7eb;
+            border-radius: 2pt;
+            overflow: hidden;
+          }
+          .cr-cat-bar-fill { height: 100%; }
+          .cr-cat-bar-fill.high { background: #006254; }
+          .cr-cat-bar-fill.mid  { background: #69aebd; }
+          .cr-cat-bar-fill.low  { background: #cb6918; }
+          .cr-cat-pct { text-align: right; font-weight: 600; color: #003658; width: 18%; white-space: nowrap; }
+
+          .cr-list li {
+            padding: 2pt 0 2pt 18pt;
+            position: relative;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          .cr-list li::before {
+            content: "";
+            position: absolute;
+            left: 4pt;
+            top: 7pt;
+            width: 4pt;
+            height: 4pt;
+            background: #87c440;
+            border-radius: 50%;
+          }
+          .cr-list .cr-count {
+            display: inline-block;
+            background: #003658;
+            color: white;
+            font-weight: 700;
+            font-size: 8pt;
+            padding: 0.5pt 4pt;
+            border-radius: 2pt;
+            margin-right: 4pt;
+          }
+          .cr-list .cr-area {
+            color: #626366;
+            font-size: 9pt;
+          }
+          .cr-list .cr-area-bonus {
+            color: #cb6918;
+            font-weight: 600;
+          }
+
+          .cr-strengths {
+            display: block;
+          }
+          .cr-strengths li {
+            display: inline-block;
+            background: #e8f5d9;
+            color: #006254;
+            border: 0.5pt solid #87c440;
+            padding: 2pt 7pt;
+            margin: 0 4pt 4pt 0;
+            border-radius: 10pt;
+            font-size: 9pt;
+            font-weight: 600;
+          }
+          .cr-strengths li::before { display: none; }
+
+          .cr-note {
+            background: #f4f6f8;
+            border-left: 3pt solid #69aebd;
+            padding: 6pt 9pt;
+            margin-bottom: 5pt;
+            font-size: 10pt;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          .cr-note-meta {
+            font-size: 8.5pt;
+            color: #626366;
+            margin-bottom: 2pt;
+          }
+          .cr-note-meta strong { color: #003658; }
+
+          .cr-trend {
+            display: inline-block;
+            margin-left: 12pt;
+            font-size: 9.5pt;
+            font-weight: 600;
+            padding: 1pt 6pt;
+            border-radius: 2pt;
+          }
+          .cr-trend-up   { background: #e8f5d9; color: #006254; }
+          .cr-trend-down { background: #fbe7d8; color: #cb6918; }
+          .cr-trend-flat { background: #eef0f2; color: #626366; }
+
+          .cr-scenarios {
+            font-size: 9pt;
+            color: #626366;
+            margin-top: 8pt;
+            font-style: italic;
+          }
+
+          .cr-print-footer {
+            margin-top: 24pt;
+            padding-top: 8pt;
+            border-top: 1pt solid #bbbdc0;
+            font-size: 8.5pt;
+            color: #626366;
+            text-align: center;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+          }
         }
       `}</style>
-    </motion.div>
+    </motion.div>,
+    document.body
+  );
+}
+
+function PrintRep({ rep }) {
+  const trendArrow = rep.trend ? (rep.trend.delta > 0 ? '▲' : rep.trend.delta < 0 ? '▼' : '–') : '';
+  const trendCls = rep.trend ? (rep.trend.delta > 0 ? 'cr-trend-up' : rep.trend.delta < 0 ? 'cr-trend-down' : 'cr-trend-flat') : '';
+  return (
+    <article className="cr-print-rep">
+      <header className="cr-rep-header">
+        <h2 className="cr-rep-name">{rep.name}</h2>
+        <div className="cr-rep-summary">
+          {rep.rounds} round{rep.rounds === 1 ? '' : 's'} · avg <strong>{rep.avgScore}</strong> · best <strong>{rep.bestScore}</strong>
+          {rep.bestRound ? ` (${rep.bestRound})` : ''}
+          {rep.trend && (
+            <span className={`cr-trend ${trendCls}`}>
+              Trend {rep.trend.first} → {rep.trend.second} {trendArrow} {rep.trend.delta >= 0 ? '+' : ''}{rep.trend.delta}
+            </span>
+          )}
+        </div>
+      </header>
+
+      {rep.actionItems.length > 0 && (
+        <section className="cr-section">
+          <h3 className="cr-section-title">What to Work On</h3>
+          <ul className="cr-action-list">
+            {rep.actionItems.map((a, i) => (
+              <li key={i}>
+                <span className={`cr-priority cr-priority-${a.priority}`}>{a.priority}</span>
+                {a.text}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {rep.categoryRanked.length > 0 && (
+        <section className="cr-section">
+          <h3 className="cr-section-title">Category Hit Rates</h3>
+          <table className="cr-cat-table">
+            <tbody>
+              {rep.categoryRanked.map((c) => {
+                const barCls = c.rate >= 0.8 ? 'high' : c.rate >= 0.5 ? 'mid' : 'low';
+                return (
+                  <tr key={c.area}>
+                    <td>
+                      <span className="cr-cat-name">{c.area}</span>
+                      {c.isBonus && <span className="cr-cat-flag cr-flag-bonus">BONUS</span>}
+                      {c.perfectCount > 0 && <span className="cr-cat-flag cr-flag-perfect">PERFECT ×{c.perfectCount}</span>}
+                    </td>
+                    <td className="cr-cat-bar-cell">
+                      <div className="cr-cat-bar"><div className={`cr-cat-bar-fill ${barCls}`} style={{ width: `${c.rate * 100}%` }} /></div>
+                    </td>
+                    <td className="cr-cat-pct">{c.hits}/{c.total} · {Math.round(c.rate * 100)}%</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
+      )}
+
+      {rep.topMissed.length > 0 && (
+        <section className="cr-section">
+          <h3 className="cr-section-title">Most-Frequently-Missed Behaviors</h3>
+          <ul className="cr-list">
+            {rep.topMissed.map((m, i) => (
+              <li key={i}>
+                <span className="cr-count">×{m.count}</span>
+                {m.behavior}
+                <span className={`cr-area ${m.bonus ? 'cr-area-bonus' : ''}`}> · {m.area}{m.bonus ? ' (bonus)' : ''}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {rep.strengths.length > 0 && (
+        <section className="cr-section">
+          <h3 className="cr-section-title">Strengths</h3>
+          <ul className="cr-list cr-strengths">
+            {rep.strengths.map((c) => (
+              <li key={c.area}>
+                {c.area} · {Math.round(c.rate * 100)}%{c.isBonus ? ' (bonus)' : ''}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {rep.notes.length > 0 && (
+        <section className="cr-section">
+          <h3 className="cr-section-title">Manager Notes</h3>
+          {rep.notes.map((n, i) => (
+            <div key={i} className="cr-note">
+              <div className="cr-note-meta">
+                <strong>{n.scenario || ''}</strong> · {n.date || ''} · score {n.score ?? ''}
+              </div>
+              <div>{n.note}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {rep.scenariosPlayed.length > 0 && (
+        <div className="cr-scenarios">
+          Scenarios played: {rep.scenariosPlayed.join(' · ')}
+        </div>
+      )}
+    </article>
   );
 }
 
 function RepCard({ rep }) {
   return (
-    <article className="card p-6 space-y-5 print:break-inside-avoid">
+    <article className="card p-6 space-y-5">
       {/* Header */}
       <header className="flex items-start justify-between gap-4 flex-wrap">
         <div>

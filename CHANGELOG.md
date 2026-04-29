@@ -5,6 +5,25 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-04-29
+
+### Changed
+- **Coaching report PDF is now a clean, simple, Wenger-branded paper layout** instead of attempting to print the rich on-screen dark theme. The previous approach hit a Chrome multi-page layout quirk where the second rep card was clipped off the PDF entirely; the new approach is paper-friendly and prints every rep reliably.
+  - Light background, navy / leaf / bou / burnt-orange accents from the official Wenger palette.
+  - Wenger Corporation logo + report title + timestamp at the top.
+  - Each rep starts on a fresh page with a leaf-green left rule and the rep's name in Bebas Neue navy.
+  - "What to Work On" rendered as priority pills (HIGH = burnt orange, MEDIUM = bou, NOTE = navy).
+  - Category hit rates as a tidy two-column table with progress bars (green ≥ 80 %, bou 50–79 %, burnt orange < 50 %).
+  - Most-frequently-missed behaviors as a bulleted list with count badges.
+  - Strengths as inline pill chips.
+  - Manager notes in soft cards with a bou left rule.
+  - Wenger footer line on the last page.
+- **The on-screen rich dark report is unchanged** — only the printed/PDF render uses the new clean layout. Triggered automatically by `window.print()`.
+
+### Fixed
+- Reps after the first now appear in the printed PDF (the previous attempt clipped them).
+- Headers, action items, and notes no longer split awkwardly across page breaks.
+
 ## [1.3.0] - 2026-04-29
 
 ### Changed
@@ -120,7 +139,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/valkolimark/wengerSRP/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/valkolimark/wengerSRP/compare/v1.1.0...v1.2.0
