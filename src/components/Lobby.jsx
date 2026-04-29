@@ -6,12 +6,15 @@ import Logo from './Logo.jsx';
 import { SCENARIOS, CATEGORIES, pickRandom } from '../lib/scenarios.js';
 import { metaFor } from '../lib/categoryStyles.js';
 import { play } from '../lib/sound.js';
+import { getRoster, addToRoster } from '../lib/roster.js';
 
 const ROUND_LENGTHS = [3, 5, 7, 10];
 
 export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) {
   const [customerName, setCustomerName] = useState('');
   const [repName, setRepName] = useState('');
+  const [rosterVersion, setRosterVersion] = useState(0);
+  const roster = useMemo(() => getRoster(), [rosterVersion]);
   const [selectedCategories, setSelectedCategories] = useState(() => new Set(CATEGORIES));
   const [roundMinutes, setRoundMinutes] = useState(5);
   const [drawing, setDrawing] = useState(false);
@@ -104,18 +107,24 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
           <PlayerCard
             label="CUSTOMER PLAYER"
             badge="C"
-            placeholder="Who's playing the customer?"
+            placeholder="Pick the customer player…"
             value={customerName}
             onChange={setCustomerName}
+            roster={roster}
+            otherValue={repName}
+            onAdded={() => setRosterVersion((v) => v + 1)}
             accent="text-cyan border-cyan/40 shadow-glow-cyan"
             badgeBg="bg-cyan/15 text-cyan border-cyan/40"
           />
           <PlayerCard
             label="SALES REP PLAYER"
             badge="R"
-            placeholder="Who's making the call?"
+            placeholder="Pick the sales rep player…"
             value={repName}
             onChange={setRepName}
+            roster={roster}
+            otherValue={customerName}
+            onAdded={() => setRosterVersion((v) => v + 1)}
             accent="text-leaf border-leaf/40 shadow-glow-gold"
             badgeBg="bg-leaf/15 text-leaf border-leaf/40"
           />
@@ -197,7 +206,41 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
   );
 }
 
-function PlayerCard({ label, badge, placeholder, value, onChange, accent, badgeBg }) {
+const ADD_NEW = '__ADD_NEW__';
+
+function PlayerCard({ label, badge, placeholder, value, onChange, roster, otherValue, onAdded, accent, badgeBg }) {
+  const [adding, setAdding] = useState(false);
+  const [newName, setNewName] = useState('');
+
+  function handleSelect(e) {
+    const v = e.target.value;
+    if (v === ADD_NEW) {
+      setAdding(true);
+      setNewName('');
+      onChange('');
+      return;
+    }
+    onChange(v);
+  }
+
+  function commitNew() {
+    const trimmed = newName.trim();
+    if (!trimmed) {
+      setAdding(false);
+      return;
+    }
+    addToRoster(trimmed);
+    onChange(trimmed);
+    setAdding(false);
+    onAdded?.();
+  }
+
+  function cancelNew() {
+    setAdding(false);
+    setNewName('');
+    onChange('');
+  }
+
   return (
     <div className={`card p-5 border-2 ${accent}`}>
       <div className="flex items-center gap-3 mb-3">
@@ -206,13 +249,58 @@ function PlayerCard({ label, badge, placeholder, value, onChange, accent, badgeB
         </div>
         <div className="font-display text-xl tracking-wider opacity-90">{label}</div>
       </div>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-lg font-semibold focus:outline-none focus:border-white/30"
-      />
+
+      {adding ? (
+        <div className="flex gap-2">
+          <input
+            type="text"
+            autoFocus
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') commitNew();
+              if (e.key === 'Escape') cancelNew();
+            }}
+            placeholder="Type the new player's name…"
+            className="flex-1 bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-lg font-semibold focus:outline-none focus:border-white/30"
+          />
+          <button
+            type="button"
+            onClick={commitNew}
+            className="px-4 py-2 rounded-xl bg-leaf/20 border border-leaf/50 text-leaf font-semibold hover:bg-leaf/30"
+          >
+            ADD
+          </button>
+          <button
+            type="button"
+            onClick={cancelNew}
+            className="px-3 py-2 rounded-xl bg-white/5 border border-white/15 text-white/60 hover:text-white"
+          >
+            ✕
+          </button>
+        </div>
+      ) : (
+        <select
+          value={value}
+          onChange={handleSelect}
+          className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-lg font-semibold focus:outline-none focus:border-white/30 appearance-none cursor-pointer"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\' fill=\'%23ffffff80\'><path d=\'M5.25 7.5L10 12.25L14.75 7.5H5.25Z\'/></svg>")',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right 0.85rem center',
+            backgroundSize: '1.1rem',
+            paddingRight: '2.5rem',
+          }}
+        >
+          <option value="">{placeholder}</option>
+          {roster
+            .filter((name) => name !== otherValue)
+            .map((name) => (
+              <option key={name} value={name}>{name}</option>
+            ))}
+          <option value={ADD_NEW}>＋ Add a new player…</option>
+        </select>
+      )}
     </div>
   );
 }

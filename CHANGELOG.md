@@ -5,6 +5,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-04-29
+
+### Added
+- **Player roster dropdowns on the lobby** so the facilitator picks names instead of typing them. Both the *Customer Player* and *Sales Rep Player* fields are now alphabetized dropdowns seeded with the Wenger sales team:
+  - Austin Wheless · Aaron Francl · Jason Berkey · Chris Storjohann · Brandon Booth · Brenda Houglum · Ryan Anderson · Carissa Shimko · Jeremy DuBois · Beth Newton · Brian Parido · Cole Nasman · Mike Stermer · Joey Resendez · Michael Ferch · Lisa Lewis · Jeff Frost · Mary Redd · Jason Madigan · Julie Webber · Linda Leng · Doug Tripp · Katelyn Payne · Chris Thompson · Gianna Cainzos · Mary Steidler · Lance Landgren · Adam Martin · Tim Pounds · Christian Dasher · Trevor Dougherty · Ashley Betz White · Tam Trutwin · Anna Squire · Tyler Shank · Jessica Wrightsel · Joni Mullen.
+- **"＋ Add a new player…"** option at the bottom of each dropdown. Selecting it swaps the field for a text input with `ADD` / cancel buttons; the new name is saved to `localStorage` and shows up in both dropdowns from then on.
+- The dropdown auto-hides whichever name is currently selected in the *other* card so the same person can't be picked for both sides.
+- New `src/lib/roster.js` module with `getRoster()` and `addToRoster()` helpers; default roster lives there for easy editing.
+
 ## [1.3.1] - 2026-04-29
 
 ### Changed
@@ -139,7 +148,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/valkolimark/wengerSRP/compare/v1.2.0...v1.2.1
