@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { buildCoachingReports, downloadMarkdown } from '../lib/report.js';
 import Logo from './Logo.jsx';
+
+const ALL = '__ALL__';
 
 const PRIORITY_STYLE = {
   HIGH:   'bg-magenta/15 border-magenta/40 text-magenta-glow',
@@ -12,9 +14,18 @@ const PRIORITY_STYLE = {
 
 export default function CoachingReport({ onClose }) {
   const reports = useMemo(() => buildCoachingReports(), []);
+  const [printSelection, setPrintSelection] = useState(ALL);
 
-  function handlePrint() {
-    window.print();
+  // Reports actually rendered into the print-only view, filtered by the picker.
+  const printReports = useMemo(() => {
+    if (printSelection === ALL) return reports;
+    return reports.filter((r) => r.name === printSelection);
+  }, [reports, printSelection]);
+
+  function handlePrint(targetName) {
+    if (targetName !== undefined) setPrintSelection(targetName);
+    // Defer print one tick so the filtered render commits first
+    setTimeout(() => window.print(), 0);
   }
 
   if (typeof document === 'undefined') return null;
@@ -48,12 +59,39 @@ export default function CoachingReport({ onClose }) {
               </div>
             </div>
           </div>
-          <div className="flex gap-2">
-            <button onClick={handlePrint} className="btn-secondary">PRINT / SAVE PDF</button>
+          <div className="flex gap-2 items-center flex-wrap">
+            <div className="flex items-center gap-2">
+              <label className="text-[10px] tracking-[0.25em] text-white/50 font-semibold">PRINT FOR</label>
+              <select
+                value={printSelection}
+                onChange={(e) => setPrintSelection(e.target.value)}
+                disabled={reports.length === 0}
+                className="bg-navy-deep/60 border border-white/15 rounded-lg px-3 py-2 text-sm font-semibold focus:outline-none focus:border-white/40 cursor-pointer appearance-none disabled:opacity-50"
+                style={{
+                  backgroundImage: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\' fill=\'%23ffffff80\'><path d=\'M5.25 7.5L10 12.25L14.75 7.5H5.25Z\'/></svg>")',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 0.6rem center',
+                  backgroundSize: '0.9rem',
+                  paddingRight: '2rem',
+                }}
+              >
+                <option value={ALL}>All players ({reports.length})</option>
+                {reports.map((r) => (
+                  <option key={r.name} value={r.name}>{r.name}</option>
+                ))}
+              </select>
+            </div>
             <button
-              onClick={() => downloadMarkdown(reports)}
-              className="btn-secondary"
-              disabled={reports.length === 0}
+              onClick={() => handlePrint()}
+              disabled={printReports.length === 0}
+              className="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              PRINT / SAVE PDF
+            </button>
+            <button
+              onClick={() => downloadMarkdown(printReports)}
+              className="btn-secondary disabled:opacity-50"
+              disabled={printReports.length === 0}
             >
               MARKDOWN
             </button>
@@ -84,15 +122,18 @@ export default function CoachingReport({ onClose }) {
           <div>
             <h1 className="cr-print-title">Wenger Role Play — Coaching Report</h1>
             <div className="cr-print-meta">
-              {new Date().toLocaleString()} · {reports.length} rep{reports.length === 1 ? '' : 's'}
+              {new Date().toLocaleString()} ·{' '}
+              {printSelection === ALL
+                ? `All players (${printReports.length} rep${printReports.length === 1 ? '' : 's'})`
+                : printSelection}
             </div>
           </div>
         </header>
 
-        {reports.length === 0 ? (
-          <p>No saved rounds yet.</p>
+        {printReports.length === 0 ? (
+          <p>No saved rounds yet for this selection.</p>
         ) : (
-          reports.map((r) => <PrintRep key={r.name} rep={r} />)
+          printReports.map((r) => <PrintRep key={r.name} rep={r} />)
         )}
 
         <footer className="cr-print-footer">
@@ -105,7 +146,9 @@ export default function CoachingReport({ onClose }) {
         .coaching-report-print { display: none; }
 
         @media print {
-          @page { margin: 0.5in; size: letter; }
+          /* Generous margins so nothing prints to the edge of the paper */
+          @page { margin: 0.85in 0.75in; size: letter; }
+          @page :first { margin-top: 0.85in; }
 
           /* Hide everything except the print version */
           #root { display: none !important; }
@@ -149,6 +192,9 @@ export default function CoachingReport({ onClose }) {
             background: white;
             font-size: 10.5pt;
             line-height: 1.45;
+            /* Belt-and-suspenders padding in case @page margins are ignored */
+            padding: 4pt 6pt;
+            box-sizing: border-box;
           }
 
           .cr-print-header {

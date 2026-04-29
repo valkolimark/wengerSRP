@@ -5,6 +5,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-04-29
+
+### Added
+- **"PRINT FOR" picker** in the Coaching Report toolbar. The facilitator chooses *All players* (default) or any individual rep before printing/saving as PDF; only that rep's section is rendered in the print/PDF output. The MARKDOWN export honors the same selection.
+- The print header's metadata line now reflects the selection (e.g. *"All players (3 reps)"* or *"Alex Chen"*) so a single-rep PDF is self-explanatory.
+
+### Changed
+- **Wider print margins** so the report prints cleanly on any printer: `@page { margin: 0.85in 0.75in; size: letter }`. Added a small `padding: 4pt 6pt` on the print container as belt-and-suspenders safety in case a printer ignores `@page` margins.
+
 ## [1.4.0] - 2026-04-29
 
 ### Added
@@ -148,7 +157,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.4.1...HEAD
+[1.4.1]: https://github.com/valkolimark/wengerSRP/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/valkolimark/wengerSRP/compare/v1.2.1...v1.3.0
