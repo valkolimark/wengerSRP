@@ -9,6 +9,8 @@ export default function ScorecardPane({
   scenario,
   checks,
   onToggle,
+  notes,
+  onNotesChange,
   roundSeconds,
   roundEpoch = 0,
   paused,
@@ -166,6 +168,20 @@ export default function ScorecardPane({
             </motion.div>
           );
         })}
+
+        {/* Manager notes — written live during the round */}
+        <div className="card p-4 border-bou/30">
+          <label className="text-xs tracking-[0.25em] text-white/50 font-semibold mb-2 block">
+            MANAGER NOTES <span className="text-white/30 font-normal normal-case tracking-normal">— jot down coaching points as the round runs</span>
+          </label>
+          <textarea
+            value={notes ?? ''}
+            onChange={(e) => onNotesChange?.(e.target.value)}
+            placeholder="Strong on discovery but rushed past BANT. Follow up on Salesforce hygiene."
+            rows={4}
+            className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-sm leading-relaxed resize-y focus:outline-none focus:border-white/30"
+          />
+        </div>
 
         <div className="text-center text-xs text-white/40 pt-2 pb-6">
           {score.checkedCount} of {score.totalBehaviors} behaviors checked · base {score.baseTotal} + bucket {score.perfectBonusTotal}

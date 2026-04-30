@@ -6,6 +6,7 @@ import ScorecardPane from './ScorecardPane.jsx';
 export default function GameScreen({ session, onEndRound, onAbort }) {
   const { scenario, customerName, repName, roundSeconds } = session;
   const [checks, setChecks] = useState({});
+  const [notes, setNotes] = useState('');
   const [paused, setPaused] = useState(false);
   const [roundEpoch, setRoundEpoch] = useState(0);
   const remainingRef = useRef(roundSeconds);
@@ -18,8 +19,9 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
   }
 
   function reset() {
-    if (!confirm('Reset the round? This clears all checks and restarts the timer.')) return;
+    if (!confirm('Reset the round? This clears all checks, notes, and restarts the timer.')) return;
     setChecks({});
+    setNotes('');
     setPaused(false);
     remainingRef.current = roundSeconds;
     setRoundEpoch((e) => e + 1);
@@ -28,6 +30,7 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
   function end() {
     onEndRound({
       checks,
+      notes,
       timeRemaining: remainingRef.current,
       ended: true,
     });
@@ -36,6 +39,7 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
   function expire() {
     onEndRound({
       checks,
+      notes,
       timeRemaining: 0,
       ended: true,
     });
@@ -56,6 +60,8 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
           scenario={scenario}
           checks={checks}
           onToggle={toggle}
+          notes={notes}
+          onNotesChange={setNotes}
           roundSeconds={roundSeconds}
           roundEpoch={roundEpoch}
           paused={paused}

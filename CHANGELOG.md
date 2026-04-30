@@ -5,6 +5,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-04-30
+
+### Changed
+- **Customer dropdown is now its own short roster.** The *Customer Player* dropdown lists only Brooke, Theresa, Cris, Zach, Greg, Tricia, Neil, Nolan, and Jackie (alphabetized) instead of the full Wenger sales team. The "＋ Add a new customer…" option is still available and persists to its own `localStorage` key (`wenger-roster:customer`) so additions survive future sessions.
+- **Sales Rep dropdown supports 1–3 reps at a time.** The *Sales Rep Player* card is now a chip-based multi-select: pick a name from the dropdown to add a rep, click the × on a chip to remove. Up to three reps can be staged together. When more than one rep is selected, the round is saved to the leaderboard and coaching report under the combined label (e.g. *"Mary Redd & Doug Tripp"*) so the group is graded as a single sales-rep player. Adding a brand-new rep still routes through the "＋ Add a new rep…" option and persists to `localStorage` (`wenger-roster:custom`).
+- **Manager Notes moved to the scorecard page.** The notes textarea now lives on the live game screen, directly beneath the category cards in the right-hand scorecard pane, so the manager can jot coaching points while checking off behaviors. Notes are threaded through to the results screen and saved with the leaderboard entry alongside hits/misses.
+
+### Removed
+- The editable Manager Notes textarea on the Results screen. The Save section now displays the notes captured during the round in read-only form (or a hint that none were captured) so the round-end flow is just *review → save*.
+
+### Internal
+- `src/lib/roster.js` now exports `getCustomerRoster` / `addToCustomerRoster` and `getRepRoster` / `addToRepRoster`, with the customer-side defaults defined alongside the rep-side defaults.
+- `GameScreen` owns the `notes` state and forwards it to `ScorecardPane` (new `notes` / `onNotesChange` props) and into the `onEndRound` payload (`result.notes`). `ResultsScreen` reads `result.notes` instead of holding its own input state.
+
 ## [1.4.1] - 2026-04-29
 
 ### Added
@@ -157,7 +171,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.4.1...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/valkolimark/wengerSRP/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/valkolimark/wengerSRP/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/valkolimark/wengerSRP/compare/v1.3.0...v1.3.1

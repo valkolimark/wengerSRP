@@ -1,7 +1,8 @@
-// Wenger sales team roster. Names typed into the lobby are also persisted to
-// localStorage so any "Add new..." entry shows up in future meetings.
+// Two separate rosters: customer-side and sales-rep-side. Names typed into
+// either lobby field via "Add a new..." are persisted to localStorage so they
+// show up in future meetings.
 
-const DEFAULT_ROSTER = [
+const DEFAULT_REP_ROSTER = [
   'Austin Wheless',
   'Aaron Francl',
   'Jason Berkey',
@@ -41,30 +42,42 @@ const DEFAULT_ROSTER = [
   'Joni Mullen',
 ];
 
-const STORAGE_KEY = 'wenger-roster:custom';
+const DEFAULT_CUSTOMER_ROSTER = [
+  'Brooke',
+  'Theresa',
+  'Cris',
+  'Zach',
+  'Greg',
+  'Tricia',
+  'Neil',
+  'Nolan',
+  'Jackie',
+];
 
-function loadCustom() {
+const REP_STORAGE_KEY = 'wenger-roster:custom';
+const CUSTOMER_STORAGE_KEY = 'wenger-roster:customer';
+
+function loadCustom(key) {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(key);
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
   }
 }
 
-function saveCustom(list) {
+function saveCustom(key, list) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    localStorage.setItem(key, JSON.stringify(list));
   } catch {
     /* ignore */
   }
 }
 
-export function getRoster() {
-  const custom = loadCustom();
+function buildRoster(defaults, custom) {
   const seen = new Set();
   const out = [];
-  [...DEFAULT_ROSTER, ...custom].forEach((name) => {
+  [...defaults, ...custom].forEach((name) => {
     const key = name.trim().toLowerCase();
     if (!key || seen.has(key)) return;
     seen.add(key);
@@ -73,14 +86,29 @@ export function getRoster() {
   return out.sort((a, b) => a.localeCompare(b));
 }
 
-export function addToRoster(name) {
+function addCustom(defaults, key, name) {
   const trimmed = (name || '').trim();
   if (!trimmed) return;
   const lower = trimmed.toLowerCase();
-  const existsInDefault = DEFAULT_ROSTER.some((n) => n.toLowerCase() === lower);
-  if (existsInDefault) return;
-  const custom = loadCustom();
+  if (defaults.some((n) => n.toLowerCase() === lower)) return;
+  const custom = loadCustom(key);
   if (custom.some((n) => n.toLowerCase() === lower)) return;
   custom.push(trimmed);
-  saveCustom(custom);
+  saveCustom(key, custom);
+}
+
+export function getRepRoster() {
+  return buildRoster(DEFAULT_REP_ROSTER, loadCustom(REP_STORAGE_KEY));
+}
+
+export function addToRepRoster(name) {
+  addCustom(DEFAULT_REP_ROSTER, REP_STORAGE_KEY, name);
+}
+
+export function getCustomerRoster() {
+  return buildRoster(DEFAULT_CUSTOMER_ROSTER, loadCustom(CUSTOMER_STORAGE_KEY));
+}
+
+export function addToCustomerRoster(name) {
+  addCustom(DEFAULT_CUSTOMER_ROSTER, CUSTOMER_STORAGE_KEY, name);
 }

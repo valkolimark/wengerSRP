@@ -16,7 +16,7 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
   const [saved, setSaved] = useState(false);
   const [savedRepName, setSavedRepName] = useState(repName);
   const [savedCustomerName, setSavedCustomerName] = useState(customerName);
-  const [notes, setNotes] = useState('');
+  const notes = (result.notes || '').trim();
   const firedConfetti = useRef(false);
 
   // Count-up animation for the big score
@@ -84,7 +84,7 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
       })),
       hitBehaviors: hits.map((h) => ({ area: h.area, behavior: h.behavior })),
       missedBehaviors: misses.map((m) => ({ area: m.area, behavior: m.behavior, bonus: m.bonus })),
-      notes: notes.trim(),
+      notes,
     });
     setSaved(true);
     onSaved?.();
@@ -265,17 +265,18 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
             />
           </div>
           <div>
-            <label className="text-xs tracking-[0.25em] text-white/50 font-semibold mb-1 block">
-              MANAGER NOTES <span className="text-white/30 font-normal normal-case tracking-normal">— what to coach this rep on</span>
-            </label>
-            <textarea
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="Strong on discovery but rushed past BANT. Follow up on Salesforce hygiene."
-              disabled={saved}
-              rows={3}
-              className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-sm leading-relaxed disabled:opacity-60 resize-y"
-            />
+            <div className="text-xs tracking-[0.25em] text-white/50 font-semibold mb-1">
+              MANAGER NOTES <span className="text-white/30 font-normal normal-case tracking-normal">— captured during the round</span>
+            </div>
+            {notes ? (
+              <div className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap text-white/85">
+                {notes}
+              </div>
+            ) : (
+              <div className="bg-navy-deep/40 border border-white/5 rounded-xl px-4 py-3 text-sm italic text-white/40">
+                No notes were captured on the scorecard during this round.
+              </div>
+            )}
           </div>
           <div className="flex flex-wrap gap-3">
             <button
