@@ -1,0 +1,136 @@
+{
+  "id": "td-02",
+  "category": "Tech Director",
+  "title": "Sierra College \u2014 Theatre Renovation",
+  "persona": {
+    "name": "Damon Whitaker",
+    "role": "Theatre Technical Director",
+    "organization": "Sierra College"
+  },
+  "openingLine": "I just found out we're getting funding to renovate our theatre and I'm honestly a little overwhelmed. We've bought some Wenger stuff over the years but I don't really know what's possible. Where do I even start?",
+  "customerContext": "You're a one-person tech department at a community college. You wear a lot of hats and theatre tech is only part of your job. You're not a confident decision-maker on equipment beyond the basics \u2014 you've been burned before by reps who push complex systems you can't use. You want a partner, not a salesperson.",
+  "hiddenInfo": [
+    {
+      "trigger": "FUNDING AMOUNT",
+      "reveal": "$650K from a state allocation. It has to be spent within 18 months."
+    },
+    {
+      "trigger": "RENOVATION SCOPE",
+      "reveal": "Stage upgrades, acoustic treatment, audience seating refresh, and some lighting infrastructure."
+    },
+    {
+      "trigger": "PRIOR WENGER PURCHASES",
+      "reveal": "We have older choral risers, a few music stands, and an acoustic shell from the 1990s."
+    },
+    {
+      "trigger": "INVENTORY GAPS",
+      "reveal": "No automation, no modern rigging upgrades, no contemporary stage platform system."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Me, the Dean of Arts, and the campus facilities director. Final sign-off goes to the VP of Administration."
+    },
+    {
+      "trigger": "PROCUREMENT PATH",
+      "reveal": "Public bid for anything over $50K. Could split into smaller direct purchases under that."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Want construction in next year's summer break. Roughly 10 months out."
+    },
+    {
+      "trigger": "AUTOMATION INTEREST",
+      "reveal": "I've never used automation. Curious but nervous about training and reliability."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed renovation funding and intended scope",
+        "points": 5
+      },
+      {
+        "behavior": "Assessed prior Wenger purchase history and inventory gaps",
+        "points": 5
+      },
+      {
+        "behavior": "Set up a meeting or call to fully understand the renovation",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Helped clarify solution options aligned to scope",
+        "points": 5
+      },
+      {
+        "behavior": "Introduced automation concepts in plain language",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Discussed joint planning with architect and owner",
+        "points": 5
+      },
+      {
+        "behavior": "Identified additional theatre system needs",
+        "points": 5
+      },
+      {
+        "behavior": "Brought in the RPAM",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed budget parameters and funding readiness",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed project timeline and sequencing",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the final decision makers",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether this will bid or buy direct",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped engagement against the 18-month spend deadline",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Identified follow-up actions and stakeholder involvement",
+        "points": 5
+      },
+      {
+        "behavior": "Notified RPAM once scope was understood",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

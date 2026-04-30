@@ -1,0 +1,116 @@
+{
+  "id": "gc-04",
+  "category": "GC/CM",
+  "title": "Post-Bid Follow-Up After Pricing Submitted",
+  "persona": {
+    "name": "Devon Mitchell",
+    "role": "Senior Estimator",
+    "organization": "Lakeshore Construction Co."
+  },
+  "openingLine": "Yeah I got your numbers. Bid was last Tuesday. Haven't heard anything yet. We'll let you know if we win it.",
+  "customerContext": "You're a busy estimator who has 12 active bids in flight. You submitted on this one and you've moved on mentally. You don't have specific feedback for Wenger \u2014 you just don't know yet whether you won or lost. You're not unfriendly but you're not going to volunteer information either.",
+  "hiddenInfo": [
+    {
+      "trigger": "BID STATUS",
+      "reveal": "Bid opened Tuesday. We were second place \u2014 about 2.5% behind the low bidder."
+    },
+    {
+      "trigger": "WHY WE LOST",
+      "reveal": "Low bidder used a competitor cabinet that was about $40K cheaper than your number."
+    },
+    {
+      "trigger": "LOW BIDDER",
+      "reveal": "Northway Constructors. They're a regional player. Aggressive on price."
+    },
+    {
+      "trigger": "OWNER POST-BID",
+      "reveal": "Owner has 30 days to make award. Could still ask for VE before signing."
+    },
+    {
+      "trigger": "BUDGET STATUS",
+      "reveal": "Both bids came in over budget \u2014 but Northway only by $50K, we were $90K over."
+    },
+    {
+      "trigger": "WHAT COULD CHANGE",
+      "reveal": "If we offered a VE alternative, the owner might rebid. They've done that before."
+    },
+    {
+      "trigger": "FUTURE PROJECTS",
+      "reveal": "We have two more education projects coming up. I'll keep you in the loop on those."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed they received the pricing",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if there were any questions on the quote",
+        "points": 5
+      },
+      {
+        "behavior": "Researched bid results (school board docs, owner contacts, Google)",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered to help win the project if it came in over budget",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Continued outreach when initial response was thin",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about future project pipeline",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed over-budget considerations and VE pathways",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Followed up within 1-2 days of bid opening",
+        "points": 5
+      },
+      {
+        "behavior": "Set tasks 1-2 weeks until contact established",
+        "points": 5
+      },
+      {
+        "behavior": "Set tasks 2-3 weeks out after initial contact",
+        "points": 5
+      },
+      {
+        "behavior": "Set additional tasks based on findings",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established contact and a clear next step",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged all communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "arch-05",
+  "category": "Architect",
+  "title": "AIA Design Considerations Request",
+  "persona": {
+    "name": "Daniel Ahn",
+    "role": "Associate Architect",
+    "organization": "Hartwell Beck Studio"
+  },
+  "openingLine": "Hi, I requested your Design Considerations for Secondary School Music Facilities document. I'm doing some research for the firm \u2014 we have a few school projects starting up. Anything else you can share that would help me get up to speed?",
+  "customerContext": "You're a mid-career architect at a 40-person firm. You're not the principal but you're the one doing the research because the firm just won three K-12 projects. You don't have time for a full sales pitch but you're genuinely curious about good music facility design.",
+  "hiddenInfo": [
+    {
+      "trigger": "FIRM PROJECT PIPELINE",
+      "reveal": "Three new K-12 projects in the next 18 months. Two renovations and one new build."
+    },
+    {
+      "trigger": "FIRM CERTIFICATION STATUS",
+      "reveal": "Most of the team isn't AIA-certified on Wenger content. We do continuing ed about quarterly."
+    },
+    {
+      "trigger": "DECISION INFLUENCE",
+      "reveal": "I'm not the spec author on these projects \u2014 I support the senior architects. But I shape the research that goes into specs."
+    },
+    {
+      "trigger": "AIA LUNCH-AND-LEARN INTEREST",
+      "reveal": "We do AIA CES events about once a quarter. Always interested in good content."
+    },
+    {
+      "trigger": "PRIOR WENGER EXPOSURE",
+      "reveal": "Senior architects have used Wenger before. I personally haven't."
+    },
+    {
+      "trigger": "SPECIFIC PROJECT NEEDS",
+      "reveal": "Two of the three projects have band, choir, and performance space scope."
+    },
+    {
+      "trigger": "OTHER PRODUCT INTEREST",
+      "reveal": "We also do athletics work. Lockers and storage come up regularly."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked about upcoming firm projects and pipeline",
+        "points": 5
+      },
+      {
+        "behavior": "Identified firm's active and future K-12 needs",
+        "points": 5
+      },
+      {
+        "behavior": "Researched the firm's prior project history",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Provided the Design Considerations content",
+        "points": 5
+      },
+      {
+        "behavior": "Offered the Wenger AIA presentation",
+        "points": 5
+      },
+      {
+        "behavior": "Walked through interior offerings beyond the document",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Proposed a lunch-and-learn to uncover multiple future projects",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed firm-wide awareness of Wenger solutions",
+        "points": 5
+      },
+      {
+        "behavior": "Offered individual meetings on specific upcoming projects",
+        "points": 5
+      },
+      {
+        "behavior": "Probed for athletics/locker scope as adjacent opportunity",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Identified architects influencing specs (senior architects, contact)",
+        "points": 5
+      },
+      {
+        "behavior": "Mapped future project pipeline as the timeline",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set concrete dates for AIA presentation or lunch-and-learn",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks tied to upcoming projects",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Scheduled lunch and learn",
+        "points": 5
+      },
+      {
+        "behavior": "Offered AIA certification path if not already certified",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented in Salesforce under specific projects",
+        "points": 5
+      },
+      {
+        "behavior": "Submitted AIA sign-in sheet (where applicable)",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

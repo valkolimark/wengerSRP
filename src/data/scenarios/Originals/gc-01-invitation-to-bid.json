@@ -42,27 +42,7 @@
   "scorecard": {
     "Discovery & Qualification": [
       {
-        "behavior": "Reviewed bid documents (drawings and specifications)",
-        "points": 5
-      },
-      {
-        "behavior": "Reviewed the entire bid, not just the CSS sections",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed bid date and identified products/scope bidding",
-        "points": 5
-      },
-      {
-        "behavior": "Checked addenda",
-        "points": 5
-      },
-      {
-        "behavior": "Reviewed RFI responses",
-        "points": 5
-      },
-      {
-        "behavior": "Reviewed spec/drawing changes",
+        "behavior": "Confirmed bid date and deliverables needed",
         "points": 5
       },
       {
@@ -80,14 +60,6 @@
     ],
     "Solution Framing": [
       {
-        "behavior": "Addressed pricing, discounting, RFIs, and substitutions",
-        "points": 5
-      },
-      {
-        "behavior": "Submitted RFI form (email or portal) where needed",
-        "points": 5
-      },
-      {
         "behavior": "Explained Wenger's installer network and how that lowers GC risk",
         "points": 5
       },
@@ -102,10 +74,6 @@
     ],
     "Opportunity Expansion": [
       {
-        "behavior": "Collaborated with PCE and TSM on plan of action",
-        "points": 5
-      },
-      {
         "behavior": "Asked about other upcoming projects with music scope",
         "points": 5
       },
@@ -115,14 +83,6 @@
       }
     ],
     "BANT": [
-      {
-        "behavior": "Confirmed bid due date (Timeline)",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed products being bid (Need)",
-        "points": 5
-      },
       {
         "behavior": "Confirmed budget allocation for the music/performance package",
         "points": 5
@@ -134,15 +94,7 @@
     ],
     "Timeline Awareness": [
       {
-        "behavior": "Tracked the bid due date",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed bid sent with TSM cc'd",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed bid note received from PCE for follow-up",
+        "behavior": "Committed to a turnaround that beats the bid deadline",
         "points": 5
       },
       {
@@ -151,10 +103,6 @@
       }
     ],
     "Closing & Next Steps": [
-      {
-        "behavior": "Bid sent with TSM cc'd",
-        "points": 5
-      },
       {
         "behavior": "Set a specific follow-up call before bid day",
         "points": 5
@@ -165,14 +113,6 @@
       }
     ],
     "Other": [
-      {
-        "behavior": "Forwarded invitation to PCE",
-        "points": 5
-      },
-      {
-        "behavior": "PCE forwarded to Construction Support Specialist",
-        "points": 5
-      },
       {
         "behavior": "Logged communication in Salesforce",
         "points": 5

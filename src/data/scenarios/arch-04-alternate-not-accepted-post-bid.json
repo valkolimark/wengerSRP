@@ -1,0 +1,124 @@
+{
+  "id": "arch-04",
+  "category": "Architect",
+  "title": "Alternate Not Accepted Post-Bid",
+  "persona": {
+    "name": "Hannah Voss",
+    "role": "Project Architect",
+    "organization": "Voss & Pell Architecture"
+  },
+  "openingLine": "I have some bad news on the Riverside project. The bids came in over budget and the alternates got cut \u2014 including the full-stage acoustic shell where Wenger was BOD. I know we worked hard on that spec. Wanted to let you know directly.",
+  "customerContext": "You're the lead architect and you spec'd Wenger as BOD for the full-stage acoustic shell as a bid alternate. The base bid came in $400K over and the school cut all the alternates. You feel bad about it but you've already mentally moved on to the next phase. You're not aware that Wenger has direct-purchase pathways outside the bid.",
+  "hiddenInfo": [
+    {
+      "trigger": "WHY ALTERNATES WERE REJECTED",
+      "reveal": "Base bid was $400K over budget. Alternates got cut to bring it back in line."
+    },
+    {
+      "trigger": "REMAINING BUDGET",
+      "reveal": "School has a separate technology/equipment budget \u2014 about $250K \u2014 that wasn't part of the construction bid."
+    },
+    {
+      "trigger": "SCHOOL DECISION MAKERS",
+      "reveal": "The principal and district performing arts director still really want the shell. They're frustrated."
+    },
+    {
+      "trigger": "POST-BID WINDOW",
+      "reveal": "Construction starts in 90 days. There's still time to procure the shell directly if they move."
+    },
+    {
+      "trigger": "CONSTRUCTION MANAGER ROLE",
+      "reveal": "CM is JKS Builders. They're flexible \u2014 they've done owner-furnished items before."
+    },
+    {
+      "trigger": "OTHER ARCHITECT PROJECTS",
+      "reveal": "I have two other school projects in early SD. Both could use acoustic shells."
+    },
+    {
+      "trigger": "OMNIA / NATIONAL CONTRACTS",
+      "reveal": "I've never used OMNIA but I've heard of it. The district might be a member \u2014 I'd need to check."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked why the alternates were rejected",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether any budget still exists outside construction",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Positioned OMNIA contract as an alternative buying path",
+        "points": 5
+      },
+      {
+        "behavior": "Offered a tailored layout and proposal for direct purchase",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Explored direct purchase outside the bid",
+        "points": 5
+      },
+      {
+        "behavior": "Engaged the CM about an alternate procurement approach",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about other projects in the architect's pipeline",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed remaining funds outside the construction bid",
+        "points": 5
+      },
+      {
+        "behavior": "Identified school decision makers who still want the shell",
+        "points": 5
+      },
+      {
+        "behavior": "Established post-bid timeline for direct procurement",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped procurement timeline against the 90-day construction start",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Committed to deliver an OMNIA proposal",
+        "points": 5
+      },
+      {
+        "behavior": "Initiated direct purchase conversation with the school",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

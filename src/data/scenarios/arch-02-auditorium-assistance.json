@@ -1,0 +1,136 @@
+{
+  "id": "arch-02",
+  "category": "Architect",
+  "title": "Auditorium Assistance Request",
+  "persona": {
+    "name": "Priya Chatterjee",
+    "role": "Senior Project Architect",
+    "organization": "Meridian Architecture Partners"
+  },
+  "openingLine": "Hey, I'm working on an auditorium renovation at Brookhaven High and I'm a little out of my depth on the stage and acoustic side. I'm sending you a PDF of the space \u2014 limited dimensions on it. Can you help me figure out what I should be specifying?",
+  "customerContext": "You're three years into your role and this is your first big auditorium project. The district hired your firm because of the academic work you've done \u2014 they didn't hire a theatre consultant. You're nervous about specifying stage and acoustic systems you don't fully understand and you're hoping the rep can fill the gap without making you look uninformed.",
+  "hiddenInfo": [
+    {
+      "trigger": "THEATRE CONSULTANT",
+      "reveal": "No theatre consultant on the team. District didn't budget for one."
+    },
+    {
+      "trigger": "PROJECT BUDGET",
+      "reveal": "$8.5M auditorium renovation. Stage/acoustic/rigging scope is roughly $1.3M of that."
+    },
+    {
+      "trigger": "DRAWINGS / CAD FILES",
+      "reveal": "We have CAD and Revit files but I haven't shared them yet \u2014 happy to send them over."
+    },
+    {
+      "trigger": "PIT FILLER / STAGE SHELL",
+      "reveal": "Existing pit but it's never used as a pit anymore. Owner wants it filled and usable as stage extension. No acoustic shell currently \u2014 wants one."
+    },
+    {
+      "trigger": "OWNER INVOLVEMENT",
+      "reveal": "The district facilities director and the music/theatre teachers are very involved. They've voiced strong opinions in design meetings."
+    },
+    {
+      "trigger": "TIMELINE / SCHEDULE",
+      "reveal": "Bid documents due in 14 weeks. Construction starts next summer."
+    },
+    {
+      "trigger": "PRIOR WENGER WORK",
+      "reveal": "I've used Wenger products on a small project two years ago \u2014 risers only. Never spec'd a full stage system."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked whether a theatre consultant is engaged",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about full stage shell needs",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about orchestra pit filler scope",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if CAD or Revit files are available",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about owner involvement and stakeholders",
+        "points": 5
+      },
+      {
+        "behavior": "Researched architect's prior Wenger work before the call",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered integration support given there's no theatre consultant",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to provide layouts via OppExchange",
+        "points": 5
+      },
+      {
+        "behavior": "Offered SpecBuilder for spec language",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Probed for music education and athletics scope on the project",
+        "points": 5
+      },
+      {
+        "behavior": "Identified full stage shell and pit filler as expansion opportunities",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed auditorium budget and scope",
+        "points": 5
+      },
+      {
+        "behavior": "Identified all decision makers (architect, owner, music/theatre staff)",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped Wenger involvement against the 14-week bid doc deadline",
+        "points": 5
+      },
+      {
+        "behavior": "Set concrete follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Committed to deliver layout, budget, and specifications",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to attend a design meeting in person or virtually",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

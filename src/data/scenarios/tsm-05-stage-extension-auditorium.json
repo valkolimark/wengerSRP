@@ -1,0 +1,128 @@
+{
+  "id": "tsm-05",
+  "category": "TSM",
+  "title": "Stage Extension in the Auditorium",
+  "persona": {
+    "name": "Greg Hanbaum",
+    "role": "High School Band Director",
+    "organization": "Avon High School"
+  },
+  "openingLine": "Hi, I need staging for performances in our auditorium and I saw on your website you make stage extensions. We don't have enough room on the existing stage for the full ensemble during concerts. Can someone come out and help me figure out what would work?",
+  "customerContext": "Your auditorium stage is too small for your 80-piece concert band. Right now you set up folding chairs on the floor, which sounds terrible and looks worse. You've been frustrated for years. The principal is on board because parents have been complaining about visibility. You're hoping this is finally getting addressed.",
+  "hiddenInfo": [
+    {
+      "trigger": "STAGE DIMENSIONS",
+      "reveal": "Existing stage is 36x20 ft. We need maybe 12-14 ft of extension for full band setup."
+    },
+    {
+      "trigger": "BUDGET STATUS",
+      "reveal": "Principal carved out $40K from the activity budget for this. That's the working number."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Want it before December concerts. About 4 months from now."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Principal already approved the budget. I just need to pick the solution."
+    },
+    {
+      "trigger": "STORAGE",
+      "reveal": "We have storage space behind the stage \u2014 I'd want it modular and easy to deploy."
+    },
+    {
+      "trigger": "OTHER USES",
+      "reveal": "Drama club would also use it. They do thrust staging sometimes."
+    },
+    {
+      "trigger": "ARCHITECT / CONSULTANT",
+      "reveal": "No one involved \u2014 just me and the principal."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Requested layout from facilities or offered field measurement",
+        "points": 5
+      },
+      {
+        "behavior": "Researched purchase history before the visit",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about needs, budget, and timeline up front",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for customer expectations",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if they're working with a consultant or architect",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered help if the project is over budget",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed National Contracts vs. competitive bidding",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed StageTek vs. Strata options",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Probed for drama and other shared uses of the staging",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Asked whether the project is funded and the budget amount",
+        "points": 5
+      },
+      {
+        "behavior": "Identified principal as primary approver",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed install timeline tied to December concerts",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Discussed the 1-2 week layout/pricing process",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks tied to the December deadline",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established clear next steps",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

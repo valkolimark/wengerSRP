@@ -46,7 +46,7 @@
         "points": 5
       },
       {
-        "behavior": "Requested layout from facilities or offered field measurement using Disto/Floor Planner",
+        "behavior": "Asked for layout from facilities or offered field measurement",
         "points": 5
       },
       {
@@ -54,11 +54,7 @@
         "points": 5
       },
       {
-        "behavior": "Asked about needs, budget/financing, and timeline up front",
-        "points": 5
-      },
-      {
-        "behavior": "Asked for customer expectations",
+        "behavior": "Asked about needs, budget, and timeline up front",
         "points": 5
       },
       {
@@ -84,7 +80,7 @@
     ],
     "BANT": [
       {
-        "behavior": "Discussed solution effectiveness and budget \u2014 including GearBoss shelving fit",
+        "behavior": "Discussed budget tied to solution effectiveness, not just price",
         "points": 5
       },
       {
@@ -100,10 +96,6 @@
       {
         "behavior": "Set concrete follow-up tasks with dates",
         "points": 5
-      },
-      {
-        "behavior": "Set additional follow-up tasks based on findings",
-        "points": 5
       }
     ],
     "Closing & Next Steps": [
@@ -118,7 +110,7 @@
     ],
     "Other": [
       {
-        "behavior": "Logged communication and engagement in Salesforce",
+        "behavior": "Logged communication in Salesforce",
         "points": 5
       }
     ]

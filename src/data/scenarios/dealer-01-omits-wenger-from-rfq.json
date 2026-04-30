@@ -1,0 +1,128 @@
+{
+  "id": "dealer-01",
+  "category": "Furniture Dealer",
+  "title": "Dealer Omits Wenger Product from an RFQ",
+  "persona": {
+    "name": "Erin McAllister",
+    "role": "Account Manager",
+    "organization": "Pacific Furnishings Group"
+  },
+  "openingLine": "Hey, I need pricing on the Maplewood project \u2014 sending you the bid docs now. We need quotes on the chairs, stands, risers, and lockers but skip the instrument storage, we're going a different direction on those.",
+  "customerContext": "You're a furniture dealer who got the bid through a relationship with the architect. You're going to bid the instrument storage with a competitor cabinet manufacturer because they offered you a better margin. You don't think Wenger needs to know \u2014 you're just asking for the rest. You'd rather not have a conversation about why the storage is missing.",
+  "hiddenInfo": [
+    {
+      "trigger": "WHY STORAGE IS OMITTED",
+      "reveal": "We're using Cardinal Cabinets on the storage. Better margin for us."
+    },
+    {
+      "trigger": "DISTRICT HISTORY",
+      "reveal": "The district has owned Wenger storage in two other buildings. Music director is pro-Wenger."
+    },
+    {
+      "trigger": "DISTRICT CONTACT",
+      "reveal": "Mostly working through the architect and the GC. Haven't talked directly to the music director on this one."
+    },
+    {
+      "trigger": "BID TIMELINE",
+      "reveal": "Public bid in 4 weeks."
+    },
+    {
+      "trigger": "PROJECT BUDGET",
+      "reveal": "$18M renovation. Music scope including all FF&E is around $620K."
+    },
+    {
+      "trigger": "OTHER PROJECTS",
+      "reveal": "We have two more education bids this quarter. Both have music scope."
+    },
+    {
+      "trigger": "FROM BOD",
+      "reveal": "Wenger was BOD for storage in the original budget docs but we're proposing alternates."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Clarified the missing scope and asked whether it was intentional",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the district has owned Wenger storage previously",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the district contact (music director, facilities)",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Confirmed pricing scope and key differentiators vs. competitors",
+        "points": 5
+      },
+      {
+        "behavior": "Engaged owner about possible VE on cabinets given Wenger's strength",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Discussed pricing structure given risk of being subbed",
+        "points": 5
+      },
+      {
+        "behavior": "Asked what other projects this dealer is working on",
+        "points": 5
+      },
+      {
+        "behavior": "Probed for athletics or other product needs in the building",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Understood why dealer is straying from BOD",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed budget for the project",
+        "points": 5
+      },
+      {
+        "behavior": "Identified who is making the decision",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed when the project will complete",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Confirmed bid timeline and submission requirements",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Documented pricing structure and committed to review bid tab",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

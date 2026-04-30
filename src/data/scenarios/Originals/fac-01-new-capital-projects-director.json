@@ -42,18 +42,6 @@
   "scorecard": {
     "Discovery & Qualification": [
       {
-        "behavior": "Researched district facilities, owned assets, and key initiatives",
-        "points": 5
-      },
-      {
-        "behavior": "Clarified the director's role in purchasing decisions",
-        "points": 5
-      },
-      {
-        "behavior": "Asked who specifies furnishings for new buildings",
-        "points": 5
-      },
-      {
         "behavior": "Asked what Wenger has done with the district historically",
         "points": 5
       },
@@ -68,21 +56,9 @@
       {
         "behavior": "Asked about pain points or inconsistencies across schools",
         "points": 5
-      },
-      {
-        "behavior": "Identified all relevant stakeholders (architects, engineers, contractors, district admin)",
-        "points": 5
       }
     ],
     "Solution Framing": [
-      {
-        "behavior": "Demonstrated understanding of the capital project process",
-        "points": 5
-      },
-      {
-        "behavior": "Discussed durability, performance, and warranty expectations",
-        "points": 5
-      },
       {
         "behavior": "Offered to bring a standardization proposal across schools",
         "points": 5
@@ -100,10 +76,6 @@
       {
         "behavior": "Asked about future bond measures or capital plans",
         "points": 5
-      },
-      {
-        "behavior": "Requested introductions to architects, engineers, or contractors involved",
-        "points": 5
       }
     ],
     "BANT": [
@@ -112,15 +84,7 @@
         "points": 5
       },
       {
-        "behavior": "Asked about decision authority and approval thresholds",
-        "points": 5
-      },
-      {
-        "behavior": "Discussed purchasing pathways and PO timing",
-        "points": 5
-      },
-      {
-        "behavior": "Asked about bond approvals and funding milestones",
+        "behavior": "Identified all decision makers and approval thresholds",
         "points": 5
       }
     ],
@@ -136,25 +100,17 @@
     ],
     "Closing & Next Steps": [
       {
-        "behavior": "Clarified next steps in the capital projects process",
-        "points": 5
-      },
-      {
         "behavior": "Proposed a quarterly check-in cadence",
         "points": 5
       },
       {
         "behavior": "Offered to do a district-wide assessment of music/performance spaces",
         "points": 5
-      },
-      {
-        "behavior": "Set follow-up tasks",
-        "points": 5
       }
     ],
     "Other": [
       {
-        "behavior": "Documented conversations in Salesforce",
+        "behavior": "Logged communication in Salesforce",
         "points": 5
       }
     ]

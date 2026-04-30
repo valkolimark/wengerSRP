@@ -1,0 +1,132 @@
+{
+  "id": "arch-03",
+  "category": "Architect",
+  "title": "Basis of Design Threatened by Competitors",
+  "persona": {
+    "name": "Tom\u00e1s Reyes",
+    "role": "Project Architect",
+    "organization": "Stratton & Vale Architects"
+  },
+  "openingLine": "Hey, I just issued the addendum on the Crestview project. I know Wenger was basis of design on the instrument storage but the casework contractor pushed back hard and we had to approve two competitors as equals. I figured I'd give you a heads up.",
+  "customerContext": "You spec'd Wenger as basis of design for instrument storage but it got lumped into the general casework package. The casework GC complained about pricing and pushed for substitutions. You approved two competitor cabinet manufacturers as equals \u2014 you didn't really evaluate them, you just trusted the contractor's word that they were comparable. You're feeling a little guilty about it but you also don't want to fight the contractor over $30K of cabinets.",
+  "hiddenInfo": [
+    {
+      "trigger": "WHY COMPETITORS WERE APPROVED",
+      "reveal": "Casework contractor said the alternates were equals and saved budget. I didn't do a deep comparison."
+    },
+    {
+      "trigger": "INSTRUMENT LIST / SCOPE",
+      "reveal": "I don't have a current instrument list \u2014 just specified standard cabinet sizes from Wenger's catalog."
+    },
+    {
+      "trigger": "OWNER INVOLVEMENT",
+      "reveal": "The music director was at the early design meetings but wasn't consulted on the addendum."
+    },
+    {
+      "trigger": "PRIOR DISTRICT WENGER PURCHASES",
+      "reveal": "District has Wenger storage in two other buildings. They've been happy with it."
+    },
+    {
+      "trigger": "BID PROCESS",
+      "reveal": "Bid is in three weeks. Casework is its own bid line in the general construction package."
+    },
+    {
+      "trigger": "CM / GC RELATIONSHIP",
+      "reveal": "CM is Hanlon Builders. They have their own preferred casework subs."
+    },
+    {
+      "trigger": "PROJECT VALUE",
+      "reveal": "$32M new high school. Music storage scope is roughly $180K."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked architect why the competitors were approved as equals",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the music director / owner was consulted",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about prior district Wenger purchases",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether an instrument list exists to validate the cabinets",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered cabinet samples to demonstrate differentiation",
+        "points": 5
+      },
+      {
+        "behavior": "Reinforced Wenger value vs. competitors (warranty, materials, testing)",
+        "points": 5
+      },
+      {
+        "behavior": "Offered a detailed cabinet layout to support the spec",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Asked CM/GC if music casework can be a separate bid package",
+        "points": 5
+      },
+      {
+        "behavior": "Engaged owner directly to confirm they want the Wenger solution",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed documents for other Wenger product opportunities on the project",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Aligned on pricing strategy with internal team",
+        "points": 5
+      },
+      {
+        "behavior": "Identified champions (architect, owner, CM/GC)",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed bid and post-bid timeline",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set tasks for pre-bid and post-bid follow-through",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Validated apples-to-apples bid comparison post-bid",
+        "points": 5
+      },
+      {
+        "behavior": "Alerted owner directly about the addendum impact",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

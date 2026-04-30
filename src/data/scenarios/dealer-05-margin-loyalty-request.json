@@ -1,0 +1,120 @@
+{
+  "id": "dealer-05",
+  "category": "Furniture Dealer",
+  "title": "Dealer Asking for Better Margin Support or Loyalty Program",
+  "persona": {
+    "name": "Linda Soriano",
+    "role": "VP of Sales",
+    "organization": "Birch & Olive Workplace"
+  },
+  "openingLine": "We've been promoting your brand heavily this year. We need a better discount tier or some kind of rebate program to stay motivated. It feels like other dealers are getting better deals than we are. What can you do?",
+  "customerContext": "You run sales at a mid-sized commercial dealer. You're a sharp negotiator and you genuinely have been pushing Wenger \u2014 but you're also fishing. You don't actually know if other dealers get better terms. You're testing what's possible and looking for any leverage you can get.",
+  "hiddenInfo": [
+    {
+      "trigger": "CURRENT PROMOTION ACTIVITY",
+      "reveal": "We've featured Wenger in three corporate campaigns this year and proposed it on 11 active opportunities."
+    },
+    {
+      "trigger": "DEALER HISTORY",
+      "reveal": "12-year dealer relationship. Generally a good ambassador. Mid-tier in volume."
+    },
+    {
+      "trigger": "ACTUAL SALES DRIVERS",
+      "reveal": "About 60% of our Wenger wins came because the end user already wanted it. We're not always driving the spec ourselves."
+    },
+    {
+      "trigger": "PRODUCT KNOWLEDGE",
+      "reveal": "Our acoustic and casework knowledge is decent. We don't know rigging or staging well."
+    },
+    {
+      "trigger": "DISCOUNTING HISTORY",
+      "reveal": "Recent proposals had discounts at the standard tier. Nothing flagged as out-of-line."
+    },
+    {
+      "trigger": "OTHER PRODUCT LINES SOLD",
+      "reveal": "We sell athletics product (lockers, gym equipment) too. Could potentially expand the Wenger relationship there."
+    },
+    {
+      "trigger": "EARLY-STAGE INVOLVEMENT REQUEST",
+      "reveal": "Honestly, we'd love Wenger to bring us into projects earlier. We catch most of them too late."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked how the dealer is currently promoting the brand",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed dealer history and ambassador track record",
+        "points": 5
+      },
+      {
+        "behavior": "Pulled true sales history from Salesforce \u2014 driving spec or following end user?",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered sales tools \u2014 case studies, comparisons, life-cycle calculators",
+        "points": 5
+      },
+      {
+        "behavior": "Identified VE solutions where dealer could bring more value",
+        "points": 5
+      },
+      {
+        "behavior": "Explained Wenger doesn't have preferred dealers \u2014 set expectations",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Proposed co-marketing \u2014 design support, training, joint sales calls",
+        "points": 5
+      },
+      {
+        "behavior": "Probed adjacent product lines \u2014 athletics, etc.",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Reviewed discounting structure on recent proposals",
+        "points": 5
+      },
+      {
+        "behavior": "Asked to be brought in earlier on projects for joint discovery",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set follow-up tasks for joint sales calls or training sessions",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Discussed volume-based or project-based discounting where appropriate",
+        "points": 5
+      },
+      {
+        "behavior": "Committed to earlier involvement on upcoming opportunities",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "dealer-04",
+  "category": "Furniture Dealer",
+  "title": "Dealer Complains About Lead Times or Service Support",
+  "persona": {
+    "name": "Russ Calhoun",
+    "role": "Operations Manager",
+    "organization": "Cornerstone Commercial Interiors"
+  },
+  "openingLine": "Look, our customer is fed up. Your equipment took twice as long to ship as you promised. Now they're questioning whether we should ever propose your line again. What are you going to do about this?",
+  "customerContext": "You're on the operations side, not sales. You don't really know the original quote terms \u2014 you just know your install team was scheduled and the product wasn't there. You're under pressure from your sales team to fix the customer relationship and you're taking it out on Wenger because you don't have anyone else to take it out on.",
+  "hiddenInfo": [
+    {
+      "trigger": "ROOT CAUSE",
+      "reveal": "Order was placed in May. Quoted 8 weeks. Actual was 14 weeks. The quote did note a longer lead time for the special-order finish."
+    },
+    {
+      "trigger": "ORIGINAL QUOTE TERMS",
+      "reveal": "The sales rep promised 8 weeks verbally to the customer but the written quote said 'subject to material availability.'"
+    },
+    {
+      "trigger": "ACTUAL DELAY CAUSE",
+      "reveal": "Special-order finish caused the delay. Internal Wenger note in Salesforce flagged it but it didn't get to the dealer clearly."
+    },
+    {
+      "trigger": "CUSTOMER STATUS",
+      "reveal": "Customer is a private school. The product is installed now and they're satisfied with the actual product."
+    },
+    {
+      "trigger": "COMMUNICATION GAPS",
+      "reveal": "Wenger didn't proactively notify when the lead time slipped. Dealer found out from the customer asking where their stuff was."
+    },
+    {
+      "trigger": "DEALER FUTURE PIPELINE",
+      "reveal": "We have three more projects in the pipeline. Two are Wenger-friendly. One is going competitor unless we get this right."
+    },
+    {
+      "trigger": "RESOLUTION ASK",
+      "reveal": "We're not asking for credits, we're asking for confidence that this won't happen again."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Identified root cause \u2014 manufacturing, shipping, or upstream",
+        "points": 5
+      },
+      {
+        "behavior": "Worked with order support / customer service to understand the case",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed Salesforce history for context",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Took ownership of the delay and validated concerns",
+        "points": 5
+      },
+      {
+        "behavior": "Worked with Customer Service on a recovery plan",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Set sales-cycle expectations for future project planning",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Asked whether scope, timeline, and lead time were clearly communicated up front",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Confirmed how lead-time communication will work going forward",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Set a clear plan forward and committed to proactive comms",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Put account-level notes in Salesforce on any special handling",
+        "points": 5
+      },
+      {
+        "behavior": "Documented all conversation in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

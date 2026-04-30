@@ -1,0 +1,132 @@
+{
+  "id": "td-04",
+  "category": "Tech Director",
+  "title": "Santa Rosa CC \u2014 Pit Filler Replacement",
+  "persona": {
+    "name": "Glen Halverson",
+    "role": "Theatre Technical Director",
+    "organization": "Santa Rosa Community College"
+  },
+  "openingLine": "Hey, our pit filler is 30 years old and falling apart. I'm reaching out to a few vendors for a product review, layout, and pricing. Can you put something together?",
+  "customerContext": "You're a hands-on TD who knows your venue better than anyone. You're explicitly shopping multiple vendors \u2014 you're not committed to Wenger. You want a fair quote and a thoughtful review of options. You're not interested in a heavy sales pitch, but if a rep brings real expertise to the conversation, you'll listen.",
+  "hiddenInfo": [
+    {
+      "trigger": "EXISTING PIT FILLER",
+      "reveal": "30-year-old wood-and-metal system. Heavy, dangerous to deploy, 2-3 students injured handling it over the years."
+    },
+    {
+      "trigger": "DRAWINGS AVAILABLE",
+      "reveal": "I have legacy drawings of the pit dimensions but they're hand-marked and dated."
+    },
+    {
+      "trigger": "ON-SITE WALK",
+      "reveal": "I'd much rather you come on site than work from drawings. Or I can send pictures."
+    },
+    {
+      "trigger": "OTHER PROJECTS IN BUILDING",
+      "reveal": "We're also looking at acoustic improvements in the main hall over the next 2 years."
+    },
+    {
+      "trigger": "RENTAL & CC USE",
+      "reveal": "We rent the auditorium to the community quite a bit. Heavy use cycles."
+    },
+    {
+      "trigger": "PROCUREMENT METHOD",
+      "reveal": "Could go contract or direct. Under $75K we can buy direct, over that needs to bid."
+    },
+    {
+      "trigger": "BUDGET",
+      "reveal": "We have $90K committed for the pit filler. Tight but real."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Want it installed before fall semester \u2014 roughly 5 months."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed age and condition of existing pit filler",
+        "points": 5
+      },
+      {
+        "behavior": "Requested drawings if available",
+        "points": 5
+      },
+      {
+        "behavior": "Set a meeting to get on site or get pictures of the space",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Explained product options and differences (Strata vs. StageTek)",
+        "points": 5
+      },
+      {
+        "behavior": "Provided relevant literature and samples",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Asked about automation and related needs",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about other projects in the building",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed rentals and community college shared use",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed procurement method (contract vs. direct)",
+        "points": 5
+      },
+      {
+        "behavior": "Inquired about additional projects or needs",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed evaluation and purchasing timeline",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed budget and funding status",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped delivery timeline to the fall semester start",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Outlined next steps for layout, pricing, and follow-up",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

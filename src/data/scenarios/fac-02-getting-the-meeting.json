@@ -1,0 +1,108 @@
+{
+  "id": "fac-02",
+  "category": "Facilities",
+  "title": "Getting the Meeting \u2014 Facilities / Capital Projects",
+  "persona": {
+    "name": "(prospect \u2014 multiple touchpoints)",
+    "role": "Director of Capital Projects (target)",
+    "organization": "Westridge County Schools"
+  },
+  "openingLine": "(This is an outreach scenario \u2014 no opening from the customer. The trainee initiates contact based on the bond passing.)",
+  "customerContext": "Westridge County Schools just passed a $200M bond for one new middle school and two high school replacements. You haven't worked with this district before but a peer rep mentioned the bond passed. The Director of Capital Projects has a reputation for being hard to reach \u2014 most reps don't get past the gatekeeper. The trainee's job is to get the meeting.",
+  "hiddenInfo": [
+    {
+      "trigger": "DISTRICT BACKGROUND",
+      "reveal": "Westridge has 14 schools and just passed a $200M bond. Brand new construction is on the horizon."
+    },
+    {
+      "trigger": "PRIOR WENGER WORK",
+      "reveal": "No record of any Wenger work with Westridge in the past 10 years. Cold territory."
+    },
+    {
+      "trigger": "DIRECTOR PROFILE",
+      "reveal": "Director Sara Mendel. 12 years in the role. Hard to reach by phone. Responds to email about 30% of the time."
+    },
+    {
+      "trigger": "ALTERNATIVE ENTRY POINTS",
+      "reveal": "District has high-profile band, choir, and athletics programs. Music director and AD might be more reachable."
+    },
+    {
+      "trigger": "WEBSITE INFO",
+      "reveal": "District website lists Mendel's email, the assistant superintendent for facilities, and a general procurement contact."
+    },
+    {
+      "trigger": "DECISION AUTHORITY",
+      "reveal": "Mendel approves capital projects scope. Superintendent signs off above $1M. Board for over $5M."
+    },
+    {
+      "trigger": "COMPETITIVE LANDSCAPE",
+      "reveal": "Two competitor companies have done work with this district before \u2014 both are likely to be in the mix."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Reviewed Salesforce for recent district projects and prior contacts",
+        "points": 5
+      },
+      {
+        "behavior": "Used district hierarchy / contact reports to identify capital projects leadership",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed district website to identify the facilities or capital projects owner",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Used a structured outreach approach (calls + emails)",
+        "points": 5
+      },
+      {
+        "behavior": "Sent catalogs with personalized cover letter when initial outreach failed",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Contacted band, orchestra, choir teachers, or athletic directors to expand access",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Attempted to identify decision authority on capital projects",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set persistent, scheduled follow-up over weeks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Requested a meeting with the capital projects contact",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented conversations and emails in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

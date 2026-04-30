@@ -1,0 +1,116 @@
+{
+  "id": "gc-03",
+  "category": "GC/CM",
+  "title": "Budget Estimate Request \u2014 Wenger Not Listed",
+  "persona": {
+    "name": "Yolanda Briggs",
+    "role": "Preconstruction Manager",
+    "organization": "Foothill Builders LLC"
+  },
+  "openingLine": "Hey, I sent you an email with a link to the bid docs for the Westridge new school project. I need a budget estimate. Wenger isn't named in the docs but I think there's some music casework in there \u2014 figured I'd check.",
+  "customerContext": "You're handling preconstruction for a new K-8 school. The architect didn't spec Wenger \u2014 they used generic 'music casework' language. You don't really know the music product space. You're treating Wenger as one of several possible suppliers and you're trying to get budget numbers for an early estimate.",
+  "hiddenInfo": [
+    {
+      "trigger": "PROJECT TYPE / VALUE",
+      "reveal": "$45M new K-8 school. Music spaces include band, choir, and a small practice room."
+    },
+    {
+      "trigger": "MUSIC CASEWORK SCOPE",
+      "reveal": "Drawings show a music storage room \u2014 about 250 SF \u2014 but no detailed casework spec."
+    },
+    {
+      "trigger": "WENGER IN SPEC",
+      "reveal": "Not listed by name. Spec says 'music storage casework \u2014 by general casework supplier.'"
+    },
+    {
+      "trigger": "DISTRICT HISTORY",
+      "reveal": "I don't know if the district has bought Wenger before. I'm new to this district."
+    },
+    {
+      "trigger": "VE OPPORTUNITY",
+      "reveal": "Owner has flagged that they want VE alternates. Music storage might be a candidate to upgrade."
+    },
+    {
+      "trigger": "ARCHITECT RELATIONSHIP",
+      "reveal": "Architect is Hodges + Shea. They've been responsive to substitution requests on past projects."
+    },
+    {
+      "trigger": "BID DEADLINE",
+      "reveal": "Budget estimate due to me in 10 days. Bid is in 6 weeks."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Called the CM directly to confirm scope",
+        "points": 5
+      },
+      {
+        "behavior": "Checked Salesforce for prior contacts or conversations with district owners",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the district has previously purchased Wenger cabinets",
+        "points": 5
+      },
+      {
+        "behavior": "Assessed whether this could be a VE product line",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Explained Wenger's solutions and value vs. generic casework",
+        "points": 5
+      },
+      {
+        "behavior": "Requested Wenger product be included in the bid",
+        "points": 5
+      },
+      {
+        "behavior": "Submitted a Substitution Request Form",
+        "points": 5
+      },
+      {
+        "behavior": "Connected with the architect to lock in spec language",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Followed up with the CM for a connection if no initial response",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed budget and bid timeline",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Aligned response to the 10-day budget estimate window",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established next step with the CM and architect",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged all communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

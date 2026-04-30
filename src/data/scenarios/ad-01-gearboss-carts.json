@@ -1,0 +1,140 @@
+{
+  "id": "ad-01",
+  "category": "Athletic Director",
+  "title": "GearBoss Carts \u2014 High School Replacement",
+  "persona": {
+    "name": "Curtis Manning",
+    "role": "Athletic Director",
+    "organization": "Waco ISD"
+  },
+  "openingLine": "Hey, I'm the AD at Waco ISD. We're in the process of replacing Waco High School and I just learned about your GearBoss product. I have a drawing of our space \u2014 could you recommend what we may need?",
+  "customerContext": "You manage athletics across the district and the new high school replacement is a once-in-a-generation chance to do storage right. You don't know much about Wenger but a peer AD in another district mentioned GearBoss. You're an action-oriented person who wants someone to look at your drawing and tell you what you need \u2014 you don't want a long sales process.",
+  "hiddenInfo": [
+    {
+      "trigger": "INVENTORY BY SPORT",
+      "reveal": "Football is biggest \u2014 110 players, full pads. Then basketball, baseball, soccer, track, wrestling, volleyball, golf."
+    },
+    {
+      "trigger": "PRIOR GEARBOSS",
+      "reveal": "Two of our middle schools have older GearBoss shelving. Coaches like it."
+    },
+    {
+      "trigger": "PROCUREMENT PATH",
+      "reveal": "District is on Sourcewell. We can buy direct on contract or run it through the GC."
+    },
+    {
+      "trigger": "BUDGET",
+      "reveal": "Athletic FF&E budget for the new school is around $480K. GearBoss could be 30-40% of that."
+    },
+    {
+      "trigger": "OTHER OPTIONS BEING CONSIDERED",
+      "reveal": "We haven't looked at competitors seriously yet. You're the first call."
+    },
+    {
+      "trigger": "AIRPRO LOCKERS",
+      "reveal": "We've heard of AirPro lockers but haven't priced them. Football coach is interested."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "School opens in 18 months. We need product on site about 3 months before that."
+    },
+    {
+      "trigger": "OTHER SCHOOLS",
+      "reveal": "If this works, we have two more high schools and three middle schools to upgrade over the next 5 years."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked for inventory list by sport",
+        "points": 5
+      },
+      {
+        "behavior": "Identified football as the highest-configuration sport",
+        "points": 5
+      },
+      {
+        "behavior": "Checked Salesforce for previous GearBoss ownership in district",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether other options are being considered",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Explained differences between team, X, and sport carts",
+        "points": 5
+      },
+      {
+        "behavior": "Recommended carts based on sport-specific needs",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about including AirPro locker rooms",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Discussed incorporating GearBoss shelving",
+        "points": 5
+      },
+      {
+        "behavior": "Suggested carts for all storage rooms",
+        "points": 5
+      },
+      {
+        "behavior": "Identified other schools or districts needing this solution",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed budget considerations and asked the budget",
+        "points": 5
+      },
+      {
+        "behavior": "Asked how products will be procured (contract vs. bid)",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed project timeline",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped delivery timeline against the 18-month school open",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Explained next steps clearly",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

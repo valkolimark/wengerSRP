@@ -1,0 +1,132 @@
+{
+  "id": "tsm-03",
+  "category": "TSM",
+  "title": "Practice Rooms",
+  "persona": {
+    "name": "Greg Hanbaum",
+    "role": "High School Band Director",
+    "organization": "Avon High School"
+  },
+  "openingLine": "Hi, I was at MEA last weekend and I saw your practice room booths. I'd love to add some at my school \u2014 can someone come out and tell me whether they'd even fit and what we'd need to do?",
+  "customerContext": "You're excited about what you saw at the conference. You haven't talked to your principal or district yet \u2014 you're in the 'gathering information' phase. You don't have a budget but you do have a vision: you've been begging for individual practice space for years and you want to make a strong case.",
+  "hiddenInfo": [
+    {
+      "trigger": "BUDGET STATUS",
+      "reveal": "No budget allocated. I'm gathering info to build a case to the principal."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Realistically next school year, maybe the year after, depending on funding."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Principal first, then the district facilities team, then probably the school board for anything large."
+    },
+    {
+      "trigger": "ROOM AVAILABILITY",
+      "reveal": "I have some open floor space in the band room that could fit 2-3 booths. Or we could carve up an unused practice area down the hall."
+    },
+    {
+      "trigger": "ARCHITECT / CONSULTANT",
+      "reveal": "No one. This is a freestanding equipment purchase, not a renovation."
+    },
+    {
+      "trigger": "PROGRAM SIZE",
+      "reveal": "I have 140 kids in band and they need way more individual practice access than we currently have."
+    },
+    {
+      "trigger": "STUDIO ALTERNATIVE",
+      "reveal": "I haven't thought about Studio \u2014 only saw the booths at the show."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Requested layout from facilities or offered field measurement",
+        "points": 5
+      },
+      {
+        "behavior": "Researched purchase history before the visit",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about needs, budget, and timeline up front",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for customer expectations",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if they're working with a consultant or architect",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Discussed National Contracts vs. competitive bidding",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed Wenger Advantage Guarantee for SoundLok",
+        "points": 5
+      },
+      {
+        "behavior": "Offered help if the project is over budget",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Probed for Studio option as an alternative or complement",
+        "points": 5
+      },
+      {
+        "behavior": "Probed for adjacent storage or rehearsal space needs",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed budget tied to effectiveness",
+        "points": 5
+      },
+      {
+        "behavior": "Identified all decision makers (principal, district, school board)",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed timeline expectations",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Discussed the 1-2 week layout/pricing process",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established clear next steps",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

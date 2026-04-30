@@ -1,0 +1,120 @@
+{
+  "id": "td-03",
+  "category": "Tech Director",
+  "title": "UCLA \u2014 New Performing Arts Center",
+  "persona": {
+    "name": "Camila Reyes-Vance",
+    "role": "Theatre Technical Director",
+    "organization": "UCLA School of Theater, Film and Television"
+  },
+  "openingLine": "We're building a new PAC and I want Wenger involved from day one. I've used your products my whole career \u2014 student and professional \u2014 and I trust the brand. Where do we go from here?",
+  "customerContext": "You're a Wenger champion. You don't need convincing on the brand. What you need is a rep who can match your level of sophistication, run point on a complex multi-stakeholder project, and not waste your time. You're the kind of customer who can become a powerful internal advocate or quickly become disappointed if the rep is junior.",
+  "hiddenInfo": [
+    {
+      "trigger": "PROJECT SCALE",
+      "reveal": "$140M new PAC with main hall, recital hall, black box, and rehearsal spaces."
+    },
+    {
+      "trigger": "CURRENT STAKEHOLDERS",
+      "reveal": "Architect: Diller Scofidio + Renfro. Theatre consultant: Fisher Dachs. Acoustician: Threshold Acoustics."
+    },
+    {
+      "trigger": "PROCUREMENT STRATEGY",
+      "reveal": "University procurement requires public bid above $200K. Some equipment can be sole-sourced via spec."
+    },
+    {
+      "trigger": "OTHER VENUES NEEDING WENGER",
+      "reveal": "Each space has different needs \u2014 main hall needs full rigging, recital hall acoustic shell, black box flexible staging, rehearsal needs SoundLok-style isolation."
+    },
+    {
+      "trigger": "AUTOMATION & CLOUD CONTROL",
+      "reveal": "Faculty want automation across all venues with centralized cloud control. This is a big asks."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Me, the Dean, the project's executive committee, and the university's capital projects office."
+    },
+    {
+      "trigger": "BID TIMING",
+      "reveal": "DD wraps in 6 months. CDs and bid in 12 months. Construction starts 18 months out."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed project details in Salesforce",
+        "points": 5
+      },
+      {
+        "behavior": "Identified consultants and key stakeholders",
+        "points": 5
+      },
+      {
+        "behavior": "Set up a meeting with stakeholders",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Positioned Wenger as industry leader and trusted advisor",
+        "points": 5
+      },
+      {
+        "behavior": "Scheduled a qualification or overview call with the team",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Identified additional venue owners and stakeholders",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed automation and cloud control across venues",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Verified project procurement strategy",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed bid timing and overall project schedule",
+        "points": 5
+      },
+      {
+        "behavior": "Identified all decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped engagement to DD/CD/bid milestones",
+        "points": 5
+      },
+      {
+        "behavior": "Set tasks for routine follow-through",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Planned joint meetings with decision makers and designers",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

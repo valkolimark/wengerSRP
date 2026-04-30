@@ -1,0 +1,120 @@
+{
+  "id": "fac-03",
+  "category": "Facilities",
+  "title": "Purchasing Department Meeting",
+  "persona": {
+    "name": "Robert Sanchez",
+    "role": "Director of Purchasing",
+    "organization": "Riverdale Public Schools"
+  },
+  "openingLine": "Thanks for coming in. Honestly, I'm not the one who picks the music or theatre stuff \u2014 facilities and the principals do that. But I run the purchasing process, so tell me what I need to know about Wenger and how we'd buy your products if it came up.",
+  "customerContext": "You're the procurement gatekeeper for a 30-school district. You don't know products \u2014 you know contracts, RFPs, bid pathways, and approval workflows. You're not your district's customer in a traditional sense, but you're the person who can make a purchase smooth or painful. You appreciate vendors who respect your role and don't try to sell you on the product.",
+  "hiddenInfo": [
+    {
+      "trigger": "PURCHASING ROLE",
+      "reveal": "I manage all bid processes, RFPs, contract approvals, and PO workflows. I'm not on the spec side."
+    },
+    {
+      "trigger": "CAPITAL PROJECT HANDLING",
+      "reveal": "Capital project purchases under $250K go through me directly. Above that, they're handled by capital projects with my office in the loop."
+    },
+    {
+      "trigger": "PROCUREMENT METHODS",
+      "reveal": "We use bid for anything over $50K, coop contracts (Sourcewell, OMNIA, BuyBoard) for many smaller items, design-build occasionally."
+    },
+    {
+      "trigger": "APPROVAL WORKFLOW",
+      "reveal": "Under $25K: principal/department head. $25-100K: assistant superintendent. $100-500K: superintendent. Over $500K: school board."
+    },
+    {
+      "trigger": "TIMELINE FROM REQUEST TO PO",
+      "reveal": "Standard PO is 2-3 weeks once approved. Bid process is 8-12 weeks end to end. Coop contract purchase can be 1-2 weeks."
+    },
+    {
+      "trigger": "OTHER DISTRICT CONTACTS",
+      "reveal": "You should also know our facilities director, the assistant superintendent for operations, and the music/athletics department heads."
+    },
+    {
+      "trigger": "UPCOMING NEEDS",
+      "reveal": "We have three middle school refresh projects coming up next year. Music storage and acoustics are in scope."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Clarified purchasing department's role in district buying decisions",
+        "points": 5
+      },
+      {
+        "behavior": "Determined whether capital project purchases are handled by purchasing or another group",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Explained Wenger product lines and overall offering",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed Wenger warranty and product differentiation",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Asked which additional district contacts to engage",
+        "points": 5
+      },
+      {
+        "behavior": "Identified other product needs aligned to Wenger solutions",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Asked about current or upcoming budget needs",
+        "points": 5
+      },
+      {
+        "behavior": "Clarified purchasing methods (bid, coop, CM, design-build)",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about approval workflow and authority thresholds",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about typical timelines from request to purchase",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set follow-up tasks tied to upcoming project timelines",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Asked if a quote is needed now",
+        "points": 5
+      },
+      {
+        "behavior": "Clarified next steps and follow-up actions",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

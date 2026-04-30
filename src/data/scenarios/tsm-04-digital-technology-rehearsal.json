@@ -1,0 +1,128 @@
+{
+  "id": "tsm-04",
+  "category": "TSM",
+  "title": "Digital Technology for Rehearsal Room",
+  "persona": {
+    "name": "Greg Hanbaum",
+    "role": "High School Band Director",
+    "organization": "Avon High School"
+  },
+  "openingLine": "Hi, I was at Midwest Clinic and I saw the new rehearsal room technology you're showing. I want to know more \u2014 can someone come out and figure out if it'll work in my room? I'm not super technical so I want to understand what I'd actually be getting.",
+  "customerContext": "You're intrigued but cautious. You've been burned by tech that overpromises before \u2014 the old SmartBoard you bought a decade ago is collecting dust. You want someone to walk you through this honestly, not give you a sales pitch. Your principal is supportive but also cynical about education technology.",
+  "hiddenInfo": [
+    {
+      "trigger": "BUDGET STATUS",
+      "reveal": "No specific budget yet. Principal said he'd look at it if it's compelling."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "If funding came through quickly, this school year. Otherwise next."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Principal first, then district tech department has to bless it because of integration concerns."
+    },
+    {
+      "trigger": "ROOM SETUP",
+      "reveal": "Standard rectangular band room, 50x40 ft. Has projector and basic AV but nothing music-specific."
+    },
+    {
+      "trigger": "EXISTING TECHNOLOGY",
+      "reveal": "We have iPads for some students but no centralized recording or playback. SmartMusic for some students."
+    },
+    {
+      "trigger": "CONCERNS",
+      "reveal": "I worry about training. Whatever we get has to be usable on day one or it'll sit in a corner."
+    },
+    {
+      "trigger": "OTHER STAKEHOLDERS",
+      "reveal": "My choir colleague would want to use it too. Could be shared across rooms."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Requested layout from facilities or offered field measurement",
+        "points": 5
+      },
+      {
+        "behavior": "Researched purchase history before the visit",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about needs, budget, and timeline up front",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for customer expectations and concerns",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if they're working with a consultant or architect",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Offered help if the project is over budget",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed National Contracts vs. competitive bidding",
+        "points": 5
+      },
+      {
+        "behavior": "Explained training and onboarding plan, not just product",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Probed for additional rooms or programs that could share the technology",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Asked whether the project has a budget or funding source",
+        "points": 5
+      },
+      {
+        "behavior": "Identified principal and district tech as approvers",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed when they want the solution in place",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Discussed the 1-2 week layout/pricing process",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks based on findings",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established clear next steps",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

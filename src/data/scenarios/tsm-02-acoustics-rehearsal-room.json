@@ -1,0 +1,120 @@
+{
+  "id": "tsm-02",
+  "category": "TSM",
+  "title": "Acoustics for Rehearsal Room",
+  "persona": {
+    "name": "Greg Hanbaum",
+    "role": "High School Band Director",
+    "organization": "Avon High School"
+  },
+  "openingLine": "Hi, this is Greg at Avon High. I just got back from a doctor's appointment and they told me I'm starting to lose hearing. I think part of it is the band room \u2014 it's just brutal in there. Can someone come out and look at it for acoustic treatment?",
+  "customerContext": "You're 47 and your audiologist just confirmed early-onset hearing loss. You're scared, frustrated, and emotional about it. The band room has always been loud and you've shrugged it off, but now it feels personal. You don't have funding lined up \u2014 you're calling because you don't know who else to call. You need someone who takes you seriously.",
+  "hiddenInfo": [
+    {
+      "trigger": "EMOTIONAL CONTEXT",
+      "reveal": "I've been a band director for 22 years. This is the first time I've worried about my own health from the room."
+    },
+    {
+      "trigger": "ROOM DIMENSIONS",
+      "reveal": "Roughly 40x50 ft with a 16 ft ceiling. Concrete block walls, painted, no treatment."
+    },
+    {
+      "trigger": "BUDGET STATUS",
+      "reveal": "Nothing allocated. Principal said 'bring me a number and I'll see what I can do.'"
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "I'd love something done before next school year \u2014 that's six months out."
+    },
+    {
+      "trigger": "ARCHITECT / CONSULTANT",
+      "reveal": "Not working with anyone. The district has facilities people but no one with acoustic background."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Principal can approve up to $25K. Anything more goes to the district."
+    },
+    {
+      "trigger": "PRIOR WENGER PURCHASES",
+      "reveal": "We have Wenger chairs and stands but never any acoustic products."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Requested layout from facilities or offered field measurement",
+        "points": 5
+      },
+      {
+        "behavior": "Researched purchase history before the visit",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about needs, budget, and timeline up front",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for customer expectations and what success looks like",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if they're working with a consultant or architect",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Discussed national contracts vs. competitive bidding",
+        "points": 5
+      },
+      {
+        "behavior": "Offered help if the project is over budget (phasing, alternates)",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Probed for additional space needs beyond the band room",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed budget tied to solution effectiveness, not just price",
+        "points": 5
+      },
+      {
+        "behavior": "Identified principal and district as decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Discussed the 1-2 week layout/pricing process",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks tied to the start-of-school deadline",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established clear next steps",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

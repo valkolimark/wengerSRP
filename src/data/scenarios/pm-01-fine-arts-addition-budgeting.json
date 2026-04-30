@@ -1,0 +1,144 @@
+{
+  "id": "pm-01",
+  "category": "Project Management",
+  "title": "Salesforce Project Management \u2014 Fine Arts Addition",
+  "persona": {
+    "name": "Wesley Kim",
+    "role": "Preconstruction Estimator",
+    "organization": "Eastfield Builders"
+  },
+  "openingLine": "Hi, we're working up budget numbers for a fine arts addition at Northbrook Middle School and the architect has Wenger in the spec. Can you send me budget numbers for the music scope so we can roll it into our overall estimate?",
+  "customerContext": "You're a GC estimator who has gotten a request from the architect for early budgeting. The project is at SD level \u2014 you don't have full drawings, just a program brief. You need a rough budget to give the owner. You're not used to managing complex Wenger scope and you'd appreciate a rep who can drive the process.",
+  "hiddenInfo": [
+    {
+      "trigger": "PROJECT IN SALESFORCE",
+      "reveal": "Project may already be in Salesforce \u2014 we attended an early design meeting 4 months ago."
+    },
+    {
+      "trigger": "PRIOR CONTACTS",
+      "reveal": "We've had conversations with the music director and the assistant superintendent. Both are pro-Wenger."
+    },
+    {
+      "trigger": "PROJECT SCOPE FROM DOCS",
+      "reveal": "Fine arts addition \u2014 about 18,000 SF. Includes band room, choir room, and small black box."
+    },
+    {
+      "trigger": "DRAWINGS AVAILABLE",
+      "reveal": "Just a program brief and SD-level floor plan. No detailed drawings yet."
+    },
+    {
+      "trigger": "BUDGET INTENT",
+      "reveal": "Owner wants ROM budget within 2 weeks. Final budget at DD."
+    },
+    {
+      "trigger": "STAKEHOLDERS",
+      "reveal": "Architect (Sterling Group), district facilities, music director, assistant superintendent."
+    },
+    {
+      "trigger": "BID TIMELINE",
+      "reveal": "Project bids in roughly 9 months. Construction targets 18 months out."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Assistant superintendent and the school board for final approval."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed whether the project exists in Salesforce",
+        "points": 5
+      },
+      {
+        "behavior": "Checked for prior conversations with key contacts",
+        "points": 5
+      },
+      {
+        "behavior": "Identified project scope from available budget documents",
+        "points": 5
+      },
+      {
+        "behavior": "Requested drawings and any documents available for review",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Explained how to internalize and manage the project in Salesforce",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the information needed to advance the opportunity",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Identified additional stakeholders (architect, owner, RPAM)",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed leveraging owner or architect to gain insight",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Reviewed budget status and intent of the request",
+        "points": 5
+      },
+      {
+        "behavior": "Clarified what level of budget participation is required",
+        "points": 5
+      },
+      {
+        "behavior": "Asked when the project is expected to bid",
+        "points": 5
+      },
+      {
+        "behavior": "Asked when the project is expected to be completed",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Aligned response to the 2-week ROM budget window",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks tied to DD and bid timing",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Outlined next internal and external follow-up actions clearly",
+        "points": 5
+      },
+      {
+        "behavior": "Identified next steps to gather missing information",
+        "points": 5
+      },
+      {
+        "behavior": "Added contact roles in Salesforce",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

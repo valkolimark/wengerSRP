@@ -1,0 +1,120 @@
+{
+  "id": "gc-02",
+  "category": "GC/CM",
+  "title": "Post-Bid GC Awarded but Didn't Pull a Wenger Number",
+  "persona": {
+    "name": "Brent Kowalski",
+    "role": "Project Manager",
+    "organization": "Cardinal Construction Group"
+  },
+  "openingLine": "Yeah, we got awarded the Pinewood project last week. I know your stuff was in the spec \u2014 pit filler \u2014 but we didn't pull a number from you, we used Stage Pro. Is there something you needed from us?",
+  "customerContext": "You're a busy PM who just won a big award. You used a competitor on the pit filler because your estimator had their number from a previous project and didn't want to chase a new quote with the bid clock running. You're not against Wenger \u2014 you just took the path of least resistance. You're a little annoyed that a sales rep is calling you about a bid that's already over.",
+  "hiddenInfo": [
+    {
+      "trigger": "WHY COMPETITOR WAS USED",
+      "reveal": "Estimator had Stage Pro's number from a previous bid. Easier to use it than chase a new one."
+    },
+    {
+      "trigger": "WHO YOU TOOK",
+      "reveal": "Stage Pro. They quoted us $87K."
+    },
+    {
+      "trigger": "OWNER COMMUNICATION",
+      "reveal": "We haven't talked to the owner about it. They saw the spec and assumed we used it."
+    },
+    {
+      "trigger": "BID DOCS APPROVAL",
+      "reveal": "Wenger was approved in the bid docs but not basis of design \u2014 the spec said 'Wenger or approved equal.'"
+    },
+    {
+      "trigger": "POST-BID FLEXIBILITY",
+      "reveal": "Contract isn't signed yet. We could swap if there's a real reason to."
+    },
+    {
+      "trigger": "TARGET PRICE",
+      "reveal": "If you can match $87K and prove it's a real apples-to-apples, I'd consider it."
+    },
+    {
+      "trigger": "OWNER PREFERENCE",
+      "reveal": "School board approved the project. Music director was in the design meetings."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Reached out to the GC promptly",
+        "points": 5
+      },
+      {
+        "behavior": "Asked why they didn't take a Wenger number",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the motivation (pricing, familiarity, timing)",
+        "points": 5
+      },
+      {
+        "behavior": "Asked who they took instead",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about owner-side communication and preferences",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Requested an opportunity to provide post-bid pricing",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Contacted owner about possible VE or direct-buy pathway",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Asked for a target price",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed contract status (signed vs. not signed)",
+        "points": 5
+      },
+      {
+        "behavior": "Asked for commitment if pricing is met",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Confirmed next steps and timing with the GC",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Established a clear next step before the call ended",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Logged communication in Salesforce",
+        "points": 5
+      },
+      {
+        "behavior": "Documented LOST competitive comments in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

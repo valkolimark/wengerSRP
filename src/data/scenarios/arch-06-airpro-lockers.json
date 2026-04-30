@@ -1,0 +1,140 @@
+{
+  "id": "arch-06",
+  "category": "Architect",
+  "title": "AirPro Lockers \u2014 Renovation/Addition",
+  "persona": {
+    "name": "Megan Strout",
+    "role": "Project Architect",
+    "organization": "Linden Group Architects"
+  },
+  "openingLine": "Hi, I'm working on a renovation and addition for Northcrest High and the athletic director is dead set on AirPro lockers. I have a drawing of the locker rooms but I'm not sure how to lay them out or what sizes I should be specifying. Can you help me?",
+  "customerContext": "You're a competent architect but lockers aren't your specialty. The athletic director already saw AirPro at a tradeshow and wants them \u2014 your job is to make it work in the space. You don't want to over-promise or look like you don't know what you're doing.",
+  "hiddenInfo": [
+    {
+      "trigger": "ROOMS REQUIRING LOCKERS",
+      "reveal": "Two team locker rooms (boys/girls), one coaches' room, and one general PE locker bay."
+    },
+    {
+      "trigger": "SPORTS USING THE ROOMS",
+      "reveal": "Football, basketball, wrestling, soccer, track. Football is the biggest user."
+    },
+    {
+      "trigger": "LOCKER SIZE PREFERENCE",
+      "reveal": "Drawings show generic boxes. I'd rather you recommend sizes based on actual sport use."
+    },
+    {
+      "trigger": "END USER EXPOSURE TO PRODUCT",
+      "reveal": "Athletic director has seen AirPro at a tradeshow. Coaches haven't seen it in person."
+    },
+    {
+      "trigger": "PROJECT BUDGET",
+      "reveal": "$24M renovation/addition. Locker scope is in the $400-500K range."
+    },
+    {
+      "trigger": "BID TIMELINE",
+      "reveal": "Project bids in 11 weeks."
+    },
+    {
+      "trigger": "BASIS OF DESIGN STATUS",
+      "reveal": "I'd put Wenger as BOD if you'll support me with spec language. District allows BOD specs."
+    },
+    {
+      "trigger": "ADJACENT NEEDS",
+      "reveal": "Storage rooms behind the locker rooms \u2014 could use carts or shelving but I haven't spec'd them yet."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Identified all rooms requiring lockers",
+        "points": 5
+      },
+      {
+        "behavior": "Asked which sports use each room",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether locker sizes should match drawings or be recommended",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed whether end users have seen the offering",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Recommended locker sizes based on fit and sport-specific use",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to create drawings and provide specifications",
+        "points": 5
+      },
+      {
+        "behavior": "Offered BOD spec language to lock in Wenger",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Asked about carts or shelving in adjacent storage spaces",
+        "points": 5
+      },
+      {
+        "behavior": "Inquired about other spaces in the project needing storage solutions",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Discussed budget considerations for the locker package",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed basis of design status",
+        "points": 5
+      },
+      {
+        "behavior": "Asked when the project will bid",
+        "points": 5
+      },
+      {
+        "behavior": "Discussed overall project timeline",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped Wenger deliverables to the 11-week bid window",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks with specific dates",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Clearly explained next steps before ending the call",
+        "points": 5
+      },
+      {
+        "behavior": "Offered to walk the AD or coaches through the product in person",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all correspondence in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

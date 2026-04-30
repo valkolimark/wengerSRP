@@ -1,0 +1,124 @@
+{
+  "id": "td-05",
+  "category": "Tech Director",
+  "title": "Stanford \u2014 Acoustics Improvement",
+  "persona": {
+    "name": "Margaux Eberhart",
+    "role": "Theatre Technical Director",
+    "organization": "Stanford University Department of Music"
+  },
+  "openingLine": "We have an older mini-auditorium that's getting used a lot more lately and the sound is just dead. The donors are willing to fund significant acoustic improvements. I want to know what's possible.",
+  "customerContext": "You manage a university venue with elite expectations and donor money behind it. You expect partners \u2014 architects, acousticians, vendors \u2014 to bring expertise and discretion. The donors are sophisticated and the music faculty are fierce critics. You won't tolerate a half-measure.",
+  "hiddenInfo": [
+    {
+      "trigger": "SPACE USAGE",
+      "reveal": "200-seat mini-auditorium. Originally a lecture hall. Now used 5+ days a week for chamber recitals and student showcases."
+    },
+    {
+      "trigger": "DRAWINGS / PHOTOS",
+      "reveal": "I have full as-builts and current photos. Happy to share."
+    },
+    {
+      "trigger": "FUNDING",
+      "reveal": "$425K committed from three donors. Could go higher if a strong case is made."
+    },
+    {
+      "trigger": "ACOUSTICIAN STATUS",
+      "reveal": "Not yet hired. We'd consider one if the right name was suggested."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Me, the Department Chair of Music, and Stanford's facilities project office."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Want substantial improvement before the fall concert series \u2014 about 8 months."
+    },
+    {
+      "trigger": "OTHER SPACES",
+      "reveal": "We have a recital hall and a recording studio that may also need attention in 18-24 months."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Gathered details on space usage and sound concerns",
+        "points": 5
+      },
+      {
+        "behavior": "Requested drawings or photos of the auditorium",
+        "points": 5
+      },
+      {
+        "behavior": "Alerted RPAM",
+        "points": 5
+      },
+      {
+        "behavior": "Engaged Matt H. or acoustics expert to preview drawings/photos",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Discussed acoustical improvement approaches",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether a consultant or acoustician should be involved",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Identified the need for acoustics team involvement",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about other spaces under renovation",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed funding availability and amount from donors",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed expected timeline for evaluation and improvements",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Mapped engagement to the 8-month fall concert deadline",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Coordinated RPAM and acoustics team engagement",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

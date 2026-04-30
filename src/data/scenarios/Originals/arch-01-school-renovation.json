@@ -50,61 +50,21 @@
         "points": 5
       },
       {
-        "behavior": "Asked about practice rooms in the design",
-        "points": 5
-      },
-      {
-        "behavior": "Asked about acoustic treatment",
-        "points": 5
-      },
-      {
-        "behavior": "Asked about acoustic doors",
-        "points": 5
-      },
-      {
         "behavior": "Asked whether an acoustic consultant is engaged",
         "points": 5
       },
       {
-        "behavior": "Asked when they plan to issue the bid",
-        "points": 5
-      },
-      {
-        "behavior": "Asked whether owners or end users are involved in design meetings",
-        "points": 5
-      },
-      {
-        "behavior": "Researched Salesforce for previous work with this architect",
-        "points": 5
-      },
-      {
-        "behavior": "Researched Salesforce for previous purchases in this district",
+        "behavior": "Reviewed prior Wenger projects with this firm before the call",
         "points": 5
       }
     ],
     "Solution Framing": [
       {
-        "behavior": "Reviewed drawings for additional product opportunities",
-        "points": 5
-      },
-      {
-        "behavior": "Used the Wenger cabinet calculator for instrument storage sizing",
-        "points": 5
-      },
-      {
-        "behavior": "Used OppExchange to produce layouts",
-        "points": 5
-      },
-      {
-        "behavior": "Used Wenger SpecBuilder to provide specification language",
-        "points": 5
-      },
-      {
         "behavior": "Explained how to spec to performance, not just product",
         "points": 5
       },
       {
-        "behavior": "Offered CAD/Revit files to support the design package",
+        "behavior": "Offered to provide spec language and CAD/Revit files",
         "points": 5
       },
       {
@@ -114,43 +74,27 @@
     ],
     "Opportunity Expansion": [
       {
-        "behavior": "Probed for athletics or auditorium scope on the project",
-        "points": 5
-      },
-      {
-        "behavior": "Probed for FF&E scope beyond the music spaces",
-        "points": 5
-      },
-      {
         "behavior": "Identified additional product fits (storage, risers, shells, V-Rooms)",
         "points": 5
       },
       {
         "behavior": "Asked about other upcoming projects in the firm's pipeline",
         "points": 5
-      },
-      {
-        "behavior": "Created Salesforce opportunities for the project",
-        "points": 5
       }
     ],
     "BANT": [
       {
-        "behavior": "Asked the budget and committed to a Rough Order of Magnitude with PCE",
+        "behavior": "Confirmed total music program budget within renovation",
         "points": 5
       },
       {
         "behavior": "Identified all decision makers (architect, district, end user)",
         "points": 5
-      },
-      {
-        "behavior": "Confirmed need against an instrumentation list, room list, and acoustic targets",
-        "points": 5
       }
     ],
     "Timeline Awareness": [
       {
-        "behavior": "Mapped Wenger involvement against the design and bid schedule",
+        "behavior": "Mapped Wenger's involvement against the design schedule",
         "points": 5
       },
       {
@@ -159,18 +103,6 @@
       }
     ],
     "Closing & Next Steps": [
-      {
-        "behavior": "Set up and conducted the meeting",
-        "points": 5
-      },
-      {
-        "behavior": "Committed to deliver budget, layout, and specification",
-        "points": 5
-      },
-      {
-        "behavior": "Followed up with the architect after the meeting",
-        "points": 5
-      },
       {
         "behavior": "Proposed a working session with the acoustic consultant",
         "points": 5
@@ -182,15 +114,7 @@
     ],
     "Other": [
       {
-        "behavior": "Logged the meeting in Salesforce",
-        "points": 5
-      },
-      {
-        "behavior": "Logged conversations in Salesforce",
-        "points": 5
-      },
-      {
-        "behavior": "Set a follow-up task in Salesforce",
+        "behavior": "Logged communication in Salesforce",
         "points": 5
       }
     ]

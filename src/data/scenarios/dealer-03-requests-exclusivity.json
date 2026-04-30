@@ -1,0 +1,120 @@
+{
+  "id": "dealer-03",
+  "category": "Furniture Dealer",
+  "title": "Dealer Requests Exclusivity on a Construction Project",
+  "persona": {
+    "name": "Tasha Whitfield",
+    "role": "Principal / Owner",
+    "organization": "Whitfield Office Solutions"
+  },
+  "openingLine": "We brought you in early on this corporate HQ build-out. We did all the legwork on the design and convinced the client to spec your product. Since this is moving forward, we want to be guaranteed exclusivity on the project. Fair deal, right?",
+  "customerContext": "You're a small dealer who genuinely did pour effort into pulling this in. You're feeling protective of your work and a little anxious that another dealer will swoop in and undercut you at the bid stage. You're asking for exclusivity because you've been burned before. You may not fully appreciate the dynamics of larger projects with multiple dealers.",
+  "hiddenInfo": [
+    {
+      "trigger": "DEALER INVOLVEMENT",
+      "reveal": "We've been on this project for 5 months. Hosted the client at our showroom, did the initial design proposals, pushed for Wenger acoustic and storage."
+    },
+    {
+      "trigger": "PROJECT QUALIFICATION",
+      "reveal": "Design is mostly done. Bid in 8 weeks. About 80% certain it goes to construction."
+    },
+    {
+      "trigger": "DEALER CAPABILITIES",
+      "reveal": "We've sold Wenger for 6 years. Mostly smaller projects \u2014 this is our largest by 3x."
+    },
+    {
+      "trigger": "DEALER REPUTATION",
+      "reveal": "Reliable on smaller projects. Untested on this scale. Strong client relationships."
+    },
+    {
+      "trigger": "BUDGET",
+      "reveal": "$60M corporate HQ. Wenger scope is around $300K \u2014 acoustic treatment in board rooms and music room amenity space."
+    },
+    {
+      "trigger": "TIMELINE",
+      "reveal": "Bid 8 weeks out, construction starts 6 months after."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "Client's facilities team and their architect. Both have been at every meeting."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Confirmed the dealer's level of involvement and influence",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the project is fully qualified \u2014 exclusivity carries risk",
+        "points": 5
+      },
+      {
+        "behavior": "Asked if dealer can support the project end to end",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Considered any conflicts with existing dealer agreements",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Asked about ongoing relationship vs. one-off exclusivity",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Assessed dealer reputation and reliability for a project this size",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about the project budget",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed timeline",
+        "points": 5
+      },
+      {
+        "behavior": "Identified the final decision makers",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set post-bid and post-install review meetings",
+        "points": 5
+      },
+      {
+        "behavior": "Set follow-up tasks",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Agreed on exclusivity criteria \u2014 one-off vs. ongoing",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Considered impact on relationships with other dealers",
+        "points": 5
+      },
+      {
+        "behavior": "Documented all conversations in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

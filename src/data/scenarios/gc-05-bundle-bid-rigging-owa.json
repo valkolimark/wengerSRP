@@ -1,0 +1,120 @@
+{
+  "id": "gc-05",
+  "category": "GC/CM",
+  "title": "Bundle Bid \u2014 Rigging + OWA",
+  "persona": {
+    "name": "Sasha Patel",
+    "role": "Estimator",
+    "organization": "Bridgewater Construction Partners"
+  },
+  "openingLine": "We just got the ITB on the Hartford PAC project. It's a bundle bid that includes rigging plus the OWA stuff. Can you handle the OWA piece and tell me what to do about the rigging side?",
+  "customerContext": "You're an estimator who doesn't deeply know the difference between rigging and OWA product. You see this as one package and you want one quote. You don't realize Wenger's rigging dealer network operates differently from the OWA direct-sale relationship.",
+  "hiddenInfo": [
+    {
+      "trigger": "PROJECT VALUE",
+      "reveal": "$62M performing arts center. Rigging + OWA scope is roughly $1.4M combined."
+    },
+    {
+      "trigger": "BID DEADLINE",
+      "reveal": "Bid due in 12 days."
+    },
+    {
+      "trigger": "OWA PRODUCTS IN SCOPE",
+      "reveal": "Acoustic shell, risers, choral risers, and storage carts."
+    },
+    {
+      "trigger": "RIGGING PRODUCTS IN SCOPE",
+      "reveal": "Counterweight rigging system, motorized line sets \u2014 needs to go through a Wenger rigging dealer."
+    },
+    {
+      "trigger": "PRIOR WENGER WORK",
+      "reveal": "We've done one project with you guys before. Went smoothly."
+    },
+    {
+      "trigger": "OWNER / ARCHITECT",
+      "reveal": "Architect is Bremmer Studio. Owner is Hartford Public Schools."
+    },
+    {
+      "trigger": "INSTALLER PREFERENCE",
+      "reveal": "We don't have a preferred rigging installer. Open to recommendations."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Reviewed bid documents thoroughly",
+        "points": 5
+      },
+      {
+        "behavior": "Determined which products are OWA vs. rigging dealer scope",
+        "points": 5
+      },
+      {
+        "behavior": "Identified due date, scope, and project specifics",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Collaborated with RPAM, PCE, and TSM on bid strategy",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Planned TSM follow-up with GC/CM and owner",
+        "points": 5
+      },
+      {
+        "behavior": "Planned RPAM follow-up with rigging dealers",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed bid due date",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Confirmed bid due date and Go-to-Market plan",
+        "points": 5
+      },
+      {
+        "behavior": "Attended a Go-to-Market meeting",
+        "points": 5
+      },
+      {
+        "behavior": "Confirmed bid was sent on time",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Confirmed bid was sent and stakeholders were aligned",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Forwarded bid to PCE",
+        "points": 5
+      },
+      {
+        "behavior": "Ensured ITB was sent to RPAM",
+        "points": 5
+      },
+      {
+        "behavior": "Logged all communication in Salesforce",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

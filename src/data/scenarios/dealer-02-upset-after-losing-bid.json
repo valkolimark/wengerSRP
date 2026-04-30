@@ -1,0 +1,124 @@
+{
+  "id": "dealer-02",
+  "category": "Furniture Dealer",
+  "title": "Dealer Upset After Losing a Bid Due to Pricing",
+  "persona": {
+    "name": "Marco Delgado",
+    "role": "Senior Sales Rep",
+    "organization": "Sierra Educational Furnishings"
+  },
+  "openingLine": "We just lost the State University job. Your stuff was too expensive \u2014 competitor came in $80K under us on the same scope. We need better pricing if we're going to keep proposing your line. This isn't the first time it's happened.",
+  "customerContext": "You're frustrated and a little embarrassed. You championed Wenger to the university and got beat by a competitor on price. You're not sure if the loss was actually about Wenger pricing or about your own sales approach, but you're more comfortable blaming the manufacturer. You've been a Wenger dealer for 12 years and you feel like you're owed something.",
+  "hiddenInfo": [
+    {
+      "trigger": "COMPETITOR USED",
+      "reveal": "Wenger replacement was Norton Acoustics. We're not sure if it was apples-to-apples on warranty or testing."
+    },
+    {
+      "trigger": "ACTUAL LOSS REASON",
+      "reveal": "Honestly looking back, our install timeline was also longer than theirs. Owner cared about that too."
+    },
+    {
+      "trigger": "OWNER UNDERSTANDING",
+      "reveal": "I'm not sure the owner fully understood the differences. We didn't do a great job on the value pitch."
+    },
+    {
+      "trigger": "BUDGET DETAILS",
+      "reveal": "We didn't really know the budget going in \u2014 we were quoting blind based on the spec."
+    },
+    {
+      "trigger": "DECISION MAKERS",
+      "reveal": "University procurement and the music department chair. Procurement made the final call on price."
+    },
+    {
+      "trigger": "PRIOR PURCHASES",
+      "reveal": "The university has owned Wenger for years. They were happy with the legacy stuff."
+    },
+    {
+      "trigger": "DEALER TRAINING",
+      "reveal": "We haven't done formal Wenger product training in about three years. Newer reps don't know the line well."
+    }
+  ],
+  "scorecard": {
+    "Discovery & Qualification": [
+      {
+        "behavior": "Asked which competitor was used and whether it was apples-to-apples",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether price was the only factor or if other elements played in",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the university has bought Wenger before",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the owner understood the differences",
+        "points": 5
+      }
+    ],
+    "Solution Framing": [
+      {
+        "behavior": "Reframed the value: warranty, durability, life-cycle costs",
+        "points": 5
+      }
+    ],
+    "Opportunity Expansion": [
+      {
+        "behavior": "Proposed a pre-bid strategy for future opportunities",
+        "points": 5
+      },
+      {
+        "behavior": "Identified what solution the owner really wanted",
+        "points": 5
+      }
+    ],
+    "BANT": [
+      {
+        "behavior": "Confirmed who ultimately made the decision",
+        "points": 5
+      },
+      {
+        "behavior": "Asked whether the budget was known going in",
+        "points": 5
+      }
+    ],
+    "Timeline Awareness": [
+      {
+        "behavior": "Set follow-up tasks for any post-mortem actions",
+        "points": 5
+      }
+    ],
+    "Closing & Next Steps": [
+      {
+        "behavior": "Educated the dealer on Wenger's process for the future",
+        "points": 5
+      },
+      {
+        "behavior": "Reviewed the project together \u2014 what we'd do differently",
+        "points": 5
+      },
+      {
+        "behavior": "Committed to get owner buy-in on the next opportunity",
+        "points": 5
+      }
+    ],
+    "Other": [
+      {
+        "behavior": "Documented all conversations and competitive pricing in Salesforce",
+        "points": 5
+      },
+      {
+        "behavior": "Offered product training or tools to help dealer sell on value",
+        "points": 5
+      }
+    ]
+  },
+  "bonusCategories": [
+    "BANT",
+    "Timeline Awareness",
+    "Opportunity Expansion",
+    "Closing & Next Steps"
+  ]
+}

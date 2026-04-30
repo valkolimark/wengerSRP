@@ -42,10 +42,6 @@
   "scorecard": {
     "Discovery & Qualification": [
       {
-        "behavior": "Confirmed desired seating and performance configurations",
-        "points": 5
-      },
-      {
         "behavior": "Asked about the variety of uses for the space",
         "points": 5
       },
@@ -54,11 +50,7 @@
         "points": 5
       },
       {
-        "behavior": "Asked for current room dimensions, pictures, or drawings",
-        "points": 5
-      },
-      {
-        "behavior": "Understood whether the district/customer has purchased before",
+        "behavior": "Asked for current room dimensions and any drawings",
         "points": 5
       },
       {
@@ -67,14 +59,6 @@
       }
     ],
     "Solution Framing": [
-      {
-        "behavior": "Discussed flexible staging and audience layouts",
-        "points": 5
-      },
-      {
-        "behavior": "Understood site requirements and performance needs",
-        "points": 5
-      },
       {
         "behavior": "Differentiated based on flexibility and reset speed, not just product specs",
         "points": 5
@@ -86,37 +70,21 @@
     ],
     "Opportunity Expansion": [
       {
-        "behavior": "Identified future performance and equipment needs",
-        "points": 5
-      },
-      {
-        "behavior": "Asked about other renovations or needs within this site",
-        "points": 5
-      },
-      {
         "behavior": "Probed for adjacent needs (seating, lighting grid, storage)",
+        "points": 5
+      },
+      {
+        "behavior": "Asked about other spaces in the building that could benefit",
         "points": 5
       }
     ],
     "BANT": [
       {
-        "behavior": "Discussed budget for adaptable solutions and confirmed the amount",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed when they want the solution delivered and complete",
-        "points": 5
-      },
-      {
-        "behavior": "Confirmed whether the project is funded",
+        "behavior": "Confirmed budget amount and source",
         "points": 5
       },
       {
         "behavior": "Identified principal and district facilities as decision makers",
-        "points": 5
-      },
-      {
-        "behavior": "Asked whether they are looking at other solutions",
         "points": 5
       }
     ],
@@ -132,14 +100,6 @@
     ],
     "Closing & Next Steps": [
       {
-        "behavior": "Scheduled an overview call and site visit",
-        "points": 5
-      },
-      {
-        "behavior": "Collected plans, measurements, and required checklists",
-        "points": 5
-      },
-      {
         "behavior": "Proposed a working layout session",
         "points": 5
       },
@@ -150,11 +110,7 @@
     ],
     "Other": [
       {
-        "behavior": "Documented all conversations in Salesforce",
-        "points": 5
-      },
-      {
-        "behavior": "Set follow-up tasks",
+        "behavior": "Logged communication in Salesforce",
         "points": 5
       }
     ]
