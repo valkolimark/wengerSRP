@@ -25,6 +25,8 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
   const repRoster = useMemo(() => getRepRoster(), [repVersion]);
   const [selectedCategories, setSelectedCategories] = useState(() => new Set(CATEGORIES));
   const [roundMinutes, setRoundMinutes] = useState(5);
+  const [pickMode, setPickMode] = useState('random'); // 'random' | 'specific'
+  const [pickedScenarioId, setPickedScenarioId] = useState('');
   const [drawing, setDrawing] = useState(false);
   const [spinTitle, setSpinTitle] = useState('');
   const spinTimer = useRef(null);
@@ -61,8 +63,26 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
     setRepNames((prev) => prev.filter((n) => n !== name));
   }
 
+  function startWith(chosen) {
+    play('whoosh');
+    const repLabel = repNames.length ? repNames.join(' & ') : 'Sales Rep';
+    onStart({
+      scenario: chosen,
+      customerName: customerName.trim() || 'Customer',
+      repName: repLabel,
+      repNames: repNames.length ? [...repNames] : [],
+      roundSeconds: roundMinutes * 60,
+    });
+  }
+
   function handleDraw() {
     if (drawing) return;
+    if (pickMode === 'specific') {
+      const chosen = SCENARIOS.find((s) => s.id === pickedScenarioId);
+      if (!chosen) return;
+      startWith(chosen);
+      return;
+    }
     if (!filteredScenarios.length) return;
     play('draw');
     setDrawing(true);
@@ -76,17 +96,7 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
         clearInterval(spinTimer.current);
         const chosen = pickRandom(filteredScenarios);
         setSpinTitle(chosen.title);
-        setTimeout(() => {
-          play('whoosh');
-          const repLabel = repNames.length ? repNames.join(' & ') : 'Sales Rep';
-          onStart({
-            scenario: chosen,
-            customerName: customerName.trim() || 'Customer',
-            repName: repLabel,
-            repNames: repNames.length ? [...repNames] : [],
-            roundSeconds: roundMinutes * 60,
-          });
-        }, 600);
+        setTimeout(() => startWith(chosen), 600);
       }
     }, 80);
   }
@@ -143,28 +153,68 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
           />
         </section>
 
-        {/* Category filter */}
+        {/* Mode toggle: random draw vs pick a specific scenario */}
         <section className="card p-5">
-          <div className="flex items-center justify-between mb-3">
-            <div className="font-display text-2xl tracking-wider">SCENARIO CATEGORIES</div>
-            <div className="text-xs text-white/50">{filteredScenarios.length} in pool</div>
-          </div>
+          <div className="font-display text-2xl tracking-wider mb-3">SCENARIO MODE</div>
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((cat) => {
-              const active = selectedCategories.has(cat);
-              const meta = metaFor(cat);
-              return (
-                <button
-                  key={cat}
-                  onClick={() => toggleCategory(cat)}
-                  className={`chip ${active ? meta.color : 'bg-white/5 text-white/40 border-white/10'}`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+            <button
+              onClick={() => setPickMode('random')}
+              className={`px-5 py-3 rounded-xl font-display text-xl tracking-wider border transition-all ${
+                pickMode === 'random'
+                  ? 'bg-cyan/20 border-cyan text-cyan shadow-glow-cyan'
+                  : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+              }`}
+            >
+              RANDOM DRAW
+            </button>
+            <button
+              onClick={() => setPickMode('specific')}
+              className={`px-5 py-3 rounded-xl font-display text-xl tracking-wider border transition-all ${
+                pickMode === 'specific'
+                  ? 'bg-leaf/20 border-leaf text-leaf shadow-glow-gold'
+                  : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+              }`}
+            >
+              PICK SPECIFIC
+            </button>
+          </div>
+          <div className="text-[11px] text-white/50 mt-3">
+            {pickMode === 'random'
+              ? 'Filter by category, then DRAW SCENARIO spins one at random.'
+              : 'Choose an exact scenario from the dropdown below.'}
           </div>
         </section>
+
+        {pickMode === 'random' ? (
+          /* Category filter */
+          <section className="card p-5">
+            <div className="flex items-center justify-between mb-3">
+              <div className="font-display text-2xl tracking-wider">SCENARIO CATEGORIES</div>
+              <div className="text-xs text-white/50">{filteredScenarios.length} in pool</div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.map((cat) => {
+                const active = selectedCategories.has(cat);
+                const meta = metaFor(cat);
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => toggleCategory(cat)}
+                    className={`chip ${active ? meta.color : 'bg-white/5 text-white/40 border-white/10'}`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        ) : (
+          /* Specific scenario picker */
+          <ScenarioPicker
+            value={pickedScenarioId}
+            onChange={setPickedScenarioId}
+          />
+        )}
 
         {/* Round length */}
         <section className="card p-5">
@@ -186,17 +236,29 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
           </div>
         </section>
 
-        {/* Draw button */}
+        {/* Draw / Start button */}
         <section className="text-center">
-          <motion.button
-            onClick={handleDraw}
-            disabled={drawing || filteredScenarios.length === 0}
-            whileHover={!drawing ? { scale: 1.04 } : {}}
-            whileTap={!drawing ? { scale: 0.96 } : {}}
-            className="btn-primary text-3xl px-12 py-6 disabled:hover:scale-100"
-          >
-            {drawing ? 'DRAWING…' : 'DRAW SCENARIO'}
-          </motion.button>
+          {(() => {
+            const specificDisabled = pickMode === 'specific' && !pickedScenarioId;
+            const randomDisabled = pickMode === 'random' && filteredScenarios.length === 0;
+            const disabled = drawing || specificDisabled || randomDisabled;
+            const label = drawing
+              ? 'DRAWING…'
+              : pickMode === 'specific'
+                ? 'START SCENARIO'
+                : 'DRAW SCENARIO';
+            return (
+              <motion.button
+                onClick={handleDraw}
+                disabled={disabled}
+                whileHover={!disabled ? { scale: 1.04 } : {}}
+                whileTap={!disabled ? { scale: 0.96 } : {}}
+                className="btn-primary text-3xl px-12 py-6 disabled:hover:scale-100"
+              >
+                {label}
+              </motion.button>
+            );
+          })()}
 
           <AnimatePresence>
             {drawing && (
@@ -220,6 +282,66 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
 }
 
 const ADD_NEW = '__ADD_NEW__';
+
+function ScenarioPicker({ value, onChange }) {
+  const grouped = useMemo(() => {
+    const map = new Map();
+    SCENARIOS.forEach((s) => {
+      if (!map.has(s.category)) map.set(s.category, []);
+      map.get(s.category).push(s);
+    });
+    return Array.from(map.entries())
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([cat, list]) => [cat, list.sort((a, b) => a.title.localeCompare(b.title))]);
+  }, []);
+
+  const chosen = SCENARIOS.find((s) => s.id === value);
+
+  return (
+    <section className="card p-5">
+      <div className="flex items-center justify-between mb-3">
+        <div className="font-display text-2xl tracking-wider">PICK A SCENARIO</div>
+        <div className="text-xs text-white/50">{SCENARIOS.length} total</div>
+      </div>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-lg font-semibold focus:outline-none focus:border-white/30 appearance-none cursor-pointer"
+        style={{
+          backgroundImage: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\' fill=\'%23ffffff80\'><path d=\'M5.25 7.5L10 12.25L14.75 7.5H5.25Z\'/></svg>")',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'right 0.85rem center',
+          backgroundSize: '1.1rem',
+          paddingRight: '2.5rem',
+        }}
+      >
+        <option value="">Choose a scenario…</option>
+        {grouped.map(([cat, list]) => (
+          <optgroup key={cat} label={cat}>
+            {list.map((s) => (
+              <option key={s.id} value={s.id}>{s.title}</option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
+
+      {chosen && (
+        <div className="mt-4 p-4 rounded-xl border border-leaf/30 bg-leaf/5">
+          <div className="flex items-center gap-2 mb-1">
+            <span className={`chip ${metaFor(chosen.category).color}`}>{chosen.category}</span>
+            <div className="font-display text-xl tracking-wider text-leaf">{chosen.title}</div>
+          </div>
+          {chosen.persona?.name && (
+            <div className="text-xs text-white/60">
+              Customer persona: <span className="text-white/80 font-semibold">{chosen.persona.name}</span>
+              {chosen.persona.role ? ` · ${chosen.persona.role}` : ''}
+            </div>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
 
 function RosterDropdown({ value, onSelect, onAddNew, placeholder, options, addLabel = '＋ Add a new player…' }) {
   function handleChange(e) {

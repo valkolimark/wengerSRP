@@ -5,6 +5,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-04-30
+
+### Added
+- **SCENARIO MODE toggle** on the lobby: pick *RANDOM DRAW* (the existing flow — filter by category, slot-machine spin) or *PICK SPECIFIC* to choose an exact scenario from a dropdown. The dropdown groups all scenarios under their category via `<optgroup>` labels and shows a confirmation card with the picked scenario's title, category chip, and customer persona before starting. The bottom action button relabels to *START SCENARIO* in pick-specific mode (no spin animation) and *DRAW SCENARIO* in random mode.
+
 ## [1.5.0] - 2026-04-30
 
 ### Changed
@@ -171,7 +176,8 @@ Initial release. Two-player sales training game built for in-person sales meetin
 - Production build: ~334 KB JS / ~108 KB gzipped.
 - `README.md` with setup, deploy-to-Vercel steps, scenario authoring guide, and audio override instructions.
 
-[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/valkolimark/wengerSRP/compare/v1.5.1...HEAD
+[1.5.1]: https://github.com/valkolimark/wengerSRP/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/valkolimark/wengerSRP/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/valkolimark/wengerSRP/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/valkolimark/wengerSRP/compare/v1.3.1...v1.4.0
