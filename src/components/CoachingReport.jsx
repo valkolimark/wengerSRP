@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { buildCoachingReports, downloadMarkdown } from '../lib/report.js';
 import Logo from './Logo.jsx';
 
 const ALL = '__ALL__';
+const PAGE_SIZE = 5;
 
 const PRIORITY_STYLE = {
   HIGH:   'bg-magenta/15 border-magenta/40 text-magenta-glow',
@@ -12,8 +13,8 @@ const PRIORITY_STYLE = {
   NOTE:   'bg-cyan/10 border-cyan/40 text-cyan',
 };
 
-export default function CoachingReport({ onClose }) {
-  const reports = useMemo(() => buildCoachingReports(), []);
+export default function CoachingReport({ entries, onClose }) {
+  const reports = useMemo(() => buildCoachingReports(entries ? { entries } : undefined), [entries]);
   const [printSelection, setPrintSelection] = useState(ALL);
 
   // Reports actually rendered into the print-only view, filtered by the picker.
@@ -21,6 +22,14 @@ export default function CoachingReport({ onClose }) {
     if (printSelection === ALL) return reports;
     return reports.filter((r) => r.name === printSelection);
   }, [reports, printSelection]);
+
+  // On-screen pagination — print always emits every report in printReports.
+  const [page, setPage] = useState(1);
+  const pageCount = Math.max(1, Math.ceil(printReports.length / PAGE_SIZE));
+  useEffect(() => { setPage(1); }, [printSelection, reports.length]);
+  useEffect(() => { if (page > pageCount) setPage(pageCount); }, [page, pageCount]);
+  const pageStart = (page - 1) * PAGE_SIZE;
+  const visibleReports = printReports.slice(pageStart, pageStart + PAGE_SIZE);
 
   function handlePrint(targetName) {
     if (targetName !== undefined) setPrintSelection(targetName);
@@ -55,7 +64,11 @@ export default function CoachingReport({ onClose }) {
                 COACHING REPORT
               </div>
               <div className="text-xs text-white/50 mt-1 tracking-wide">
-                Wenger Role Play · {new Date().toLocaleString()} · {reports.length} rep{reports.length === 1 ? '' : 's'}
+                Wenger Role Play · {new Date().toLocaleString()} · {
+                  printSelection === ALL
+                    ? `${reports.length} rep${reports.length === 1 ? '' : 's'}`
+                    : `${printSelection} (1 of ${reports.length})`
+                }
               </div>
             </div>
           </div>
@@ -108,10 +121,26 @@ export default function CoachingReport({ onClose }) {
           <div className="card p-10 text-center text-white/60">
             No saved rounds yet. Save some rounds to the leaderboard, then come back here.
           </div>
-        ) : (
-          <div className="space-y-6">
-            {reports.map((r) => <RepCard key={r.name} rep={r} />)}
+        ) : printReports.length === 0 ? (
+          <div className="card p-10 text-center text-white/60">
+            No rounds for that selection.
           </div>
+        ) : (
+          <>
+            <div className="space-y-6">
+              {visibleReports.map((r) => <RepCard key={r.name} rep={r} />)}
+            </div>
+            {pageCount > 1 && (
+              <Pagination
+                page={page}
+                pageCount={pageCount}
+                pageStart={pageStart}
+                pageEnd={Math.min(pageStart + PAGE_SIZE, printReports.length)}
+                total={printReports.length}
+                onPage={setPage}
+              />
+            )}
+          </>
         )}
       </div>
 
@@ -147,8 +176,8 @@ export default function CoachingReport({ onClose }) {
 
         @media print {
           /* Generous margins so nothing prints to the edge of the paper */
-          @page { margin: 0.85in 0.75in; size: letter; }
-          @page :first { margin-top: 0.85in; }
+          @page { margin: 1in 1in 1in 1in; size: letter; }
+          @page :first { margin-top: 1in; }
 
           /* Hide everything except the print version */
           #root { display: none !important; }
@@ -193,8 +222,9 @@ export default function CoachingReport({ onClose }) {
             font-size: 10.5pt;
             line-height: 1.45;
             /* Belt-and-suspenders padding in case @page margins are ignored */
-            padding: 4pt 6pt;
+            padding: 6pt 10pt;
             box-sizing: border-box;
+            max-width: 100%;
           }
 
           .cr-print-header {
@@ -684,5 +714,59 @@ function RepCard({ rep }) {
         </section>
       )}
     </article>
+  );
+}
+
+function Pagination({ page, pageCount, pageStart, pageEnd, total, onPage }) {
+  return (
+    <div className="mt-6 flex items-center justify-between flex-wrap gap-3 print:hidden">
+      <div className="text-xs text-white/50">
+        Showing <span className="text-white/80 font-semibold">{pageStart + 1}–{pageEnd}</span> of {total} rep{total === 1 ? '' : 's'}
+        <span className="text-white/30"> · printing emits all selected reps regardless of page</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => onPage(1)}
+          disabled={page === 1}
+          className="text-xs font-semibold px-2.5 py-1.5 rounded-lg border bg-white/5 border-white/15 text-white/70 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          ⏮ first
+        </button>
+        <button
+          onClick={() => onPage(Math.max(1, page - 1))}
+          disabled={page === 1}
+          className="text-xs font-semibold px-2.5 py-1.5 rounded-lg border bg-white/5 border-white/15 text-white/70 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          ◀ prev
+        </button>
+        {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+          <button
+            key={n}
+            onClick={() => onPage(n)}
+            className={`text-xs font-semibold px-2.5 py-1.5 rounded-lg border min-w-[2rem] ${
+              n === page
+                ? 'bg-cyan/20 border-cyan/50 text-cyan'
+                : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+            }`}
+          >
+            {n}
+          </button>
+        ))}
+        <button
+          onClick={() => onPage(Math.min(pageCount, page + 1))}
+          disabled={page === pageCount}
+          className="text-xs font-semibold px-2.5 py-1.5 rounded-lg border bg-white/5 border-white/15 text-white/70 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          next ▶
+        </button>
+        <button
+          onClick={() => onPage(pageCount)}
+          disabled={page === pageCount}
+          className="text-xs font-semibold px-2.5 py-1.5 rounded-lg border bg-white/5 border-white/15 text-white/70 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          last ⏭
+        </button>
+      </div>
+    </div>
   );
 }

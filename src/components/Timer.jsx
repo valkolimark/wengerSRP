@@ -9,12 +9,17 @@ function fmt(seconds) {
 
 export default function Timer({ totalSeconds, paused, onExpire, onTick }) {
   const [remaining, setRemaining] = useState(totalSeconds);
-  const lastTickRef = useRef(null);
+  const onExpireRef = useRef(onExpire);
+  const onTickRef = useRef(onTick);
+
+  // Always call the LATEST callbacks from the interval — otherwise the interval
+  // closes over the first render's checks/notes and scoring sees an empty board.
+  useEffect(() => { onExpireRef.current = onExpire; }, [onExpire]);
+  useEffect(() => { onTickRef.current = onTick; }, [onTick]);
 
   // Reset when totalSeconds changes (new round)
   useEffect(() => {
     setRemaining(totalSeconds);
-    lastTickRef.current = null;
   }, [totalSeconds]);
 
   useEffect(() => {
@@ -27,7 +32,7 @@ export default function Timer({ totalSeconds, paused, onExpire, onTick }) {
         if (next <= 0) {
           clearInterval(id);
           play('buzzer');
-          setTimeout(() => onExpire?.(), 100);
+          setTimeout(() => onExpireRef.current?.(), 100);
           return 0;
         }
         if (next <= 10 && next > 0) play('tick');
@@ -40,8 +45,8 @@ export default function Timer({ totalSeconds, paused, onExpire, onTick }) {
 
   // Surface remaining to parent for speed bonus
   useEffect(() => {
-    onTick?.(remaining);
-  }, [remaining]); // eslint-disable-line react-hooks/exhaustive-deps
+    onTickRef.current?.(remaining);
+  }, [remaining]);
 
   const isWarning = remaining <= 60 && remaining > 30;
   const isCritical = remaining <= 30;

@@ -70,11 +70,18 @@ function csvEscape(value) {
   return s;
 }
 
+export function exportCsvFromEntries(rows, { filename } = {}) {
+  return exportRows(rows, filename || `wenger-role-play-${Date.now()}.csv`);
+}
+
 export function exportCsv({ todayOnly = false } = {}) {
   const rows = todayOnly
     ? getLeaderboard().map((e) => ({ ...e, date: todayKey() }))
     : getAllEntries();
+  return exportRows(rows, `wenger-role-play-${todayOnly ? todayKey() : 'all'}-${Date.now()}.csv`);
+}
 
+function exportRows(rows, filename) {
   // Collect every skill area seen across all rows so each gets its own column.
   const areaSet = new Set();
   rows.forEach((r) => {
@@ -133,7 +140,7 @@ export function exportCsv({ todayOnly = false } = {}) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `wenger-role-play-${todayOnly ? todayKey() : 'all'}-${Date.now()}.csv`;
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

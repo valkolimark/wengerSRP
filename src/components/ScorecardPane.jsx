@@ -20,6 +20,7 @@ export default function ScorecardPane({
   onExpire,
   onTimeTick,
   repName,
+  expired = false,
 }) {
   const score = useMemo(() => computeScore(scenario, checks), [scenario, checks]);
 
@@ -49,13 +50,19 @@ export default function ScorecardPane({
       <div className="flex items-center justify-between gap-4 p-5 border-b border-white/10 bg-navy/40">
         <div>
           <div className="text-xs tracking-[0.3em] text-white/40 font-semibold mb-1">TIME</div>
-          <Timer
-            key={roundEpoch}
-            totalSeconds={roundSeconds}
-            paused={paused}
-            onExpire={onExpire}
-            onTick={onTimeTick}
-          />
+          {expired ? (
+            <div className="font-display text-5xl md:text-6xl tracking-widest text-danger animate-pulseSoft leading-none">
+              TIME'S UP
+            </div>
+          ) : (
+            <Timer
+              key={roundEpoch}
+              totalSeconds={roundSeconds}
+              paused={paused}
+              onExpire={onExpire}
+              onTick={onTimeTick}
+            />
+          )}
         </div>
         <div className="text-right">
           <div className="text-xs tracking-[0.3em] text-white/40 font-semibold mb-1">SCORE</div>
@@ -73,18 +80,35 @@ export default function ScorecardPane({
           )}
         </div>
         <div className="flex flex-col gap-2">
-          <button onClick={onPause} className="btn-secondary">
+          <button
+            onClick={onPause}
+            disabled={expired}
+            className="btn-secondary disabled:opacity-40 disabled:cursor-not-allowed"
+          >
             {paused ? 'RESUME' : 'PAUSE'}
           </button>
           <button onClick={onReset} className="btn-secondary">RESET</button>
           <button
             onClick={onEnd}
-            className="font-display tracking-wider text-lg px-5 py-3 rounded-xl bg-magenta text-white shadow-glow-magenta hover:scale-105 active:scale-95 transition-transform"
+            className={`font-display tracking-wider px-5 py-3 rounded-xl transition-transform hover:scale-105 active:scale-95 ${
+              expired
+                ? 'bg-success text-navy-deep shadow-glow-gold animate-pulseSoft text-xl'
+                : 'bg-magenta text-white shadow-glow-magenta text-lg'
+            }`}
           >
-            END ROUND
+            {expired ? 'SUBMIT FOR SCORING' : 'END ROUND'}
           </button>
         </div>
       </div>
+
+      {expired && (
+        <div className="px-5 py-3 bg-danger/15 border-b border-danger/40 text-center">
+          <span className="text-danger font-display tracking-wider text-lg">⚠ TIME IS UP</span>
+          <span className="text-white/80 text-sm ml-3">
+            Finish checking any remaining behaviors, then hit <span className="text-success font-semibold">SUBMIT FOR SCORING</span>.
+          </span>
+        </div>
+      )}
 
       {/* Pause overlay */}
       <AnimatePresence>

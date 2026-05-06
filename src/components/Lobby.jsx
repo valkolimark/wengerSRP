@@ -120,7 +120,7 @@ export default function Lobby({ onStart, leaderboardKey, onLeaderboardChange }) 
             className="md:border-l md:border-white/15 md:pl-10"
           >
             <h1
-              className="font-display text-6xl md:text-8xl tracking-wider leading-none text-leaf"
+              className="font-display text-4xl md:text-6xl tracking-wider leading-none text-leaf"
               style={{
                 backgroundImage: 'linear-gradient(90deg, #87c440 0%, #69aebd 50%, #5fb1e2 100%)',
                 WebkitBackgroundClip: 'text',

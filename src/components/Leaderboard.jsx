@@ -1,15 +1,75 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getLeaderboard, clearLeaderboard, todayKey, getAllEntries, exportCsv } from '../lib/leaderboard.js';
+import { todayKey, exportCsvFromEntries } from '../lib/leaderboard.js';
+import { fetchEntries, migrateLocalToCloudOnce, backupLocalToFileOnce } from '../lib/cloudLeaderboard.js';
 import CoachingReport from './CoachingReport.jsx';
 
 export default function Leaderboard({ refreshKey = 0, onCleared }) {
   const [showReport, setShowReport] = useState(false);
   const [open, setOpen] = useState(true);
-  const [confirmingClear, setConfirmingClear] = useState(false);
   const [expanded, setExpanded] = useState(() => new Set());
-  const entries = getLeaderboard().slice(0, 5);
-  const totalAcrossAllDays = getAllEntries().length;
+  const [allEntries, setAllEntries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(null);
+  const [migrationStatus, setMigrationStatus] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setLoadError(null);
+
+    // First-load (per device, gated by flags):
+    // (a) Save a local CSV backup of every entry on this device — belt-and-
+    //     suspenders so nothing is at risk of being lost even if the cloud
+    //     migration or DB itself goes sideways later.
+    // (b) Push every localStorage entry up to the cloud so today's local
+    //     rounds aren't stranded on this device.
+    const backup = backupLocalToFileOnce();
+
+    migrateLocalToCloudOnce()
+      .then((result) => {
+        if (!cancelled) {
+          const parts = [];
+          if (backup && !backup.skipped && backup.count > 0) {
+            parts.push(`Saved a CSV backup of ${backup.count} round${backup.count === 1 ? '' : 's'} to your downloads (${backup.filename}).`);
+          }
+          if (result && !result.skipped) {
+            if (result.failed > 0) {
+              parts.push(
+                `Migrated ${result.migrated} local round${result.migrated === 1 ? '' : 's'} to the cloud — ` +
+                `${result.failed} failed and will retry on the next load. ` +
+                `Don't clear this device's storage yet.`
+              );
+            } else if (result.migrated > 0) {
+              parts.push(`Migrated ${result.migrated} local round${result.migrated === 1 ? '' : 's'} to the cloud.`);
+            }
+          }
+          if (parts.length) setMigrationStatus(parts.join(' '));
+        }
+        return fetchEntries();
+      })
+      .then((entries) => {
+        if (!cancelled) setAllEntries(entries);
+      })
+      .catch((err) => {
+        if (!cancelled) {
+          console.warn('cloud leaderboard fetch failed', err);
+          setLoadError(err.message || 'Could not load the cloud leaderboard.');
+        }
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => { cancelled = true; };
+  }, [refreshKey]);
+
+  const today = todayKey();
+  const todaysEntries = allEntries
+    .filter((e) => e.date === today)
+    .sort((a, b) => b.score - a.score);
+  const entries = todaysEntries.slice(0, 5);
+  const totalAcrossAllDays = allEntries.length;
 
   function toggleRow(id) {
     setExpanded((prev) => {
@@ -17,17 +77,6 @@ export default function Leaderboard({ refreshKey = 0, onCleared }) {
       if (next.has(id)) next.delete(id); else next.add(id);
       return next;
     });
-  }
-
-  function handleClear() {
-    if (!confirmingClear) {
-      setConfirmingClear(true);
-      setTimeout(() => setConfirmingClear(false), 4000);
-      return;
-    }
-    clearLeaderboard();
-    setConfirmingClear(false);
-    onCleared?.();
   }
 
   return (
@@ -62,18 +111,18 @@ export default function Leaderboard({ refreshKey = 0, onCleared }) {
               ) : (
                 <ol className="space-y-2">
                   {entries.map((e, i) => {
-                    const isOpen = expanded.has(e.timestamp);
+                    const isOpen = expanded.has(e.id);
                     const hasDetails = (e.breakdown && e.breakdown.length) ||
                                        (e.hitBehaviors && e.hitBehaviors.length) ||
                                        (e.missedBehaviors && e.missedBehaviors.length) ||
                                        e.notes;
                     return (
                       <li
-                        key={e.timestamp}
+                        key={e.id}
                         className="rounded-xl bg-white/5 border border-white/5 overflow-hidden"
                       >
                         <button
-                          onClick={() => hasDetails && toggleRow(e.timestamp)}
+                          onClick={() => hasDetails && toggleRow(e.id)}
                           className={`w-full flex items-center gap-3 p-3 text-left ${hasDetails ? 'hover:bg-white/5' : 'cursor-default'}`}
                         >
                           <div className={`font-display text-2xl w-8 text-center ${
@@ -185,6 +234,20 @@ export default function Leaderboard({ refreshKey = 0, onCleared }) {
                 </ol>
               )}
 
+              {loading && (
+                <div className="text-xs text-white/50 italic mt-3">Loading cloud leaderboard…</div>
+              )}
+              {loadError && (
+                <div className="text-xs text-warning mt-3">
+                  Couldn't reach the cloud leaderboard ({loadError}). Showing what's saved on this device.
+                </div>
+              )}
+              {migrationStatus && (
+                <div className={`text-xs mt-3 ${/failed/.test(migrationStatus) ? 'text-warning font-semibold' : 'text-success'}`}>
+                  {migrationStatus}
+                </div>
+              )}
+
               <div className="mt-4 flex flex-wrap gap-2">
                 {totalAcrossAllDays > 0 && (
                   <>
@@ -195,32 +258,26 @@ export default function Leaderboard({ refreshKey = 0, onCleared }) {
                       Coaching report
                     </button>
                     <button
-                      onClick={() => exportCsv({ todayOnly: true })}
-                      disabled={entries.length === 0}
+                      onClick={() => exportCsvFromEntries(todaysEntries.map((e) => ({ ...e, date: today })), { filename: `wenger-role-play-${today}-${Date.now()}.csv` })}
+                      disabled={todaysEntries.length === 0}
                       className="text-xs font-semibold tracking-wide px-3 py-2 rounded-lg border bg-cyan/10 border-cyan/40 text-cyan hover:bg-cyan/20 disabled:opacity-40 disabled:cursor-not-allowed"
                     >
-                      Export today ({entries.length})
+                      Export today ({todaysEntries.length})
                     </button>
                     <button
-                      onClick={() => exportCsv({ todayOnly: false })}
+                      onClick={() => exportCsvFromEntries(allEntries, { filename: `wenger-role-play-all-${Date.now()}.csv` })}
                       className="text-xs font-semibold tracking-wide px-3 py-2 rounded-lg border bg-leaf/10 border-leaf/40 text-leaf hover:bg-leaf/20"
                     >
                       Export all ({totalAcrossAllDays})
                     </button>
                   </>
                 )}
-                {entries.length > 0 && (
-                  <button
-                    onClick={handleClear}
-                    className={`text-xs font-semibold tracking-wide px-3 py-2 rounded-lg border transition-colors ml-auto ${
-                      confirmingClear
-                        ? 'bg-danger/20 border-danger/50 text-danger animate-pulseSoft'
-                        : 'bg-white/5 border-white/10 text-white/50 hover:text-white/80'
-                    }`}
-                  >
-                    {confirmingClear ? 'CLICK AGAIN TO CONFIRM CLEAR' : 'Clear today'}
-                  </button>
-                )}
+                <a
+                  href="#/admin"
+                  className="text-xs font-semibold tracking-wide px-3 py-2 rounded-lg border bg-white/5 border-white/10 text-white/60 hover:text-white ml-auto"
+                >
+                  Admin
+                </a>
               </div>
             </div>
           </motion.div>
@@ -228,7 +285,7 @@ export default function Leaderboard({ refreshKey = 0, onCleared }) {
       </AnimatePresence>
 
       <AnimatePresence>
-        {showReport && <CoachingReport onClose={() => setShowReport(false)} />}
+        {showReport && <CoachingReport entries={allEntries} onClose={() => setShowReport(false)} />}
       </AnimatePresence>
     </div>
   );

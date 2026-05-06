@@ -9,6 +9,7 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
   const [notes, setNotes] = useState('');
   const [paused, setPaused] = useState(false);
   const [roundEpoch, setRoundEpoch] = useState(0);
+  const [expired, setExpired] = useState(false);
   const remainingRef = useRef(roundSeconds);
 
   function toggle(area, idx, value) {
@@ -23,6 +24,7 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
     setChecks({});
     setNotes('');
     setPaused(false);
+    setExpired(false);
     remainingRef.current = roundSeconds;
     setRoundEpoch((e) => e + 1);
   }
@@ -36,13 +38,11 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
     });
   }
 
+  // Time's up — DO NOT auto-end. Let the scorekeeper finish checking off any
+  // missed boxes and then click the submit button when they're ready.
   function expire() {
-    onEndRound({
-      checks,
-      notes,
-      timeRemaining: 0,
-      ended: true,
-    });
+    setExpired(true);
+    remainingRef.current = 0;
   }
 
   return (
@@ -71,6 +71,7 @@ export default function GameScreen({ session, onEndRound, onAbort }) {
           onExpire={expire}
           onTimeTick={(r) => { remainingRef.current = r; }}
           repName={repName}
+          expired={expired}
         />
       </div>
     </motion.div>

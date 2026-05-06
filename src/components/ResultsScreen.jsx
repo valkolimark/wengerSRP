@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { computeScore, isBonusArea } from '../lib/scoring.js';
-import { addEntry } from '../lib/leaderboard.js';
+import { createEntry, updateEntry, getAdminPassword, localFallbackAdd } from '../lib/cloudLeaderboard.js';
 import { play } from '../lib/sound.js';
 import Logo from './Logo.jsx';
 
@@ -13,11 +13,16 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
     [scenario, result]
   );
   const [displayScore, setDisplayScore] = useState(0);
-  const [saved, setSaved] = useState(false);
   const [savedRepName, setSavedRepName] = useState(repName);
   const [savedCustomerName, setSavedCustomerName] = useState(customerName);
-  const notes = (result.notes || '').trim();
+  const [editedNotes, setEditedNotes] = useState((result.notes || '').trim());
+  const notes = editedNotes;
+  const [entryId, setEntryId] = useState(null);
+  const [saveStatus, setSaveStatus] = useState('saving'); // 'saving' | 'saved' | 'local' | 'error'
+  const [editStatus, setEditStatus] = useState('idle'); // 'idle' | 'saving' | 'saved' | 'error'
   const firedConfetti = useRef(false);
+  const autoSavedRef = useRef(false);
+  const editTimerRef = useRef(null);
 
   // Count-up animation for the big score
   useEffect(() => {
@@ -65,11 +70,15 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
     });
   });
 
-  function save() {
-    if (saved) return;
-    addEntry({
-      repName: savedRepName.trim() || 'Sales Rep',
-      customerName: savedCustomerName.trim() || 'Customer',
+  // Auto-save the round to the cloud the moment results render. The lobby names
+  // are passed straight through — no manual SAVE click required.
+  useEffect(() => {
+    if (autoSavedRef.current) return;
+    autoSavedRef.current = true;
+
+    const payload = {
+      repName: (repName || '').trim() || 'Sales Rep',
+      customerName: (customerName || '').trim() || 'Customer',
       scenarioTitle: scenario.title,
       scenarioCategory: scenario.category,
       score: score.total,
@@ -85,10 +94,43 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
       hitBehaviors: hits.map((h) => ({ area: h.area, behavior: h.behavior })),
       missedBehaviors: misses.map((m) => ({ area: m.area, behavior: m.behavior, bonus: m.bonus })),
       notes,
-    });
-    setSaved(true);
-    onSaved?.();
+    };
+
+    setSaveStatus('saving');
+    createEntry(payload)
+      .then((entry) => {
+        setEntryId(entry.id);
+        setSaveStatus('saved');
+        onSaved?.();
+      })
+      .catch((err) => {
+        console.warn('cloud save failed, falling back to local', err);
+        // Don't lose the round — write to localStorage so today's entries
+        // are recoverable even if the API is down.
+        localFallbackAdd(payload);
+        setSaveStatus('local');
+        onSaved?.();
+      });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Edits go straight to the server (admin only). For non-admins the inputs
+  // are read-only — the lobby-entered names already saved on auto-save above.
+  function patch(fields) {
+    if (!entryId) return;
+    if (!getAdminPassword()) return;
+    if (editTimerRef.current) clearTimeout(editTimerRef.current);
+    setEditStatus('saving');
+    editTimerRef.current = setTimeout(() => {
+      updateEntry(entryId, fields)
+        .then(() => setEditStatus('saved'))
+        .catch((err) => {
+          console.warn('edit failed', err);
+          setEditStatus('error');
+        });
+    }, 500);
   }
+
+  const isAdmin = !!getAdminPassword();
 
   const maxBarPossible = Math.max(...score.breakdown.map((b) => b.possible));
 
@@ -245,30 +287,58 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
           </div>
         </section>
 
-        {/* Save / play again */}
+        {/* Auto-saved entry — admin can edit in place, everyone else sees read-only */}
         <section className="card p-5 space-y-4">
-          <div className="font-display text-2xl tracking-wider">SAVE TO LEADERBOARD</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <input
-              value={savedRepName}
-              onChange={(e) => setSavedRepName(e.target.value)}
-              placeholder="Sales Rep"
-              disabled={saved}
-              className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 font-semibold disabled:opacity-60"
-            />
-            <input
-              value={savedCustomerName}
-              onChange={(e) => setSavedCustomerName(e.target.value)}
-              placeholder="Customer"
-              disabled={saved}
-              className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 font-semibold disabled:opacity-60"
-            />
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="font-display text-2xl tracking-wider">LEADERBOARD ENTRY</div>
+            <SaveBadge status={saveStatus} editStatus={editStatus} isAdmin={isAdmin} />
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <LabeledField label="REP">
+              <input
+                value={savedRepName}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setSavedRepName(v);
+                  patch({ repName: v.trim() || 'Sales Rep' });
+                }}
+                placeholder="Sales Rep"
+                disabled={!isAdmin}
+                className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 font-semibold disabled:opacity-80 disabled:cursor-not-allowed"
+              />
+            </LabeledField>
+            <LabeledField label="CUSTOMER">
+              <input
+                value={savedCustomerName}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setSavedCustomerName(v);
+                  patch({ customerName: v.trim() || 'Customer' });
+                }}
+                placeholder="Customer"
+                disabled={!isAdmin}
+                className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 font-semibold disabled:opacity-80 disabled:cursor-not-allowed"
+              />
+            </LabeledField>
+          </div>
+
           <div>
             <div className="text-xs tracking-[0.25em] text-white/50 font-semibold mb-1">
-              MANAGER NOTES <span className="text-white/30 font-normal normal-case tracking-normal">— captured during the round</span>
+              MANAGER NOTES <span className="text-white/30 font-normal normal-case tracking-normal">— captured during the round{isAdmin ? ', editable here' : ''}</span>
             </div>
-            {notes ? (
+            {isAdmin ? (
+              <textarea
+                value={editedNotes}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setEditedNotes(v);
+                  patch({ notes: v });
+                }}
+                rows={4}
+                className="w-full bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-sm leading-relaxed resize-y focus:outline-none focus:border-white/30"
+              />
+            ) : notes ? (
               <div className="bg-navy-deep/60 border border-white/10 rounded-xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap text-white/85">
                 {notes}
               </div>
@@ -278,20 +348,65 @@ export default function ResultsScreen({ session, result, onPlayAgain, onSaved })
               </div>
             )}
           </div>
+
+          {!isAdmin && (
+            <div className="text-[11px] text-white/40 italic">
+              Need to edit this entry? Open the admin section from the lobby.
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-3">
-            <button
-              onClick={save}
-              disabled={saved}
-              className="btn-primary disabled:bg-success disabled:shadow-none"
-            >
-              {saved ? 'SAVED' : 'SAVE TO LEADERBOARD'}
-            </button>
-            <button onClick={onPlayAgain} className="btn-secondary text-2xl px-8 py-4">
+            <button onClick={onPlayAgain} className="btn-primary text-2xl px-8 py-4">
               PLAY AGAIN
             </button>
           </div>
         </section>
       </main>
+    </div>
+  );
+}
+
+function LabeledField({ label, children }) {
+  return (
+    <div>
+      <div className="text-[10px] tracking-[0.25em] text-white/50 font-semibold mb-1">{label}</div>
+      {children}
+    </div>
+  );
+}
+
+function SaveBadge({ status, editStatus, isAdmin }) {
+  let label;
+  let cls;
+  if (status === 'saving') {
+    label = 'SAVING…';
+    cls = 'bg-white/5 border-white/10 text-white/60';
+  } else if (status === 'local') {
+    label = 'SAVED LOCALLY (cloud unreachable)';
+    cls = 'bg-warning/10 border-warning/40 text-warning';
+  } else if (status === 'error') {
+    label = 'SAVE FAILED';
+    cls = 'bg-danger/10 border-danger/40 text-danger';
+  } else {
+    label = 'SAVED TO LEADERBOARD';
+    cls = 'bg-success/10 border-success/40 text-success';
+  }
+
+  let editLabel = null;
+  if (isAdmin && status === 'saved') {
+    if (editStatus === 'saving') editLabel = 'edit saving…';
+    else if (editStatus === 'saved') editLabel = 'edit saved';
+    else if (editStatus === 'error') editLabel = 'edit failed';
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className={`text-[10px] font-bold tracking-[0.2em] px-3 py-1.5 rounded-full border ${cls}`}>
+        {label}
+      </span>
+      {editLabel && (
+        <span className="text-[10px] tracking-[0.2em] text-white/50">{editLabel}</span>
+      )}
     </div>
   );
 }
