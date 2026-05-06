@@ -51,6 +51,12 @@ export default function Timer({ totalSeconds, paused, onExpire, onTick }) {
   const isWarning = remaining <= 60 && remaining > 30;
   const isCritical = remaining <= 30;
 
+  // Pre-warm the timer onto its own GPU compositor layer from mount —
+  // critically, BEFORE the 30-second threshold flips on `animate-timerPulse`.
+  // iOS Safari was caching the pre-promotion raster ("31") as a stale layer
+  // when the animation started, leaving a frozen ghost on top of the live
+  // countdown. With `will-change: opacity` always-on and a stable transform
+  // hint, there's no mid-flight layer promotion for Safari to fumble.
   return (
     <div
       className={`font-mono tabular-nums text-6xl md:text-7xl font-bold tracking-tight leading-none ${
@@ -58,6 +64,12 @@ export default function Timer({ totalSeconds, paused, onExpire, onTick }) {
         isWarning ? 'text-warning' :
         'text-cyan'
       }`}
+      style={{
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        willChange: 'opacity, color',
+        contain: 'paint',
+      }}
     >
       {fmt(remaining)}
     </div>

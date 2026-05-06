@@ -50,8 +50,10 @@ export default {
           '50%': { transform: 'scale(1.02)' },
         },
         timerPulse: {
-          '0%, 100%': { opacity: 1 },
-          '50%': { opacity: 0.55 },
+          // Explicit transform keeps the element on its own GPU layer so
+          // webkit doesn't ghost the previous digit underneath the live one.
+          '0%, 100%': { opacity: '1',    transform: 'translateZ(0)' },
+          '50%':      { opacity: '0.55', transform: 'translateZ(0)' },
         },
       },
       animation: {
